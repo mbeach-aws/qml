@@ -17,7 +17,12 @@ def parse_demo_outputs(filename):
     Returns:
         list: the list of demonstration outputs
     """
-    f = open(filename, "r")
+    try:
+        f = open(filename, "r")
+    except FileNotFoundError:
+        # New demo on either master or dev
+        return None
+
     html_file = f.read()
 
     parser = DemoOutputParser()
@@ -121,6 +126,10 @@ def main():
 
         dev_file = os.path.join(dev_path, filename)
         dev_outputs = parse_demo_outputs(dev_file)
+
+        if master_outputs is None or dev_outputs is None:
+            # Either master or dev demo is unavailable, skip
+            continue
 
         outputs_with_diffs = set()
         for out_idx, (a,b) in enumerate(zip(master_outputs, dev_outputs)):
