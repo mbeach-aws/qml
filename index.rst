@@ -108,7 +108,7 @@ Quantum machine learning
             <div class="text-center">
                 <img src="_static/research.png" class="img-fluid"></img>
                 <br>
-                <h5 class="font-weight-bold my-4">Research focused</h5>
+                <h5 class="font-weight-bold my-4">Research-focused</h5>
             </div>
             <p class="grey-text mb-0">Xanadu is not just a software company; we also perform high-impact research and build quantum hardware. Our software gets used internally across the company &mdash; check out some of the <a href="https://xanadu.ai/research">papers released</a> using our open-source software tools.
             </p>
@@ -141,7 +141,7 @@ Quantum machine learning
             <div class="text-center">
                 <img src="_static/community.png" class="img-fluid"></img>
                 <br>
-                <h5 class="font-weight-bold my-4">Community driven</h5>
+                <h5 class="font-weight-bold my-4">Community-driven</h5>
             </div>
                 <p class="grey-text mb-0">When we release software, we have the community in mind. Development takes place publicly on GitHub, and members of our team are available to chat on our <a href="https://u.strawberryfields.ai/slack">Strawberry Fields Slack</a> and <a href="https://discuss.pennylane.ai">PennyLane forum</a>.
             </p>
