@@ -1,19 +1,19 @@
-Last update: 2023-06-12  15:56:41 (All times shown in Eastern time)
+Last update: 2023-06-12  16:00:09 (All times shown in Eastern time)
 # List of differences in demonstration outputs
 
 # Table of contents
 
 1. [tutorial_spsa.html](#demo0)
-2. [tutorial_error_mitigation.html](#demo1)
-3. [tutorial_quantum_transfer_learning.html](#demo2)
-4. [tutorial_qchem_external.html](#demo3)
+2. [tutorial_qchem_external.html](#demo1)
+3. [tutorial_jax_transformations.html](#demo2)
+4. [tutorial_qnn_module_tf.html](#demo3)
 5. [tutorial_quantum_chemistry.html](#demo4)
-6. [tutorial_quanvolution.html](#demo5)
-7. [tutorial_adaptive_circuits.html](#demo6)
-8. [tutorial_jax_transformations.html](#demo7)
-9. [tutorial_pulse_programming101.html](#demo8)
+6. [tutorial_error_mitigation.html](#demo5)
+7. [tutorial_quanvolution.html](#demo6)
+8. [tutorial_pulse_programming101.html](#demo7)
+9. [tutorial_adaptive_circuits.html](#demo8)
 10. [tutorial_backprop.html](#demo9)
-11. [tutorial_qnn_module_tf.html](#demo10)
+11. [tutorial_quantum_transfer_learning.html](#demo10)
 
 
 Number of demos different/all demos: 11/83
@@ -116,735 +116,7 @@ Distance to the true ground state energy: 0.09259614 Ha
 
 ---
 
-## 2. tutorial_error_mitigation.html <a name="demo1"></a>
-
----
-
-[Master](https://pennylane.ai/qml/demos/tutorial_error_mitigation.html):
-
-<details> 
- <summary>
- More 
- </summary>
- <pre>
- <code>
-0.9735289786860291
-0: ──RY(4.56)─╭●──RY(5.93)──RY(-5.93)─────────────────────────────────────
-1: ──RY(3.60)─╰Z──RY(5.90)──────────────────────╭●──RY(5.18)──RY(-5.18)─╭●
-2: ──RY(4.05)─╭●──RY(3.32)──RY(-3.32)──RY(3.32)─╰Z──RY(1.07)──RY(-1.07)─╰Z
-3: ──RY(3.51)─╰Z──RY(3.66)──RY(-3.66)─────────────────────────────────────
-─────────────╭●──RY(-4.56)─┤
-───RY(-5.90)─╰Z──RY(-3.60)─┤
-───RY(-3.32)─╭●──RY(-4.05)─┤
-─────────────╰Z──RY(-3.51)─┤
-0: ──RY(4.56)─╭●──RY(5.93)──RY(-5.93)──RY(5.93)──RY(-5.93)───────────────╭●
-───RY(-4.56)─┤
-───RY(-3.60)─┤
-───RY(-4.05)─┤
-───RY(-3.51)─┤
-0: ──RY(4.56)─╭●──RY(5.93)──RY(-5.93)────────────────────────────────────╭●
-1: ──RY(3.60)─╰Z──RY(5.90)─╭●──────────RY(5.18)──RY(-5.18)─╭●──RY(-5.90)─╰Z
-2: ──RY(4.05)─╭●──RY(3.32)─╰Z──────────RY(1.07)──RY(-1.07)─╰Z──RY(-3.32)─╭●
-3: ──RY(3.51)─╰Z──RY(3.66)──RY(-3.66)────────────────────────────────────╰Z
-───RY(-4.56)───────────────┤
-───RY(-3.60)───────────────┤
-──╭●─────────╭●──RY(-4.05)─┤
-──╰Z─────────╰Z──RY(-3.51)─┤
- </code>
- </pre>
- </details>
-
-[Dev](http://pennylane.ai-dev.s3-website-us-east-1.amazonaws.com/qml/demos/tutorial_error_mitigation.html):
-
-<details> 
- <summary>
- More 
- </summary>
- <pre>
- <code>
-0.9896445647008533
-0: ──RY(4.56)─╭●──RY(5.93)──RY(-5.93)────────────────────────────────────╭●
-1: ──RY(3.60)─╰Z──RY(5.90)─╭●──────────RY(5.18)──RY(-5.18)─╭●──RY(-5.90)─╰Z
-2: ──RY(4.05)─╭●──RY(3.32)─╰Z──────────RY(1.07)──RY(-1.07)─╰Z──RY(-3.32)─╭●
-3: ──RY(3.51)─╰Z──RY(3.66)──RY(-3.66)──RY(3.66)──RY(-3.66)───────────────╰Z
-───RY(-4.56)─┤
-───RY(-3.60)─┤
-───RY(-4.05)─┤
-───RY(-3.51)─┤
-0: ──RY(4.56)─╭●──RY(5.93)──RY(-5.93)────────────────────────────────────╭●
-───RY(-4.56)──────────────────────┤
-───RY(-3.60)──────────────────────┤
-───RY(-4.05)──────────────────────┤
-───RY(-3.51)──RY(3.51)──RY(-3.51)─┤
-0: ──RY(4.56)─╭●──RY(5.93)──RY(-5.93)──────────────────────────────────────────
-1: ──RY(3.60)─╰Z──RY(5.90)─╭●──────────RY(5.18)──RY(-5.18)──RY(5.18)──RY(-5.18)
-2: ──RY(4.05)─╭●──RY(3.32)─╰Z──────────RY(1.07)──RY(-1.07)─────────────────────
-3: ──RY(3.51)─╰Z──RY(3.66)──RY(-3.66)──────────────────────────────────────────
-────────────────╭●──RY(-4.56)─┤
-──╭●──RY(-5.90)─╰Z──RY(-3.60)─┤
-──╰Z──RY(-3.32)─╭●──RY(-4.05)─┤
-────────────────╰Z──RY(-3.51)─┤
- </code>
- </pre>
- </details>
-
----
-
-## 3. tutorial_quantum_transfer_learning.html <a name="demo2"></a>
-
----
-
-[Master](https://pennylane.ai/qml/demos/tutorial_quantum_transfer_learning.html):
-
-<details> 
- <summary>
- More 
- </summary>
- <pre>
- <code>
- 33%|###3      | 14.7M/44.7M [00:00<00:00, 155MB/s]
- 99%|#########8| 44.2M/44.7M [00:00<00:00, 245MB/s]
-100%|##########| 44.7M/44.7M [00:00<00:00, 232MB/s]
-Training started:
-Phase: train Epoch: 1/3 Iter: 1/62 Batch time: 0.3168
-Phase: train Epoch: 1/3 Iter: 2/62 Batch time: 0.2495
-Phase: train Epoch: 1/3 Iter: 3/62 Batch time: 0.2333
-Phase: train Epoch: 1/3 Iter: 4/62 Batch time: 0.2314
-Phase: train Epoch: 1/3 Iter: 5/62 Batch time: 0.2450
-Phase: train Epoch: 1/3 Iter: 6/62 Batch time: 0.2380
-Phase: train Epoch: 1/3 Iter: 7/62 Batch time: 0.2420
-Phase: train Epoch: 1/3 Iter: 8/62 Batch time: 0.2430
-Phase: train Epoch: 1/3 Iter: 9/62 Batch time: 0.2477
-Phase: train Epoch: 1/3 Iter: 10/62 Batch time: 0.2354
-Phase: train Epoch: 1/3 Iter: 11/62 Batch time: 0.2404
-Phase: train Epoch: 1/3 Iter: 12/62 Batch time: 0.2427
-Phase: train Epoch: 1/3 Iter: 13/62 Batch time: 0.2408
-Phase: train Epoch: 1/3 Iter: 14/62 Batch time: 0.2446
-Phase: train Epoch: 1/3 Iter: 15/62 Batch time: 0.2420
-Phase: train Epoch: 1/3 Iter: 16/62 Batch time: 0.2427
-Phase: train Epoch: 1/3 Iter: 17/62 Batch time: 0.2369
-Phase: train Epoch: 1/3 Iter: 18/62 Batch time: 0.2395
-Phase: train Epoch: 1/3 Iter: 19/62 Batch time: 0.2420
-Phase: train Epoch: 1/3 Iter: 20/62 Batch time: 0.2448
-Phase: train Epoch: 1/3 Iter: 21/62 Batch time: 0.2406
-Phase: train Epoch: 1/3 Iter: 22/62 Batch time: 0.2452
-Phase: train Epoch: 1/3 Iter: 23/62 Batch time: 0.2419
-Phase: train Epoch: 1/3 Iter: 24/62 Batch time: 0.2424
-Phase: train Epoch: 1/3 Iter: 25/62 Batch time: 0.2373
-Phase: train Epoch: 1/3 Iter: 26/62 Batch time: 0.2480
-Phase: train Epoch: 1/3 Iter: 27/62 Batch time: 0.3217
-Phase: train Epoch: 1/3 Iter: 28/62 Batch time: 0.2322
-Phase: train Epoch: 1/3 Iter: 29/62 Batch time: 0.2367
-Phase: train Epoch: 1/3 Iter: 30/62 Batch time: 0.2383
-Phase: train Epoch: 1/3 Iter: 31/62 Batch time: 0.2384
-Phase: train Epoch: 1/3 Iter: 32/62 Batch time: 0.2403
-Phase: train Epoch: 1/3 Iter: 33/62 Batch time: 0.2378
-Phase: train Epoch: 1/3 Iter: 34/62 Batch time: 0.2402
-Phase: train Epoch: 1/3 Iter: 35/62 Batch time: 0.2358
-Phase: train Epoch: 1/3 Iter: 36/62 Batch time: 0.2388
-Phase: train Epoch: 1/3 Iter: 37/62 Batch time: 0.2447
-Phase: train Epoch: 1/3 Iter: 38/62 Batch time: 0.2508
-Phase: train Epoch: 1/3 Iter: 39/62 Batch time: 0.2441
-Phase: train Epoch: 1/3 Iter: 40/62 Batch time: 0.2431
-Phase: train Epoch: 1/3 Iter: 41/62 Batch time: 0.2426
-Phase: train Epoch: 1/3 Iter: 42/62 Batch time: 0.2428
-Phase: train Epoch: 1/3 Iter: 43/62 Batch time: 0.2364
-Phase: train Epoch: 1/3 Iter: 44/62 Batch time: 0.2398
-Phase: train Epoch: 1/3 Iter: 45/62 Batch time: 0.2491
-Phase: train Epoch: 1/3 Iter: 46/62 Batch time: 0.2412
-Phase: train Epoch: 1/3 Iter: 47/62 Batch time: 0.2457
-Phase: train Epoch: 1/3 Iter: 48/62 Batch time: 0.2344
-Phase: train Epoch: 1/3 Iter: 49/62 Batch time: 0.2393
-Phase: train Epoch: 1/3 Iter: 50/62 Batch time: 0.2426
-Phase: train Epoch: 1/3 Iter: 51/62 Batch time: 0.2395
-Phase: train Epoch: 1/3 Iter: 52/62 Batch time: 0.2424
-Phase: train Epoch: 1/3 Iter: 53/62 Batch time: 0.2462
-Phase: train Epoch: 1/3 Iter: 54/62 Batch time: 0.2427
-Phase: train Epoch: 1/3 Iter: 55/62 Batch time: 0.2462
-Phase: train Epoch: 1/3 Iter: 56/62 Batch time: 0.2440
-Phase: train Epoch: 1/3 Iter: 57/62 Batch time: 0.2390
-Phase: train Epoch: 1/3 Iter: 58/62 Batch time: 0.2429
-Phase: train Epoch: 1/3 Iter: 59/62 Batch time: 0.2353
-Phase: train Epoch: 1/3 Iter: 60/62 Batch time: 0.2392
-Phase: train Epoch: 1/3 Iter: 61/62 Batch time: 0.2446
-Phase: train Epoch: 1/3 Loss: 0.6990 Acc: 0.5246
-Phase: validation Epoch: 1/3 Iter: 1/39 Batch time: 0.1779
-Phase: validation Epoch: 1/3 Iter: 2/39 Batch time: 0.1790
-Phase: validation Epoch: 1/3 Iter: 3/39 Batch time: 0.1837
-Phase: validation Epoch: 1/3 Iter: 4/39 Batch time: 0.1762
-Phase: validation Epoch: 1/3 Iter: 5/39 Batch time: 0.1780
-Phase: validation Epoch: 1/3 Iter: 6/39 Batch time: 0.1768
-Phase: validation Epoch: 1/3 Iter: 7/39 Batch time: 0.1799
-Phase: validation Epoch: 1/3 Iter: 8/39 Batch time: 0.1853
-Phase: validation Epoch: 1/3 Iter: 9/39 Batch time: 0.1753
-Phase: validation Epoch: 1/3 Iter: 10/39 Batch time: 0.1807
-Phase: validation Epoch: 1/3 Iter: 11/39 Batch time: 0.1831
-Phase: validation Epoch: 1/3 Iter: 12/39 Batch time: 0.1760
-Phase: validation Epoch: 1/3 Iter: 13/39 Batch time: 0.1798
-Phase: validation Epoch: 1/3 Iter: 14/39 Batch time: 0.1758
-Phase: validation Epoch: 1/3 Iter: 15/39 Batch time: 0.1807
-Phase: validation Epoch: 1/3 Iter: 16/39 Batch time: 0.1836
-Phase: validation Epoch: 1/3 Iter: 17/39 Batch time: 0.1842
-Phase: validation Epoch: 1/3 Iter: 18/39 Batch time: 0.1942
-Phase: validation Epoch: 1/3 Iter: 19/39 Batch time: 0.1760
-Phase: validation Epoch: 1/3 Iter: 20/39 Batch time: 0.1792
-Phase: validation Epoch: 1/3 Iter: 21/39 Batch time: 0.1767
-Phase: validation Epoch: 1/3 Iter: 22/39 Batch time: 0.1810
-Phase: validation Epoch: 1/3 Iter: 23/39 Batch time: 0.1818
-Phase: validation Epoch: 1/3 Iter: 24/39 Batch time: 0.1814
-Phase: validation Epoch: 1/3 Iter: 25/39 Batch time: 0.1877
-Phase: validation Epoch: 1/3 Iter: 26/39 Batch time: 0.1818
-Phase: validation Epoch: 1/3 Iter: 27/39 Batch time: 0.1832
-Phase: validation Epoch: 1/3 Iter: 28/39 Batch time: 0.1784
-Phase: validation Epoch: 1/3 Iter: 29/39 Batch time: 0.1768
-Phase: validation Epoch: 1/3 Iter: 30/39 Batch time: 0.1798
-Phase: validation Epoch: 1/3 Iter: 31/39 Batch time: 0.1897
-Phase: validation Epoch: 1/3 Iter: 32/39 Batch time: 0.1825
-Phase: validation Epoch: 1/3 Iter: 33/39 Batch time: 0.1820
-Phase: validation Epoch: 1/3 Iter: 34/39 Batch time: 0.1757
-Phase: validation Epoch: 1/3 Iter: 35/39 Batch time: 0.1805
-Phase: validation Epoch: 1/3 Iter: 36/39 Batch time: 0.1832
-Phase: validation Epoch: 1/3 Iter: 37/39 Batch time: 0.1767
-Phase: validation Epoch: 1/3 Iter: 38/39 Batch time: 0.1843
-Phase: validation Epoch: 1/3 Iter: 39/39 Batch time: 0.0598
-Phase: validation   Epoch: 1/3 Loss: 0.6429 Acc: 0.6536
-Phase: train Epoch: 2/3 Iter: 1/62 Batch time: 0.2328
-Phase: train Epoch: 2/3 Iter: 2/62 Batch time: 0.2443
-Phase: train Epoch: 2/3 Iter: 3/62 Batch time: 0.2325
-Phase: train Epoch: 2/3 Iter: 4/62 Batch time: 0.2305
-Phase: train Epoch: 2/3 Iter: 5/62 Batch time: 0.2327
-Phase: train Epoch: 2/3 Iter: 6/62 Batch time: 0.2316
-Phase: train Epoch: 2/3 Iter: 7/62 Batch time: 0.2321
-Phase: train Epoch: 2/3 Iter: 8/62 Batch time: 0.2313
-Phase: train Epoch: 2/3 Iter: 9/62 Batch time: 0.2317
-Phase: train Epoch: 2/3 Iter: 10/62 Batch time: 0.2314
-Phase: train Epoch: 2/3 Iter: 11/62 Batch time: 0.2332
-Phase: train Epoch: 2/3 Iter: 12/62 Batch time: 0.2320
-Phase: train Epoch: 2/3 Iter: 13/62 Batch time: 0.2321
-Phase: train Epoch: 2/3 Iter: 14/62 Batch time: 0.2398
-Phase: train Epoch: 2/3 Iter: 15/62 Batch time: 0.2336
-Phase: train Epoch: 2/3 Iter: 16/62 Batch time: 0.2308
-Phase: train Epoch: 2/3 Iter: 17/62 Batch time: 0.2349
-Phase: train Epoch: 2/3 Iter: 18/62 Batch time: 0.2321
-Phase: train Epoch: 2/3 Iter: 19/62 Batch time: 0.2324
-Phase: train Epoch: 2/3 Iter: 20/62 Batch time: 0.2305
-Phase: train Epoch: 2/3 Iter: 21/62 Batch time: 0.2316
-Phase: train Epoch: 2/3 Iter: 22/62 Batch time: 0.2313
-Phase: train Epoch: 2/3 Iter: 23/62 Batch time: 0.2396
-Phase: train Epoch: 2/3 Iter: 24/62 Batch time: 0.2309
-Phase: train Epoch: 2/3 Iter: 25/62 Batch time: 0.2334
-Phase: train Epoch: 2/3 Iter: 26/62 Batch time: 0.2345
-Phase: train Epoch: 2/3 Iter: 27/62 Batch time: 0.2330
-Phase: train Epoch: 2/3 Iter: 28/62 Batch time: 0.2312
-Phase: train Epoch: 2/3 Iter: 29/62 Batch time: 0.2337
-Phase: train Epoch: 2/3 Iter: 30/62 Batch time: 0.2325
-Phase: train Epoch: 2/3 Iter: 31/62 Batch time: 0.2332
-Phase: train Epoch: 2/3 Iter: 32/62 Batch time: 0.2314
-Phase: train Epoch: 2/3 Iter: 33/62 Batch time: 0.2327
-Phase: train Epoch: 2/3 Iter: 34/62 Batch time: 0.2342
-Phase: train Epoch: 2/3 Iter: 35/62 Batch time: 0.2341
-Phase: train Epoch: 2/3 Iter: 36/62 Batch time: 0.2324
-Phase: train Epoch: 2/3 Iter: 37/62 Batch time: 0.2340
-Phase: train Epoch: 2/3 Iter: 38/62 Batch time: 0.2330
-Phase: train Epoch: 2/3 Iter: 39/62 Batch time: 0.2380
-Phase: train Epoch: 2/3 Iter: 40/62 Batch time: 0.2388
-Phase: train Epoch: 2/3 Iter: 41/62 Batch time: 0.2342
-Phase: train Epoch: 2/3 Iter: 42/62 Batch time: 0.2384
-Phase: train Epoch: 2/3 Iter: 43/62 Batch time: 0.2331
-Phase: train Epoch: 2/3 Iter: 44/62 Batch time: 0.2333
-Phase: train Epoch: 2/3 Iter: 45/62 Batch time: 0.2334
-Phase: train Epoch: 2/3 Iter: 46/62 Batch time: 0.2347
-Phase: train Epoch: 2/3 Iter: 47/62 Batch time: 0.2429
-Phase: train Epoch: 2/3 Iter: 48/62 Batch time: 0.2340
-Phase: train Epoch: 2/3 Iter: 49/62 Batch time: 0.2340
-Phase: train Epoch: 2/3 Iter: 50/62 Batch time: 0.2341
-Phase: train Epoch: 2/3 Iter: 51/62 Batch time: 0.2343
-Phase: train Epoch: 2/3 Iter: 52/62 Batch time: 0.2329
-Phase: train Epoch: 2/3 Iter: 53/62 Batch time: 0.2557
-Phase: train Epoch: 2/3 Iter: 54/62 Batch time: 0.2346
-Phase: train Epoch: 2/3 Iter: 55/62 Batch time: 0.2333
-Phase: train Epoch: 2/3 Iter: 56/62 Batch time: 0.2350
-Phase: train Epoch: 2/3 Iter: 57/62 Batch time: 0.2361
-Phase: train Epoch: 2/3 Iter: 58/62 Batch time: 0.2339
-Phase: train Epoch: 2/3 Iter: 59/62 Batch time: 0.2333
-Phase: train Epoch: 2/3 Iter: 60/62 Batch time: 0.2336
-Phase: train Epoch: 2/3 Iter: 61/62 Batch time: 0.2344
-Phase: train Epoch: 2/3 Loss: 0.6134 Acc: 0.7008
-Phase: validation Epoch: 2/3 Iter: 1/39 Batch time: 0.1792
-Phase: validation Epoch: 2/3 Iter: 2/39 Batch time: 0.1746
-Phase: validation Epoch: 2/3 Iter: 3/39 Batch time: 0.1749
-Phase: validation Epoch: 2/3 Iter: 4/39 Batch time: 0.1743
-Phase: validation Epoch: 2/3 Iter: 5/39 Batch time: 0.1748
-Phase: validation Epoch: 2/3 Iter: 6/39 Batch time: 0.1882
-Phase: validation Epoch: 2/3 Iter: 7/39 Batch time: 0.1737
-Phase: validation Epoch: 2/3 Iter: 8/39 Batch time: 0.1745
-Phase: validation Epoch: 2/3 Iter: 9/39 Batch time: 0.1737
-Phase: validation Epoch: 2/3 Iter: 10/39 Batch time: 0.1739
-Phase: validation Epoch: 2/3 Iter: 11/39 Batch time: 0.1874
-Phase: validation Epoch: 2/3 Iter: 12/39 Batch time: 0.1776
-Phase: validation Epoch: 2/3 Iter: 13/39 Batch time: 0.1757
-Phase: validation Epoch: 2/3 Iter: 14/39 Batch time: 0.1734
-Phase: validation Epoch: 2/3 Iter: 15/39 Batch time: 0.1743
-Phase: validation Epoch: 2/3 Iter: 16/39 Batch time: 0.1758
-Phase: validation Epoch: 2/3 Iter: 17/39 Batch time: 0.1730
-Phase: validation Epoch: 2/3 Iter: 18/39 Batch time: 0.1728
-Phase: validation Epoch: 2/3 Iter: 19/39 Batch time: 0.1733
-Phase: validation Epoch: 2/3 Iter: 20/39 Batch time: 0.1735
-Phase: validation Epoch: 2/3 Iter: 21/39 Batch time: 0.1752
-Phase: validation Epoch: 2/3 Iter: 22/39 Batch time: 0.1822
-Phase: validation Epoch: 2/3 Iter: 23/39 Batch time: 0.1753
-Phase: validation Epoch: 2/3 Iter: 24/39 Batch time: 0.1742
-Phase: validation Epoch: 2/3 Iter: 25/39 Batch time: 0.1738
-Phase: validation Epoch: 2/3 Iter: 26/39 Batch time: 0.1750
-Phase: validation Epoch: 2/3 Iter: 27/39 Batch time: 0.1734
-Phase: validation Epoch: 2/3 Iter: 28/39 Batch time: 0.1754
-Phase: validation Epoch: 2/3 Iter: 29/39 Batch time: 0.1729
-Phase: validation Epoch: 2/3 Iter: 30/39 Batch time: 0.1734
-Phase: validation Epoch: 2/3 Iter: 31/39 Batch time: 0.1761
-Phase: validation Epoch: 2/3 Iter: 32/39 Batch time: 0.1733
-Phase: validation Epoch: 2/3 Iter: 33/39 Batch time: 0.1742
-Phase: validation Epoch: 2/3 Iter: 34/39 Batch time: 0.1731
-Phase: validation Epoch: 2/3 Iter: 35/39 Batch time: 0.1730
-Phase: validation Epoch: 2/3 Iter: 36/39 Batch time: 0.1745
-Phase: validation Epoch: 2/3 Iter: 37/39 Batch time: 0.1737
-Phase: validation Epoch: 2/3 Iter: 38/39 Batch time: 0.1734
-Phase: validation Epoch: 2/3 Iter: 39/39 Batch time: 0.0517
-Phase: validation   Epoch: 2/3 Loss: 0.5389 Acc: 0.8235
-Phase: train Epoch: 3/3 Iter: 1/62 Batch time: 0.2315
-Phase: train Epoch: 3/3 Iter: 2/62 Batch time: 0.2304
-Phase: train Epoch: 3/3 Iter: 3/62 Batch time: 0.2346
-Phase: train Epoch: 3/3 Iter: 4/62 Batch time: 0.2354
-Phase: train Epoch: 3/3 Iter: 5/62 Batch time: 0.2340
-Phase: train Epoch: 3/3 Iter: 6/62 Batch time: 0.2317
-Phase: train Epoch: 3/3 Iter: 7/62 Batch time: 0.2357
-Phase: train Epoch: 3/3 Iter: 8/62 Batch time: 0.2322
-Phase: train Epoch: 3/3 Iter: 9/62 Batch time: 0.2337
-Phase: train Epoch: 3/3 Iter: 10/62 Batch time: 0.2345
-Phase: train Epoch: 3/3 Iter: 11/62 Batch time: 0.2335
-Phase: train Epoch: 3/3 Iter: 12/62 Batch time: 0.2317
-Phase: train Epoch: 3/3 Iter: 13/62 Batch time: 0.2449
-Phase: train Epoch: 3/3 Iter: 14/62 Batch time: 0.2341
-Phase: train Epoch: 3/3 Iter: 15/62 Batch time: 0.2325
-Phase: train Epoch: 3/3 Iter: 16/62 Batch time: 0.2333
-Phase: train Epoch: 3/3 Iter: 17/62 Batch time: 0.2346
-Phase: train Epoch: 3/3 Iter: 18/62 Batch time: 0.2360
-Phase: train Epoch: 3/3 Iter: 19/62 Batch time: 0.2339
-Phase: train Epoch: 3/3 Iter: 20/62 Batch time: 0.2332
-Phase: train Epoch: 3/3 Iter: 21/62 Batch time: 0.2360
-Phase: train Epoch: 3/3 Iter: 22/62 Batch time: 0.2419
-Phase: train Epoch: 3/3 Iter: 23/62 Batch time: 0.2335
-Phase: train Epoch: 3/3 Iter: 24/62 Batch time: 0.2335
-Phase: train Epoch: 3/3 Iter: 25/62 Batch time: 0.2342
-Phase: train Epoch: 3/3 Iter: 26/62 Batch time: 0.2389
-Phase: train Epoch: 3/3 Iter: 27/62 Batch time: 0.2411
-Phase: train Epoch: 3/3 Iter: 28/62 Batch time: 0.2353
-Phase: train Epoch: 3/3 Iter: 29/62 Batch time: 0.2351
-Phase: train Epoch: 3/3 Iter: 30/62 Batch time: 0.2380
-Phase: train Epoch: 3/3 Iter: 31/62 Batch time: 0.2367
-Phase: train Epoch: 3/3 Iter: 32/62 Batch time: 0.2368
-Phase: train Epoch: 3/3 Iter: 33/62 Batch time: 0.2329
-Phase: train Epoch: 3/3 Iter: 34/62 Batch time: 0.2584
-Phase: train Epoch: 3/3 Iter: 35/62 Batch time: 0.2351
-Phase: train Epoch: 3/3 Iter: 36/62 Batch time: 0.2332
-Phase: train Epoch: 3/3 Iter: 37/62 Batch time: 0.2351
-Phase: train Epoch: 3/3 Iter: 38/62 Batch time: 0.2350
-Phase: train Epoch: 3/3 Iter: 39/62 Batch time: 0.2346
-Phase: train Epoch: 3/3 Iter: 40/62 Batch time: 0.2323
-Phase: train Epoch: 3/3 Iter: 41/62 Batch time: 0.2371
-Phase: train Epoch: 3/3 Iter: 42/62 Batch time: 0.2331
-Phase: train Epoch: 3/3 Iter: 43/62 Batch time: 0.2344
-Phase: train Epoch: 3/3 Iter: 44/62 Batch time: 0.2340
-Phase: train Epoch: 3/3 Iter: 45/62 Batch time: 0.2339
-Phase: train Epoch: 3/3 Iter: 46/62 Batch time: 0.2312
-Phase: train Epoch: 3/3 Iter: 47/62 Batch time: 0.2338
-Phase: train Epoch: 3/3 Iter: 48/62 Batch time: 0.2332
-Phase: train Epoch: 3/3 Iter: 49/62 Batch time: 0.2360
-Phase: train Epoch: 3/3 Iter: 50/62 Batch time: 0.2357
-Phase: train Epoch: 3/3 Iter: 51/62 Batch time: 0.2336
-Phase: train Epoch: 3/3 Iter: 52/62 Batch time: 0.2339
-Phase: train Epoch: 3/3 Iter: 53/62 Batch time: 0.2354
-Phase: train Epoch: 3/3 Iter: 54/62 Batch time: 0.2328
-Phase: train Epoch: 3/3 Iter: 55/62 Batch time: 0.2343
-Phase: train Epoch: 3/3 Iter: 56/62 Batch time: 0.2330
-Phase: train Epoch: 3/3 Iter: 57/62 Batch time: 0.2344
-Phase: train Epoch: 3/3 Iter: 58/62 Batch time: 0.2318
-Phase: train Epoch: 3/3 Iter: 59/62 Batch time: 0.2673
-Phase: train Epoch: 3/3 Iter: 60/62 Batch time: 0.2443
-Phase: train Epoch: 3/3 Iter: 61/62 Batch time: 0.2342
-Phase: train Epoch: 3/3 Loss: 0.5652 Acc: 0.7418
-Phase: validation Epoch: 3/3 Iter: 1/39 Batch time: 0.1768
-Phase: validation Epoch: 3/3 Iter: 2/39 Batch time: 0.1747
-Phase: validation Epoch: 3/3 Iter: 3/39 Batch time: 0.1738
-Phase: validation Epoch: 3/3 Iter: 4/39 Batch time: 0.1726
-Phase: validation Epoch: 3/3 Iter: 5/39 Batch time: 0.1728
-Phase: validation Epoch: 3/3 Iter: 6/39 Batch time: 0.1731
-Phase: validation Epoch: 3/3 Iter: 7/39 Batch time: 0.1743
-Phase: validation Epoch: 3/3 Iter: 8/39 Batch time: 0.1736
-Phase: validation Epoch: 3/3 Iter: 9/39 Batch time: 0.1734
-Phase: validation Epoch: 3/3 Iter: 10/39 Batch time: 0.1731
-Phase: validation Epoch: 3/3 Iter: 11/39 Batch time: 0.1731
-Phase: validation Epoch: 3/3 Iter: 12/39 Batch time: 0.1765
-Phase: validation Epoch: 3/3 Iter: 13/39 Batch time: 0.1748
-Phase: validation Epoch: 3/3 Iter: 14/39 Batch time: 0.1728
-Phase: validation Epoch: 3/3 Iter: 15/39 Batch time: 0.1739
-Phase: validation Epoch: 3/3 Iter: 16/39 Batch time: 0.1778
-Phase: validation Epoch: 3/3 Iter: 17/39 Batch time: 0.1734
-Phase: validation Epoch: 3/3 Iter: 18/39 Batch time: 0.1728
-Phase: validation Epoch: 3/3 Iter: 19/39 Batch time: 0.2025
-Phase: validation Epoch: 3/3 Iter: 20/39 Batch time: 0.1745
-Phase: validation Epoch: 3/3 Iter: 21/39 Batch time: 0.1735
-Phase: validation Epoch: 3/3 Iter: 22/39 Batch time: 0.1732
-Phase: validation Epoch: 3/3 Iter: 23/39 Batch time: 0.1738
-Phase: validation Epoch: 3/3 Iter: 24/39 Batch time: 0.1806
-Phase: validation Epoch: 3/3 Iter: 25/39 Batch time: 0.1756
-Phase: validation Epoch: 3/3 Iter: 26/39 Batch time: 0.1724
-Phase: validation Epoch: 3/3 Iter: 27/39 Batch time: 0.1725
-Phase: validation Epoch: 3/3 Iter: 28/39 Batch time: 0.1733
-Phase: validation Epoch: 3/3 Iter: 29/39 Batch time: 0.1728
-Phase: validation Epoch: 3/3 Iter: 30/39 Batch time: 0.1740
-Phase: validation Epoch: 3/3 Iter: 31/39 Batch time: 0.1732
-Phase: validation Epoch: 3/3 Iter: 32/39 Batch time: 0.1733
-Phase: validation Epoch: 3/3 Iter: 33/39 Batch time: 0.2316
-Phase: validation Epoch: 3/3 Iter: 34/39 Batch time: 0.1804
-Phase: validation Epoch: 3/3 Iter: 35/39 Batch time: 0.1732
-Phase: validation Epoch: 3/3 Iter: 36/39 Batch time: 0.1723
-Phase: validation Epoch: 3/3 Iter: 37/39 Batch time: 0.1753
-Phase: validation Epoch: 3/3 Iter: 38/39 Batch time: 0.1753
-Phase: validation Epoch: 3/3 Iter: 39/39 Batch time: 0.0520
-Phase: validation   Epoch: 3/3 Loss: 0.4484 Acc: 0.8497
-Training completed in 1m 11s
-Best test loss: 0.4484 | Best test accuracy: 0.8497
- </code>
- </pre>
- </details>
-
-[Dev](http://pennylane.ai-dev.s3-website-us-east-1.amazonaws.com/qml/demos/tutorial_quantum_transfer_learning.html):
-
-<details> 
- <summary>
- More 
- </summary>
- <pre>
- <code>
-  1%|1         | 592k/44.7M [00:00<00:07, 5.92MB/s]
-  3%|2         | 1.20M/44.7M [00:00<00:07, 6.16MB/s]
-  4%|4         | 1.79M/44.7M [00:00<00:07, 6.15MB/s]
-  5%|5         | 2.38M/44.7M [00:00<00:07, 6.09MB/s]
-  7%|6         | 3.10M/44.7M [00:00<00:06, 6.58MB/s]
- 10%|#         | 4.48M/44.7M [00:00<00:04, 9.20MB/s]
- 17%|#7        | 7.74M/44.7M [00:00<00:02, 17.3MB/s]
- 32%|###2      | 14.5M/44.7M [00:00<00:00, 34.1MB/s]
- 58%|#####7    | 25.8M/44.7M [00:00<00:00, 60.3MB/s]
- 85%|########5 | 38.1M/44.7M [00:01<00:00, 81.3MB/s]
-100%|##########| 44.7M/44.7M [00:01<00:00, 44.0MB/s]
-Training started:
-Phase: train Epoch: 1/3 Iter: 1/62 Batch time: 0.4813
-Phase: train Epoch: 1/3 Iter: 2/62 Batch time: 0.3958
-Phase: train Epoch: 1/3 Iter: 3/62 Batch time: 0.4223
-Phase: train Epoch: 1/3 Iter: 4/62 Batch time: 0.4005
-Phase: train Epoch: 1/3 Iter: 5/62 Batch time: 0.4048
-Phase: train Epoch: 1/3 Iter: 6/62 Batch time: 0.4297
-Phase: train Epoch: 1/3 Iter: 7/62 Batch time: 0.4001
-Phase: train Epoch: 1/3 Iter: 8/62 Batch time: 0.4328
-Phase: train Epoch: 1/3 Iter: 9/62 Batch time: 0.3908
-Phase: train Epoch: 1/3 Iter: 10/62 Batch time: 0.3936
-Phase: train Epoch: 1/3 Iter: 11/62 Batch time: 0.3899
-Phase: train Epoch: 1/3 Iter: 12/62 Batch time: 0.3892
-Phase: train Epoch: 1/3 Iter: 13/62 Batch time: 0.4274
-Phase: train Epoch: 1/3 Iter: 14/62 Batch time: 0.4157
-Phase: train Epoch: 1/3 Iter: 15/62 Batch time: 0.3993
-Phase: train Epoch: 1/3 Iter: 16/62 Batch time: 0.4076
-Phase: train Epoch: 1/3 Iter: 17/62 Batch time: 0.3912
-Phase: train Epoch: 1/3 Iter: 18/62 Batch time: 0.4083
-Phase: train Epoch: 1/3 Iter: 19/62 Batch time: 0.3956
-Phase: train Epoch: 1/3 Iter: 20/62 Batch time: 0.4157
-Phase: train Epoch: 1/3 Iter: 21/62 Batch time: 0.4124
-Phase: train Epoch: 1/3 Iter: 22/62 Batch time: 0.3994
-Phase: train Epoch: 1/3 Iter: 23/62 Batch time: 0.3970
-Phase: train Epoch: 1/3 Iter: 24/62 Batch time: 0.3865
-Phase: train Epoch: 1/3 Iter: 25/62 Batch time: 0.4204
-Phase: train Epoch: 1/3 Iter: 26/62 Batch time: 0.3804
-Phase: train Epoch: 1/3 Iter: 27/62 Batch time: 0.4304
-Phase: train Epoch: 1/3 Iter: 28/62 Batch time: 0.4304
-Phase: train Epoch: 1/3 Iter: 29/62 Batch time: 0.3871
-Phase: train Epoch: 1/3 Iter: 30/62 Batch time: 0.4047
-Phase: train Epoch: 1/3 Iter: 31/62 Batch time: 0.3949
-Phase: train Epoch: 1/3 Iter: 32/62 Batch time: 0.3906
-Phase: train Epoch: 1/3 Iter: 33/62 Batch time: 0.3857
-Phase: train Epoch: 1/3 Iter: 34/62 Batch time: 0.3974
-Phase: train Epoch: 1/3 Iter: 35/62 Batch time: 0.3901
-Phase: train Epoch: 1/3 Iter: 36/62 Batch time: 0.3945
-Phase: train Epoch: 1/3 Iter: 37/62 Batch time: 0.4034
-Phase: train Epoch: 1/3 Iter: 38/62 Batch time: 0.4112
-Phase: train Epoch: 1/3 Iter: 39/62 Batch time: 0.3983
-Phase: train Epoch: 1/3 Iter: 40/62 Batch time: 0.3909
-Phase: train Epoch: 1/3 Iter: 41/62 Batch time: 0.3968
-Phase: train Epoch: 1/3 Iter: 42/62 Batch time: 0.3992
-Phase: train Epoch: 1/3 Iter: 43/62 Batch time: 0.4157
-Phase: train Epoch: 1/3 Iter: 44/62 Batch time: 0.3933
-Phase: train Epoch: 1/3 Iter: 45/62 Batch time: 0.3794
-Phase: train Epoch: 1/3 Iter: 46/62 Batch time: 0.3899
-Phase: train Epoch: 1/3 Iter: 47/62 Batch time: 0.4007
-Phase: train Epoch: 1/3 Iter: 48/62 Batch time: 0.3849
-Phase: train Epoch: 1/3 Iter: 49/62 Batch time: 0.3901
-Phase: train Epoch: 1/3 Iter: 50/62 Batch time: 0.3819
-Phase: train Epoch: 1/3 Iter: 51/62 Batch time: 0.3761
-Phase: train Epoch: 1/3 Iter: 52/62 Batch time: 0.3833
-Phase: train Epoch: 1/3 Iter: 53/62 Batch time: 0.4168
-Phase: train Epoch: 1/3 Iter: 54/62 Batch time: 0.4293
-Phase: train Epoch: 1/3 Iter: 55/62 Batch time: 0.3940
-Phase: train Epoch: 1/3 Iter: 56/62 Batch time: 0.4109
-Phase: train Epoch: 1/3 Iter: 57/62 Batch time: 0.3657
-Phase: train Epoch: 1/3 Iter: 58/62 Batch time: 0.3767
-Phase: train Epoch: 1/3 Iter: 59/62 Batch time: 0.3910
-Phase: train Epoch: 1/3 Iter: 60/62 Batch time: 0.3744
-Phase: train Epoch: 1/3 Iter: 61/62 Batch time: 0.3950
-Phase: train Epoch: 1/3 Loss: 0.6990 Acc: 0.5246
-Phase: validation Epoch: 1/3 Iter: 1/39 Batch time: 0.3187
-Phase: validation Epoch: 1/3 Iter: 2/39 Batch time: 0.3065
-Phase: validation Epoch: 1/3 Iter: 3/39 Batch time: 0.3376
-Phase: validation Epoch: 1/3 Iter: 4/39 Batch time: 0.2992
-Phase: validation Epoch: 1/3 Iter: 5/39 Batch time: 0.3033
-Phase: validation Epoch: 1/3 Iter: 6/39 Batch time: 0.2961
-Phase: validation Epoch: 1/3 Iter: 7/39 Batch time: 0.2955
-Phase: validation Epoch: 1/3 Iter: 8/39 Batch time: 0.3204
-Phase: validation Epoch: 1/3 Iter: 9/39 Batch time: 0.2967
-Phase: validation Epoch: 1/3 Iter: 10/39 Batch time: 0.3096
-Phase: validation Epoch: 1/3 Iter: 11/39 Batch time: 0.3058
-Phase: validation Epoch: 1/3 Iter: 12/39 Batch time: 0.3337
-Phase: validation Epoch: 1/3 Iter: 13/39 Batch time: 0.3250
-Phase: validation Epoch: 1/3 Iter: 14/39 Batch time: 0.3248
-Phase: validation Epoch: 1/3 Iter: 15/39 Batch time: 0.3086
-Phase: validation Epoch: 1/3 Iter: 16/39 Batch time: 0.2943
-Phase: validation Epoch: 1/3 Iter: 17/39 Batch time: 0.3140
-Phase: validation Epoch: 1/3 Iter: 18/39 Batch time: 0.2927
-Phase: validation Epoch: 1/3 Iter: 19/39 Batch time: 0.3071
-Phase: validation Epoch: 1/3 Iter: 20/39 Batch time: 0.2948
-Phase: validation Epoch: 1/3 Iter: 21/39 Batch time: 0.3118
-Phase: validation Epoch: 1/3 Iter: 22/39 Batch time: 0.3186
-Phase: validation Epoch: 1/3 Iter: 23/39 Batch time: 0.3018
-Phase: validation Epoch: 1/3 Iter: 24/39 Batch time: 0.2962
-Phase: validation Epoch: 1/3 Iter: 25/39 Batch time: 0.3103
-Phase: validation Epoch: 1/3 Iter: 26/39 Batch time: 0.3121
-Phase: validation Epoch: 1/3 Iter: 27/39 Batch time: 0.3173
-Phase: validation Epoch: 1/3 Iter: 28/39 Batch time: 0.3276
-Phase: validation Epoch: 1/3 Iter: 29/39 Batch time: 0.3212
-Phase: validation Epoch: 1/3 Iter: 30/39 Batch time: 0.3231
-Phase: validation Epoch: 1/3 Iter: 31/39 Batch time: 0.3269
-Phase: validation Epoch: 1/3 Iter: 32/39 Batch time: 0.3334
-Phase: validation Epoch: 1/3 Iter: 33/39 Batch time: 0.3243
-Phase: validation Epoch: 1/3 Iter: 34/39 Batch time: 0.3166
-Phase: validation Epoch: 1/3 Iter: 35/39 Batch time: 0.3087
-Phase: validation Epoch: 1/3 Iter: 36/39 Batch time: 0.3189
-Phase: validation Epoch: 1/3 Iter: 37/39 Batch time: 0.3228
-Phase: validation Epoch: 1/3 Iter: 38/39 Batch time: 0.2960
-Phase: validation Epoch: 1/3 Iter: 39/39 Batch time: 0.0838
-Phase: validation   Epoch: 1/3 Loss: 0.6429 Acc: 0.6536
-Phase: train Epoch: 2/3 Iter: 1/62 Batch time: 0.3858
-Phase: train Epoch: 2/3 Iter: 2/62 Batch time: 0.3717
-Phase: train Epoch: 2/3 Iter: 3/62 Batch time: 0.3745
-Phase: train Epoch: 2/3 Iter: 4/62 Batch time: 0.3755
-Phase: train Epoch: 2/3 Iter: 5/62 Batch time: 0.3818
-Phase: train Epoch: 2/3 Iter: 6/62 Batch time: 0.3846
-Phase: train Epoch: 2/3 Iter: 7/62 Batch time: 0.3908
-Phase: train Epoch: 2/3 Iter: 8/62 Batch time: 0.3805
-Phase: train Epoch: 2/3 Iter: 9/62 Batch time: 0.3884
-Phase: train Epoch: 2/3 Iter: 10/62 Batch time: 0.3968
-Phase: train Epoch: 2/3 Iter: 11/62 Batch time: 0.3849
-Phase: train Epoch: 2/3 Iter: 12/62 Batch time: 0.3997
-Phase: train Epoch: 2/3 Iter: 13/62 Batch time: 0.3883
-Phase: train Epoch: 2/3 Iter: 14/62 Batch time: 0.3914
-Phase: train Epoch: 2/3 Iter: 15/62 Batch time: 0.3925
-Phase: train Epoch: 2/3 Iter: 16/62 Batch time: 0.3916
-Phase: train Epoch: 2/3 Iter: 17/62 Batch time: 0.3964
-Phase: train Epoch: 2/3 Iter: 18/62 Batch time: 0.4020
-Phase: train Epoch: 2/3 Iter: 19/62 Batch time: 0.3915
-Phase: train Epoch: 2/3 Iter: 20/62 Batch time: 0.4021
-Phase: train Epoch: 2/3 Iter: 21/62 Batch time: 0.3969
-Phase: train Epoch: 2/3 Iter: 22/62 Batch time: 0.4024
-Phase: train Epoch: 2/3 Iter: 23/62 Batch time: 0.3876
-Phase: train Epoch: 2/3 Iter: 24/62 Batch time: 0.3940
-Phase: train Epoch: 2/3 Iter: 25/62 Batch time: 0.3684
-Phase: train Epoch: 2/3 Iter: 26/62 Batch time: 0.3708
-Phase: train Epoch: 2/3 Iter: 27/62 Batch time: 0.3860
-Phase: train Epoch: 2/3 Iter: 28/62 Batch time: 0.3854
-Phase: train Epoch: 2/3 Iter: 29/62 Batch time: 0.3802
-Phase: train Epoch: 2/3 Iter: 30/62 Batch time: 0.3811
-Phase: train Epoch: 2/3 Iter: 31/62 Batch time: 0.4080
-Phase: train Epoch: 2/3 Iter: 32/62 Batch time: 0.4065
-Phase: train Epoch: 2/3 Iter: 33/62 Batch time: 0.3854
-Phase: train Epoch: 2/3 Iter: 34/62 Batch time: 0.3970
-Phase: train Epoch: 2/3 Iter: 35/62 Batch time: 0.3864
-Phase: train Epoch: 2/3 Iter: 36/62 Batch time: 0.4112
-Phase: train Epoch: 2/3 Iter: 37/62 Batch time: 0.4200
-Phase: train Epoch: 2/3 Iter: 38/62 Batch time: 0.4156
-Phase: train Epoch: 2/3 Iter: 39/62 Batch time: 0.4167
-Phase: train Epoch: 2/3 Iter: 40/62 Batch time: 0.3824
-Phase: train Epoch: 2/3 Iter: 41/62 Batch time: 0.4229
-Phase: train Epoch: 2/3 Iter: 42/62 Batch time: 0.4083
-Phase: train Epoch: 2/3 Iter: 43/62 Batch time: 0.4332
-Phase: train Epoch: 2/3 Iter: 44/62 Batch time: 0.4005
-Phase: train Epoch: 2/3 Iter: 45/62 Batch time: 0.3936
-Phase: train Epoch: 2/3 Iter: 46/62 Batch time: 0.4355
-Phase: train Epoch: 2/3 Iter: 47/62 Batch time: 0.4153
-Phase: train Epoch: 2/3 Iter: 48/62 Batch time: 0.4035
-Phase: train Epoch: 2/3 Iter: 49/62 Batch time: 0.4081
-Phase: train Epoch: 2/3 Iter: 50/62 Batch time: 0.4062
-Phase: train Epoch: 2/3 Iter: 51/62 Batch time: 0.4335
-Phase: train Epoch: 2/3 Iter: 52/62 Batch time: 0.4071
-Phase: train Epoch: 2/3 Iter: 53/62 Batch time: 0.4067
-Phase: train Epoch: 2/3 Iter: 54/62 Batch time: 0.4078
-Phase: train Epoch: 2/3 Iter: 55/62 Batch time: 0.3972
-Phase: train Epoch: 2/3 Iter: 56/62 Batch time: 0.4135
-Phase: train Epoch: 2/3 Iter: 57/62 Batch time: 0.3961
-Phase: train Epoch: 2/3 Iter: 58/62 Batch time: 0.3876
-Phase: train Epoch: 2/3 Iter: 59/62 Batch time: 0.3960
-Phase: train Epoch: 2/3 Iter: 60/62 Batch time: 0.3951
-Phase: train Epoch: 2/3 Iter: 61/62 Batch time: 0.4205
-Phase: train Epoch: 2/3 Loss: 0.6134 Acc: 0.7008
-Phase: validation Epoch: 2/3 Iter: 1/39 Batch time: 0.3256
-Phase: validation Epoch: 2/3 Iter: 2/39 Batch time: 0.3173
-Phase: validation Epoch: 2/3 Iter: 3/39 Batch time: 0.2931
-Phase: validation Epoch: 2/3 Iter: 4/39 Batch time: 0.3136
-Phase: validation Epoch: 2/3 Iter: 5/39 Batch time: 0.3151
-Phase: validation Epoch: 2/3 Iter: 6/39 Batch time: 0.3042
-Phase: validation Epoch: 2/3 Iter: 7/39 Batch time: 0.3112
-Phase: validation Epoch: 2/3 Iter: 8/39 Batch time: 0.3206
-Phase: validation Epoch: 2/3 Iter: 9/39 Batch time: 0.3108
-Phase: validation Epoch: 2/3 Iter: 10/39 Batch time: 0.2930
-Phase: validation Epoch: 2/3 Iter: 11/39 Batch time: 0.3231
-Phase: validation Epoch: 2/3 Iter: 12/39 Batch time: 0.3060
-Phase: validation Epoch: 2/3 Iter: 13/39 Batch time: 0.2981
-Phase: validation Epoch: 2/3 Iter: 14/39 Batch time: 0.3155
-Phase: validation Epoch: 2/3 Iter: 15/39 Batch time: 0.3096
-Phase: validation Epoch: 2/3 Iter: 16/39 Batch time: 0.2930
-Phase: validation Epoch: 2/3 Iter: 17/39 Batch time: 0.3092
-Phase: validation Epoch: 2/3 Iter: 18/39 Batch time: 0.3068
-Phase: validation Epoch: 2/3 Iter: 19/39 Batch time: 0.3030
-Phase: validation Epoch: 2/3 Iter: 20/39 Batch time: 0.3126
-Phase: validation Epoch: 2/3 Iter: 21/39 Batch time: 0.3317
-Phase: validation Epoch: 2/3 Iter: 22/39 Batch time: 0.3264
-Phase: validation Epoch: 2/3 Iter: 23/39 Batch time: 0.3313
-Phase: validation Epoch: 2/3 Iter: 24/39 Batch time: 0.3059
-Phase: validation Epoch: 2/3 Iter: 25/39 Batch time: 0.2933
-Phase: validation Epoch: 2/3 Iter: 26/39 Batch time: 0.2905
-Phase: validation Epoch: 2/3 Iter: 27/39 Batch time: 0.3071
-Phase: validation Epoch: 2/3 Iter: 28/39 Batch time: 0.3146
-Phase: validation Epoch: 2/3 Iter: 29/39 Batch time: 0.2989
-Phase: validation Epoch: 2/3 Iter: 30/39 Batch time: 0.3121
-Phase: validation Epoch: 2/3 Iter: 31/39 Batch time: 0.2930
-Phase: validation Epoch: 2/3 Iter: 32/39 Batch time: 0.3086
-Phase: validation Epoch: 2/3 Iter: 33/39 Batch time: 0.3034
-Phase: validation Epoch: 2/3 Iter: 34/39 Batch time: 0.2919
-Phase: validation Epoch: 2/3 Iter: 35/39 Batch time: 0.3280
-Phase: validation Epoch: 2/3 Iter: 36/39 Batch time: 0.3104
-Phase: validation Epoch: 2/3 Iter: 37/39 Batch time: 0.3011
-Phase: validation Epoch: 2/3 Iter: 38/39 Batch time: 0.2962
-Phase: validation Epoch: 2/3 Iter: 39/39 Batch time: 0.0897
-Phase: validation   Epoch: 2/3 Loss: 0.5389 Acc: 0.8235
-Phase: train Epoch: 3/3 Iter: 1/62 Batch time: 0.3978
-Phase: train Epoch: 3/3 Iter: 2/62 Batch time: 0.3813
-Phase: train Epoch: 3/3 Iter: 3/62 Batch time: 0.3860
-Phase: train Epoch: 3/3 Iter: 4/62 Batch time: 0.3740
-Phase: train Epoch: 3/3 Iter: 5/62 Batch time: 0.3879
-Phase: train Epoch: 3/3 Iter: 6/62 Batch time: 0.3854
-Phase: train Epoch: 3/3 Iter: 7/62 Batch time: 0.3745
-Phase: train Epoch: 3/3 Iter: 8/62 Batch time: 0.3829
-Phase: train Epoch: 3/3 Iter: 9/62 Batch time: 0.3804
-Phase: train Epoch: 3/3 Iter: 10/62 Batch time: 0.3785
-Phase: train Epoch: 3/3 Iter: 11/62 Batch time: 0.4534
-Phase: train Epoch: 3/3 Iter: 12/62 Batch time: 0.3914
-Phase: train Epoch: 3/3 Iter: 13/62 Batch time: 0.4006
-Phase: train Epoch: 3/3 Iter: 14/62 Batch time: 0.3877
-Phase: train Epoch: 3/3 Iter: 15/62 Batch time: 0.3815
-Phase: train Epoch: 3/3 Iter: 16/62 Batch time: 0.3735
-Phase: train Epoch: 3/3 Iter: 17/62 Batch time: 0.3755
-Phase: train Epoch: 3/3 Iter: 18/62 Batch time: 0.3811
-Phase: train Epoch: 3/3 Iter: 19/62 Batch time: 0.3933
-Phase: train Epoch: 3/3 Iter: 20/62 Batch time: 0.4039
-Phase: train Epoch: 3/3 Iter: 21/62 Batch time: 0.3885
-Phase: train Epoch: 3/3 Iter: 22/62 Batch time: 0.3936
-Phase: train Epoch: 3/3 Iter: 23/62 Batch time: 0.3709
-Phase: train Epoch: 3/3 Iter: 24/62 Batch time: 0.3753
-Phase: train Epoch: 3/3 Iter: 25/62 Batch time: 0.3965
-Phase: train Epoch: 3/3 Iter: 26/62 Batch time: 0.3835
-Phase: train Epoch: 3/3 Iter: 27/62 Batch time: 0.3793
-Phase: train Epoch: 3/3 Iter: 28/62 Batch time: 0.3874
-Phase: train Epoch: 3/3 Iter: 29/62 Batch time: 0.3866
-Phase: train Epoch: 3/3 Iter: 30/62 Batch time: 0.3837
-Phase: train Epoch: 3/3 Iter: 31/62 Batch time: 0.3900
-Phase: train Epoch: 3/3 Iter: 32/62 Batch time: 0.3815
-Phase: train Epoch: 3/3 Iter: 33/62 Batch time: 0.3973
-Phase: train Epoch: 3/3 Iter: 34/62 Batch time: 0.3884
-Phase: train Epoch: 3/3 Iter: 35/62 Batch time: 0.3788
-Phase: train Epoch: 3/3 Iter: 36/62 Batch time: 0.3861
-Phase: train Epoch: 3/3 Iter: 37/62 Batch time: 0.4080
-Phase: train Epoch: 3/3 Iter: 38/62 Batch time: 0.3806
-Phase: train Epoch: 3/3 Iter: 39/62 Batch time: 0.3848
-Phase: train Epoch: 3/3 Iter: 40/62 Batch time: 0.3710
-Phase: train Epoch: 3/3 Iter: 41/62 Batch time: 0.3780
-Phase: train Epoch: 3/3 Iter: 42/62 Batch time: 0.3797
-Phase: train Epoch: 3/3 Iter: 43/62 Batch time: 0.3788
-Phase: train Epoch: 3/3 Iter: 44/62 Batch time: 0.3810
-Phase: train Epoch: 3/3 Iter: 45/62 Batch time: 0.3729
-Phase: train Epoch: 3/3 Iter: 46/62 Batch time: 0.3913
-Phase: train Epoch: 3/3 Iter: 47/62 Batch time: 0.3891
-Phase: train Epoch: 3/3 Iter: 48/62 Batch time: 0.4239
-Phase: train Epoch: 3/3 Iter: 49/62 Batch time: 0.4062
-Phase: train Epoch: 3/3 Iter: 50/62 Batch time: 0.3804
-Phase: train Epoch: 3/3 Iter: 51/62 Batch time: 0.4115
-Phase: train Epoch: 3/3 Iter: 52/62 Batch time: 0.3791
-Phase: train Epoch: 3/3 Iter: 53/62 Batch time: 0.3941
-Phase: train Epoch: 3/3 Iter: 54/62 Batch time: 0.3827
-Phase: train Epoch: 3/3 Iter: 55/62 Batch time: 0.3846
-Phase: train Epoch: 3/3 Iter: 56/62 Batch time: 0.3859
-Phase: train Epoch: 3/3 Iter: 57/62 Batch time: 0.3942
-Phase: train Epoch: 3/3 Iter: 58/62 Batch time: 0.3807
-Phase: train Epoch: 3/3 Iter: 59/62 Batch time: 0.3944
-Phase: train Epoch: 3/3 Iter: 60/62 Batch time: 0.3914
-Phase: train Epoch: 3/3 Iter: 61/62 Batch time: 0.3860
-Phase: train Epoch: 3/3 Loss: 0.5652 Acc: 0.7418
-Phase: validation Epoch: 3/3 Iter: 1/39 Batch time: 0.2859
-Phase: validation Epoch: 3/3 Iter: 2/39 Batch time: 0.2939
-Phase: validation Epoch: 3/3 Iter: 3/39 Batch time: 0.2967
-Phase: validation Epoch: 3/3 Iter: 4/39 Batch time: 0.2915
-Phase: validation Epoch: 3/3 Iter: 5/39 Batch time: 0.2864
-Phase: validation Epoch: 3/3 Iter: 6/39 Batch time: 0.2936
-Phase: validation Epoch: 3/3 Iter: 7/39 Batch time: 0.3030
-Phase: validation Epoch: 3/3 Iter: 8/39 Batch time: 0.2876
-Phase: validation Epoch: 3/3 Iter: 9/39 Batch time: 0.2830
-Phase: validation Epoch: 3/3 Iter: 10/39 Batch time: 0.2852
-Phase: validation Epoch: 3/3 Iter: 11/39 Batch time: 0.2831
-Phase: validation Epoch: 3/3 Iter: 12/39 Batch time: 0.2917
-Phase: validation Epoch: 3/3 Iter: 13/39 Batch time: 0.2914
-Phase: validation Epoch: 3/3 Iter: 14/39 Batch time: 0.3017
-Phase: validation Epoch: 3/3 Iter: 15/39 Batch time: 0.3022
-Phase: validation Epoch: 3/3 Iter: 16/39 Batch time: 0.3036
-Phase: validation Epoch: 3/3 Iter: 17/39 Batch time: 0.3133
-Phase: validation Epoch: 3/3 Iter: 18/39 Batch time: 0.2953
-Phase: validation Epoch: 3/3 Iter: 19/39 Batch time: 0.3087
-Phase: validation Epoch: 3/3 Iter: 20/39 Batch time: 0.3047
-Phase: validation Epoch: 3/3 Iter: 21/39 Batch time: 0.3020
-Phase: validation Epoch: 3/3 Iter: 22/39 Batch time: 0.3081
-Phase: validation Epoch: 3/3 Iter: 23/39 Batch time: 0.2924
-Phase: validation Epoch: 3/3 Iter: 24/39 Batch time: 0.3020
-Phase: validation Epoch: 3/3 Iter: 25/39 Batch time: 0.3014
-Phase: validation Epoch: 3/3 Iter: 26/39 Batch time: 0.2899
-Phase: validation Epoch: 3/3 Iter: 27/39 Batch time: 0.2939
-Phase: validation Epoch: 3/3 Iter: 28/39 Batch time: 0.3003
-Phase: validation Epoch: 3/3 Iter: 29/39 Batch time: 0.2930
-Phase: validation Epoch: 3/3 Iter: 30/39 Batch time: 0.3085
-Phase: validation Epoch: 3/3 Iter: 31/39 Batch time: 0.2978
-Phase: validation Epoch: 3/3 Iter: 32/39 Batch time: 0.2941
-Phase: validation Epoch: 3/3 Iter: 33/39 Batch time: 0.2895
-Phase: validation Epoch: 3/3 Iter: 34/39 Batch time: 0.2906
- </code>
- </pre>
- </details>
-
----
-
-## 4. tutorial_qchem_external.html <a name="demo3"></a>
+## 2. tutorial_qchem_external.html <a name="demo1"></a>
 
 ---
 
@@ -5034,6 +4306,66 @@ Phase: validation Epoch: 3/3 Iter: 34/39 Batch time: 0.2906
 
 ---
 
+## 3. tutorial_jax_transformations.html <a name="demo2"></a>
+
+---
+
+[Master](https://pennylane.ai/qml/demos/tutorial_jax_transformations.html):
+
+```
+No jit time: 0.0045 seconds
+First run time: 0.0664 seconds
+```
+
+[Dev](http://pennylane.ai-dev.s3-website-us-east-1.amazonaws.com/qml/demos/tutorial_jax_transformations.html):
+
+```
+No jit time: 0.0039 seconds
+First run time: 0.0629 seconds
+```
+
+---
+
+## 4. tutorial_qnn_module_tf.html <a name="demo3"></a>
+
+---
+
+[Master](https://pennylane.ai/qml/demos/tutorial_qnn_module_tf.html):
+
+```
+30/30 - 9s - loss: 0.4997 - accuracy: 0.5000 - val_loss: 0.5081 - val_accuracy: 0.4400 - 9s/epoch - 305ms/step
+30/30 - 9s - loss: 0.4673 - accuracy: 0.6200 - val_loss: 0.4488 - val_accuracy: 0.6200 - 9s/epoch - 304ms/step
+30/30 - 9s - loss: 0.3230 - accuracy: 0.8267 - val_loss: 0.2562 - val_accuracy: 0.8400 - 9s/epoch - 305ms/step
+30/30 - 9s - loss: 0.2124 - accuracy: 0.8867 - val_loss: 0.1997 - val_accuracy: 0.8400 - 9s/epoch - 301ms/step
+30/30 - 9s - loss: 0.1800 - accuracy: 0.8933 - val_loss: 0.1841 - val_accuracy: 0.8400 - 9s/epoch - 306ms/step
+30/30 - 9s - loss: 0.1593 - accuracy: 0.8667 - val_loss: 0.2177 - val_accuracy: 0.8400 - 9s/epoch - 305ms/step
+30/30 - 18s - loss: 0.5189 - accuracy: 0.4000 - val_loss: 0.4945 - val_accuracy: 0.5400 - 18s/epoch - 612ms/step
+30/30 - 18s - loss: 0.4822 - accuracy: 0.6200 - val_loss: 0.4412 - val_accuracy: 0.7200 - 18s/epoch - 605ms/step
+30/30 - 18s - loss: 0.3850 - accuracy: 0.7133 - val_loss: 0.2898 - val_accuracy: 0.7800 - 18s/epoch - 603ms/step
+30/30 - 18s - loss: 0.2720 - accuracy: 0.7867 - val_loss: 0.2185 - val_accuracy: 0.8200 - 18s/epoch - 607ms/step
+30/30 - 18s - loss: 0.2056 - accuracy: 0.8400 - val_loss: 0.1893 - val_accuracy: 0.8400 - 18s/epoch - 609ms/step
+30/30 - 18s - loss: 0.1753 - accuracy: 0.8400 - val_loss: 0.1856 - val_accuracy: 0.8400 - 18s/epoch - 607ms/step
+```
+
+[Dev](http://pennylane.ai-dev.s3-website-us-east-1.amazonaws.com/qml/demos/tutorial_qnn_module_tf.html):
+
+```
+30/30 - 12s - loss: 0.4997 - accuracy: 0.5000 - val_loss: 0.5081 - val_accuracy: 0.4400 - 12s/epoch - 415ms/step
+30/30 - 13s - loss: 0.4673 - accuracy: 0.6200 - val_loss: 0.4488 - val_accuracy: 0.6200 - 13s/epoch - 418ms/step
+30/30 - 13s - loss: 0.3230 - accuracy: 0.8267 - val_loss: 0.2562 - val_accuracy: 0.8400 - 13s/epoch - 425ms/step
+30/30 - 13s - loss: 0.2124 - accuracy: 0.8867 - val_loss: 0.1997 - val_accuracy: 0.8400 - 13s/epoch - 426ms/step
+30/30 - 13s - loss: 0.1800 - accuracy: 0.8933 - val_loss: 0.1841 - val_accuracy: 0.8400 - 13s/epoch - 419ms/step
+30/30 - 13s - loss: 0.1593 - accuracy: 0.8667 - val_loss: 0.2177 - val_accuracy: 0.8400 - 13s/epoch - 424ms/step
+30/30 - 25s - loss: 0.5189 - accuracy: 0.4000 - val_loss: 0.4945 - val_accuracy: 0.5400 - 25s/epoch - 847ms/step
+30/30 - 25s - loss: 0.4822 - accuracy: 0.6200 - val_loss: 0.4412 - val_accuracy: 0.7200 - 25s/epoch - 842ms/step
+30/30 - 25s - loss: 0.3850 - accuracy: 0.7133 - val_loss: 0.2898 - val_accuracy: 0.7800 - 25s/epoch - 832ms/step
+30/30 - 25s - loss: 0.2720 - accuracy: 0.7867 - val_loss: 0.2185 - val_accuracy: 0.8200 - 25s/epoch - 829ms/step
+30/30 - 26s - loss: 0.2056 - accuracy: 0.8400 - val_loss: 0.1893 - val_accuracy: 0.8400 - 26s/epoch - 860ms/step
+30/30 - 25s - loss: 0.1753 - accuracy: 0.8400 - val_loss: 0.1856 - val_accuracy: 0.8400 - 25s/epoch - 827ms/step
+```
+
+---
+
 ## 5. tutorial_quantum_chemistry.html <a name="demo4"></a>
 
 ---
@@ -9074,7 +8406,81 @@ Phase: validation Epoch: 3/3 Iter: 34/39 Batch time: 0.2906
 
 ---
 
-## 6. tutorial_quanvolution.html <a name="demo5"></a>
+## 6. tutorial_error_mitigation.html <a name="demo5"></a>
+
+---
+
+[Master](https://pennylane.ai/qml/demos/tutorial_error_mitigation.html):
+
+<details> 
+ <summary>
+ More 
+ </summary>
+ <pre>
+ <code>
+0.9735289786860291
+0: ──RY(4.56)─╭●──RY(5.93)──RY(-5.93)─────────────────────────────────────
+1: ──RY(3.60)─╰Z──RY(5.90)──────────────────────╭●──RY(5.18)──RY(-5.18)─╭●
+2: ──RY(4.05)─╭●──RY(3.32)──RY(-3.32)──RY(3.32)─╰Z──RY(1.07)──RY(-1.07)─╰Z
+3: ──RY(3.51)─╰Z──RY(3.66)──RY(-3.66)─────────────────────────────────────
+─────────────╭●──RY(-4.56)─┤
+───RY(-5.90)─╰Z──RY(-3.60)─┤
+───RY(-3.32)─╭●──RY(-4.05)─┤
+─────────────╰Z──RY(-3.51)─┤
+0: ──RY(4.56)─╭●──RY(5.93)──RY(-5.93)──RY(5.93)──RY(-5.93)───────────────╭●
+───RY(-4.56)─┤
+───RY(-3.60)─┤
+───RY(-4.05)─┤
+───RY(-3.51)─┤
+0: ──RY(4.56)─╭●──RY(5.93)──RY(-5.93)────────────────────────────────────╭●
+1: ──RY(3.60)─╰Z──RY(5.90)─╭●──────────RY(5.18)──RY(-5.18)─╭●──RY(-5.90)─╰Z
+2: ──RY(4.05)─╭●──RY(3.32)─╰Z──────────RY(1.07)──RY(-1.07)─╰Z──RY(-3.32)─╭●
+3: ──RY(3.51)─╰Z──RY(3.66)──RY(-3.66)────────────────────────────────────╰Z
+───RY(-4.56)───────────────┤
+───RY(-3.60)───────────────┤
+──╭●─────────╭●──RY(-4.05)─┤
+──╰Z─────────╰Z──RY(-3.51)─┤
+ </code>
+ </pre>
+ </details>
+
+[Dev](http://pennylane.ai-dev.s3-website-us-east-1.amazonaws.com/qml/demos/tutorial_error_mitigation.html):
+
+<details> 
+ <summary>
+ More 
+ </summary>
+ <pre>
+ <code>
+0.9896445647008533
+0: ──RY(4.56)─╭●──RY(5.93)──RY(-5.93)────────────────────────────────────╭●
+1: ──RY(3.60)─╰Z──RY(5.90)─╭●──────────RY(5.18)──RY(-5.18)─╭●──RY(-5.90)─╰Z
+2: ──RY(4.05)─╭●──RY(3.32)─╰Z──────────RY(1.07)──RY(-1.07)─╰Z──RY(-3.32)─╭●
+3: ──RY(3.51)─╰Z──RY(3.66)──RY(-3.66)──RY(3.66)──RY(-3.66)───────────────╰Z
+───RY(-4.56)─┤
+───RY(-3.60)─┤
+───RY(-4.05)─┤
+───RY(-3.51)─┤
+0: ──RY(4.56)─╭●──RY(5.93)──RY(-5.93)────────────────────────────────────╭●
+───RY(-4.56)──────────────────────┤
+───RY(-3.60)──────────────────────┤
+───RY(-4.05)──────────────────────┤
+───RY(-3.51)──RY(3.51)──RY(-3.51)─┤
+0: ──RY(4.56)─╭●──RY(5.93)──RY(-5.93)──────────────────────────────────────────
+1: ──RY(3.60)─╰Z──RY(5.90)─╭●──────────RY(5.18)──RY(-5.18)──RY(5.18)──RY(-5.18)
+2: ──RY(4.05)─╭●──RY(3.32)─╰Z──────────RY(1.07)──RY(-1.07)─────────────────────
+3: ──RY(3.51)─╰Z──RY(3.66)──RY(-3.66)──────────────────────────────────────────
+────────────────╭●──RY(-4.56)─┤
+──╭●──RY(-5.90)─╰Z──RY(-3.60)─┤
+──╰Z──RY(-3.32)─╭●──RY(-4.05)─┤
+────────────────╰Z──RY(-3.51)─┤
+ </code>
+ </pre>
+ </details>
+
+---
+
+## 7. tutorial_quanvolution.html <a name="demo6"></a>
 
 ---
 
@@ -9214,7 +8620,25 @@ Phase: validation Epoch: 3/3 Iter: 34/39 Batch time: 0.2906
 
 ---
 
-## 7. tutorial_adaptive_circuits.html <a name="demo6"></a>
+## 8. tutorial_pulse_programming101.html <a name="demo7"></a>
+
+---
+
+[Master](https://pennylane.ai/qml/demos/tutorial_pulse_programming101.html):
+
+```
+grad and val compilation time: 0:00:04.436242
+```
+
+[Dev](http://pennylane.ai-dev.s3-website-us-east-1.amazonaws.com/qml/demos/tutorial_pulse_programming101.html):
+
+```
+grad and val compilation time: 0:00:05.211663
+```
+
+---
+
+## 9. tutorial_adaptive_circuits.html <a name="demo8"></a>
 
 ---
 
@@ -9316,44 +8740,6 @@ n = 17,  E = -7.88220635 H, t = 0.14 s
 
 ---
 
-## 8. tutorial_jax_transformations.html <a name="demo7"></a>
-
----
-
-[Master](https://pennylane.ai/qml/demos/tutorial_jax_transformations.html):
-
-```
-No jit time: 0.0045 seconds
-First run time: 0.0664 seconds
-```
-
-[Dev](http://pennylane.ai-dev.s3-website-us-east-1.amazonaws.com/qml/demos/tutorial_jax_transformations.html):
-
-```
-No jit time: 0.0039 seconds
-First run time: 0.0629 seconds
-```
-
----
-
-## 9. tutorial_pulse_programming101.html <a name="demo8"></a>
-
----
-
-[Master](https://pennylane.ai/qml/demos/tutorial_pulse_programming101.html):
-
-```
-grad and val compilation time: 0:00:04.436242
-```
-
-[Dev](http://pennylane.ai-dev.s3-website-us-east-1.amazonaws.com/qml/demos/tutorial_pulse_programming101.html):
-
-```
-grad and val compilation time: 0:00:05.211663
-```
-
----
-
 ## 10. tutorial_backprop.html <a name="demo9"></a>
 
 ---
@@ -9380,43 +8766,657 @@ Backward pass (best of 3): 0.15870636579998063 sec per loop
 
 ---
 
-## 11. tutorial_qnn_module_tf.html <a name="demo10"></a>
+## 11. tutorial_quantum_transfer_learning.html <a name="demo10"></a>
 
 ---
 
-[Master](https://pennylane.ai/qml/demos/tutorial_qnn_module_tf.html):
+[Master](https://pennylane.ai/qml/demos/tutorial_quantum_transfer_learning.html):
 
-```
-30/30 - 9s - loss: 0.4997 - accuracy: 0.5000 - val_loss: 0.5081 - val_accuracy: 0.4400 - 9s/epoch - 305ms/step
-30/30 - 9s - loss: 0.4673 - accuracy: 0.6200 - val_loss: 0.4488 - val_accuracy: 0.6200 - 9s/epoch - 304ms/step
-30/30 - 9s - loss: 0.3230 - accuracy: 0.8267 - val_loss: 0.2562 - val_accuracy: 0.8400 - 9s/epoch - 305ms/step
-30/30 - 9s - loss: 0.2124 - accuracy: 0.8867 - val_loss: 0.1997 - val_accuracy: 0.8400 - 9s/epoch - 301ms/step
-30/30 - 9s - loss: 0.1800 - accuracy: 0.8933 - val_loss: 0.1841 - val_accuracy: 0.8400 - 9s/epoch - 306ms/step
-30/30 - 9s - loss: 0.1593 - accuracy: 0.8667 - val_loss: 0.2177 - val_accuracy: 0.8400 - 9s/epoch - 305ms/step
-30/30 - 18s - loss: 0.5189 - accuracy: 0.4000 - val_loss: 0.4945 - val_accuracy: 0.5400 - 18s/epoch - 612ms/step
-30/30 - 18s - loss: 0.4822 - accuracy: 0.6200 - val_loss: 0.4412 - val_accuracy: 0.7200 - 18s/epoch - 605ms/step
-30/30 - 18s - loss: 0.3850 - accuracy: 0.7133 - val_loss: 0.2898 - val_accuracy: 0.7800 - 18s/epoch - 603ms/step
-30/30 - 18s - loss: 0.2720 - accuracy: 0.7867 - val_loss: 0.2185 - val_accuracy: 0.8200 - 18s/epoch - 607ms/step
-30/30 - 18s - loss: 0.2056 - accuracy: 0.8400 - val_loss: 0.1893 - val_accuracy: 0.8400 - 18s/epoch - 609ms/step
-30/30 - 18s - loss: 0.1753 - accuracy: 0.8400 - val_loss: 0.1856 - val_accuracy: 0.8400 - 18s/epoch - 607ms/step
-```
+<details> 
+ <summary>
+ More 
+ </summary>
+ <pre>
+ <code>
+ 33%|###3      | 14.7M/44.7M [00:00<00:00, 155MB/s]
+ 99%|#########8| 44.2M/44.7M [00:00<00:00, 245MB/s]
+100%|##########| 44.7M/44.7M [00:00<00:00, 232MB/s]
+Training started:
+Phase: train Epoch: 1/3 Iter: 1/62 Batch time: 0.3168
+Phase: train Epoch: 1/3 Iter: 2/62 Batch time: 0.2495
+Phase: train Epoch: 1/3 Iter: 3/62 Batch time: 0.2333
+Phase: train Epoch: 1/3 Iter: 4/62 Batch time: 0.2314
+Phase: train Epoch: 1/3 Iter: 5/62 Batch time: 0.2450
+Phase: train Epoch: 1/3 Iter: 6/62 Batch time: 0.2380
+Phase: train Epoch: 1/3 Iter: 7/62 Batch time: 0.2420
+Phase: train Epoch: 1/3 Iter: 8/62 Batch time: 0.2430
+Phase: train Epoch: 1/3 Iter: 9/62 Batch time: 0.2477
+Phase: train Epoch: 1/3 Iter: 10/62 Batch time: 0.2354
+Phase: train Epoch: 1/3 Iter: 11/62 Batch time: 0.2404
+Phase: train Epoch: 1/3 Iter: 12/62 Batch time: 0.2427
+Phase: train Epoch: 1/3 Iter: 13/62 Batch time: 0.2408
+Phase: train Epoch: 1/3 Iter: 14/62 Batch time: 0.2446
+Phase: train Epoch: 1/3 Iter: 15/62 Batch time: 0.2420
+Phase: train Epoch: 1/3 Iter: 16/62 Batch time: 0.2427
+Phase: train Epoch: 1/3 Iter: 17/62 Batch time: 0.2369
+Phase: train Epoch: 1/3 Iter: 18/62 Batch time: 0.2395
+Phase: train Epoch: 1/3 Iter: 19/62 Batch time: 0.2420
+Phase: train Epoch: 1/3 Iter: 20/62 Batch time: 0.2448
+Phase: train Epoch: 1/3 Iter: 21/62 Batch time: 0.2406
+Phase: train Epoch: 1/3 Iter: 22/62 Batch time: 0.2452
+Phase: train Epoch: 1/3 Iter: 23/62 Batch time: 0.2419
+Phase: train Epoch: 1/3 Iter: 24/62 Batch time: 0.2424
+Phase: train Epoch: 1/3 Iter: 25/62 Batch time: 0.2373
+Phase: train Epoch: 1/3 Iter: 26/62 Batch time: 0.2480
+Phase: train Epoch: 1/3 Iter: 27/62 Batch time: 0.3217
+Phase: train Epoch: 1/3 Iter: 28/62 Batch time: 0.2322
+Phase: train Epoch: 1/3 Iter: 29/62 Batch time: 0.2367
+Phase: train Epoch: 1/3 Iter: 30/62 Batch time: 0.2383
+Phase: train Epoch: 1/3 Iter: 31/62 Batch time: 0.2384
+Phase: train Epoch: 1/3 Iter: 32/62 Batch time: 0.2403
+Phase: train Epoch: 1/3 Iter: 33/62 Batch time: 0.2378
+Phase: train Epoch: 1/3 Iter: 34/62 Batch time: 0.2402
+Phase: train Epoch: 1/3 Iter: 35/62 Batch time: 0.2358
+Phase: train Epoch: 1/3 Iter: 36/62 Batch time: 0.2388
+Phase: train Epoch: 1/3 Iter: 37/62 Batch time: 0.2447
+Phase: train Epoch: 1/3 Iter: 38/62 Batch time: 0.2508
+Phase: train Epoch: 1/3 Iter: 39/62 Batch time: 0.2441
+Phase: train Epoch: 1/3 Iter: 40/62 Batch time: 0.2431
+Phase: train Epoch: 1/3 Iter: 41/62 Batch time: 0.2426
+Phase: train Epoch: 1/3 Iter: 42/62 Batch time: 0.2428
+Phase: train Epoch: 1/3 Iter: 43/62 Batch time: 0.2364
+Phase: train Epoch: 1/3 Iter: 44/62 Batch time: 0.2398
+Phase: train Epoch: 1/3 Iter: 45/62 Batch time: 0.2491
+Phase: train Epoch: 1/3 Iter: 46/62 Batch time: 0.2412
+Phase: train Epoch: 1/3 Iter: 47/62 Batch time: 0.2457
+Phase: train Epoch: 1/3 Iter: 48/62 Batch time: 0.2344
+Phase: train Epoch: 1/3 Iter: 49/62 Batch time: 0.2393
+Phase: train Epoch: 1/3 Iter: 50/62 Batch time: 0.2426
+Phase: train Epoch: 1/3 Iter: 51/62 Batch time: 0.2395
+Phase: train Epoch: 1/3 Iter: 52/62 Batch time: 0.2424
+Phase: train Epoch: 1/3 Iter: 53/62 Batch time: 0.2462
+Phase: train Epoch: 1/3 Iter: 54/62 Batch time: 0.2427
+Phase: train Epoch: 1/3 Iter: 55/62 Batch time: 0.2462
+Phase: train Epoch: 1/3 Iter: 56/62 Batch time: 0.2440
+Phase: train Epoch: 1/3 Iter: 57/62 Batch time: 0.2390
+Phase: train Epoch: 1/3 Iter: 58/62 Batch time: 0.2429
+Phase: train Epoch: 1/3 Iter: 59/62 Batch time: 0.2353
+Phase: train Epoch: 1/3 Iter: 60/62 Batch time: 0.2392
+Phase: train Epoch: 1/3 Iter: 61/62 Batch time: 0.2446
+Phase: train Epoch: 1/3 Loss: 0.6990 Acc: 0.5246
+Phase: validation Epoch: 1/3 Iter: 1/39 Batch time: 0.1779
+Phase: validation Epoch: 1/3 Iter: 2/39 Batch time: 0.1790
+Phase: validation Epoch: 1/3 Iter: 3/39 Batch time: 0.1837
+Phase: validation Epoch: 1/3 Iter: 4/39 Batch time: 0.1762
+Phase: validation Epoch: 1/3 Iter: 5/39 Batch time: 0.1780
+Phase: validation Epoch: 1/3 Iter: 6/39 Batch time: 0.1768
+Phase: validation Epoch: 1/3 Iter: 7/39 Batch time: 0.1799
+Phase: validation Epoch: 1/3 Iter: 8/39 Batch time: 0.1853
+Phase: validation Epoch: 1/3 Iter: 9/39 Batch time: 0.1753
+Phase: validation Epoch: 1/3 Iter: 10/39 Batch time: 0.1807
+Phase: validation Epoch: 1/3 Iter: 11/39 Batch time: 0.1831
+Phase: validation Epoch: 1/3 Iter: 12/39 Batch time: 0.1760
+Phase: validation Epoch: 1/3 Iter: 13/39 Batch time: 0.1798
+Phase: validation Epoch: 1/3 Iter: 14/39 Batch time: 0.1758
+Phase: validation Epoch: 1/3 Iter: 15/39 Batch time: 0.1807
+Phase: validation Epoch: 1/3 Iter: 16/39 Batch time: 0.1836
+Phase: validation Epoch: 1/3 Iter: 17/39 Batch time: 0.1842
+Phase: validation Epoch: 1/3 Iter: 18/39 Batch time: 0.1942
+Phase: validation Epoch: 1/3 Iter: 19/39 Batch time: 0.1760
+Phase: validation Epoch: 1/3 Iter: 20/39 Batch time: 0.1792
+Phase: validation Epoch: 1/3 Iter: 21/39 Batch time: 0.1767
+Phase: validation Epoch: 1/3 Iter: 22/39 Batch time: 0.1810
+Phase: validation Epoch: 1/3 Iter: 23/39 Batch time: 0.1818
+Phase: validation Epoch: 1/3 Iter: 24/39 Batch time: 0.1814
+Phase: validation Epoch: 1/3 Iter: 25/39 Batch time: 0.1877
+Phase: validation Epoch: 1/3 Iter: 26/39 Batch time: 0.1818
+Phase: validation Epoch: 1/3 Iter: 27/39 Batch time: 0.1832
+Phase: validation Epoch: 1/3 Iter: 28/39 Batch time: 0.1784
+Phase: validation Epoch: 1/3 Iter: 29/39 Batch time: 0.1768
+Phase: validation Epoch: 1/3 Iter: 30/39 Batch time: 0.1798
+Phase: validation Epoch: 1/3 Iter: 31/39 Batch time: 0.1897
+Phase: validation Epoch: 1/3 Iter: 32/39 Batch time: 0.1825
+Phase: validation Epoch: 1/3 Iter: 33/39 Batch time: 0.1820
+Phase: validation Epoch: 1/3 Iter: 34/39 Batch time: 0.1757
+Phase: validation Epoch: 1/3 Iter: 35/39 Batch time: 0.1805
+Phase: validation Epoch: 1/3 Iter: 36/39 Batch time: 0.1832
+Phase: validation Epoch: 1/3 Iter: 37/39 Batch time: 0.1767
+Phase: validation Epoch: 1/3 Iter: 38/39 Batch time: 0.1843
+Phase: validation Epoch: 1/3 Iter: 39/39 Batch time: 0.0598
+Phase: validation   Epoch: 1/3 Loss: 0.6429 Acc: 0.6536
+Phase: train Epoch: 2/3 Iter: 1/62 Batch time: 0.2328
+Phase: train Epoch: 2/3 Iter: 2/62 Batch time: 0.2443
+Phase: train Epoch: 2/3 Iter: 3/62 Batch time: 0.2325
+Phase: train Epoch: 2/3 Iter: 4/62 Batch time: 0.2305
+Phase: train Epoch: 2/3 Iter: 5/62 Batch time: 0.2327
+Phase: train Epoch: 2/3 Iter: 6/62 Batch time: 0.2316
+Phase: train Epoch: 2/3 Iter: 7/62 Batch time: 0.2321
+Phase: train Epoch: 2/3 Iter: 8/62 Batch time: 0.2313
+Phase: train Epoch: 2/3 Iter: 9/62 Batch time: 0.2317
+Phase: train Epoch: 2/3 Iter: 10/62 Batch time: 0.2314
+Phase: train Epoch: 2/3 Iter: 11/62 Batch time: 0.2332
+Phase: train Epoch: 2/3 Iter: 12/62 Batch time: 0.2320
+Phase: train Epoch: 2/3 Iter: 13/62 Batch time: 0.2321
+Phase: train Epoch: 2/3 Iter: 14/62 Batch time: 0.2398
+Phase: train Epoch: 2/3 Iter: 15/62 Batch time: 0.2336
+Phase: train Epoch: 2/3 Iter: 16/62 Batch time: 0.2308
+Phase: train Epoch: 2/3 Iter: 17/62 Batch time: 0.2349
+Phase: train Epoch: 2/3 Iter: 18/62 Batch time: 0.2321
+Phase: train Epoch: 2/3 Iter: 19/62 Batch time: 0.2324
+Phase: train Epoch: 2/3 Iter: 20/62 Batch time: 0.2305
+Phase: train Epoch: 2/3 Iter: 21/62 Batch time: 0.2316
+Phase: train Epoch: 2/3 Iter: 22/62 Batch time: 0.2313
+Phase: train Epoch: 2/3 Iter: 23/62 Batch time: 0.2396
+Phase: train Epoch: 2/3 Iter: 24/62 Batch time: 0.2309
+Phase: train Epoch: 2/3 Iter: 25/62 Batch time: 0.2334
+Phase: train Epoch: 2/3 Iter: 26/62 Batch time: 0.2345
+Phase: train Epoch: 2/3 Iter: 27/62 Batch time: 0.2330
+Phase: train Epoch: 2/3 Iter: 28/62 Batch time: 0.2312
+Phase: train Epoch: 2/3 Iter: 29/62 Batch time: 0.2337
+Phase: train Epoch: 2/3 Iter: 30/62 Batch time: 0.2325
+Phase: train Epoch: 2/3 Iter: 31/62 Batch time: 0.2332
+Phase: train Epoch: 2/3 Iter: 32/62 Batch time: 0.2314
+Phase: train Epoch: 2/3 Iter: 33/62 Batch time: 0.2327
+Phase: train Epoch: 2/3 Iter: 34/62 Batch time: 0.2342
+Phase: train Epoch: 2/3 Iter: 35/62 Batch time: 0.2341
+Phase: train Epoch: 2/3 Iter: 36/62 Batch time: 0.2324
+Phase: train Epoch: 2/3 Iter: 37/62 Batch time: 0.2340
+Phase: train Epoch: 2/3 Iter: 38/62 Batch time: 0.2330
+Phase: train Epoch: 2/3 Iter: 39/62 Batch time: 0.2380
+Phase: train Epoch: 2/3 Iter: 40/62 Batch time: 0.2388
+Phase: train Epoch: 2/3 Iter: 41/62 Batch time: 0.2342
+Phase: train Epoch: 2/3 Iter: 42/62 Batch time: 0.2384
+Phase: train Epoch: 2/3 Iter: 43/62 Batch time: 0.2331
+Phase: train Epoch: 2/3 Iter: 44/62 Batch time: 0.2333
+Phase: train Epoch: 2/3 Iter: 45/62 Batch time: 0.2334
+Phase: train Epoch: 2/3 Iter: 46/62 Batch time: 0.2347
+Phase: train Epoch: 2/3 Iter: 47/62 Batch time: 0.2429
+Phase: train Epoch: 2/3 Iter: 48/62 Batch time: 0.2340
+Phase: train Epoch: 2/3 Iter: 49/62 Batch time: 0.2340
+Phase: train Epoch: 2/3 Iter: 50/62 Batch time: 0.2341
+Phase: train Epoch: 2/3 Iter: 51/62 Batch time: 0.2343
+Phase: train Epoch: 2/3 Iter: 52/62 Batch time: 0.2329
+Phase: train Epoch: 2/3 Iter: 53/62 Batch time: 0.2557
+Phase: train Epoch: 2/3 Iter: 54/62 Batch time: 0.2346
+Phase: train Epoch: 2/3 Iter: 55/62 Batch time: 0.2333
+Phase: train Epoch: 2/3 Iter: 56/62 Batch time: 0.2350
+Phase: train Epoch: 2/3 Iter: 57/62 Batch time: 0.2361
+Phase: train Epoch: 2/3 Iter: 58/62 Batch time: 0.2339
+Phase: train Epoch: 2/3 Iter: 59/62 Batch time: 0.2333
+Phase: train Epoch: 2/3 Iter: 60/62 Batch time: 0.2336
+Phase: train Epoch: 2/3 Iter: 61/62 Batch time: 0.2344
+Phase: train Epoch: 2/3 Loss: 0.6134 Acc: 0.7008
+Phase: validation Epoch: 2/3 Iter: 1/39 Batch time: 0.1792
+Phase: validation Epoch: 2/3 Iter: 2/39 Batch time: 0.1746
+Phase: validation Epoch: 2/3 Iter: 3/39 Batch time: 0.1749
+Phase: validation Epoch: 2/3 Iter: 4/39 Batch time: 0.1743
+Phase: validation Epoch: 2/3 Iter: 5/39 Batch time: 0.1748
+Phase: validation Epoch: 2/3 Iter: 6/39 Batch time: 0.1882
+Phase: validation Epoch: 2/3 Iter: 7/39 Batch time: 0.1737
+Phase: validation Epoch: 2/3 Iter: 8/39 Batch time: 0.1745
+Phase: validation Epoch: 2/3 Iter: 9/39 Batch time: 0.1737
+Phase: validation Epoch: 2/3 Iter: 10/39 Batch time: 0.1739
+Phase: validation Epoch: 2/3 Iter: 11/39 Batch time: 0.1874
+Phase: validation Epoch: 2/3 Iter: 12/39 Batch time: 0.1776
+Phase: validation Epoch: 2/3 Iter: 13/39 Batch time: 0.1757
+Phase: validation Epoch: 2/3 Iter: 14/39 Batch time: 0.1734
+Phase: validation Epoch: 2/3 Iter: 15/39 Batch time: 0.1743
+Phase: validation Epoch: 2/3 Iter: 16/39 Batch time: 0.1758
+Phase: validation Epoch: 2/3 Iter: 17/39 Batch time: 0.1730
+Phase: validation Epoch: 2/3 Iter: 18/39 Batch time: 0.1728
+Phase: validation Epoch: 2/3 Iter: 19/39 Batch time: 0.1733
+Phase: validation Epoch: 2/3 Iter: 20/39 Batch time: 0.1735
+Phase: validation Epoch: 2/3 Iter: 21/39 Batch time: 0.1752
+Phase: validation Epoch: 2/3 Iter: 22/39 Batch time: 0.1822
+Phase: validation Epoch: 2/3 Iter: 23/39 Batch time: 0.1753
+Phase: validation Epoch: 2/3 Iter: 24/39 Batch time: 0.1742
+Phase: validation Epoch: 2/3 Iter: 25/39 Batch time: 0.1738
+Phase: validation Epoch: 2/3 Iter: 26/39 Batch time: 0.1750
+Phase: validation Epoch: 2/3 Iter: 27/39 Batch time: 0.1734
+Phase: validation Epoch: 2/3 Iter: 28/39 Batch time: 0.1754
+Phase: validation Epoch: 2/3 Iter: 29/39 Batch time: 0.1729
+Phase: validation Epoch: 2/3 Iter: 30/39 Batch time: 0.1734
+Phase: validation Epoch: 2/3 Iter: 31/39 Batch time: 0.1761
+Phase: validation Epoch: 2/3 Iter: 32/39 Batch time: 0.1733
+Phase: validation Epoch: 2/3 Iter: 33/39 Batch time: 0.1742
+Phase: validation Epoch: 2/3 Iter: 34/39 Batch time: 0.1731
+Phase: validation Epoch: 2/3 Iter: 35/39 Batch time: 0.1730
+Phase: validation Epoch: 2/3 Iter: 36/39 Batch time: 0.1745
+Phase: validation Epoch: 2/3 Iter: 37/39 Batch time: 0.1737
+Phase: validation Epoch: 2/3 Iter: 38/39 Batch time: 0.1734
+Phase: validation Epoch: 2/3 Iter: 39/39 Batch time: 0.0517
+Phase: validation   Epoch: 2/3 Loss: 0.5389 Acc: 0.8235
+Phase: train Epoch: 3/3 Iter: 1/62 Batch time: 0.2315
+Phase: train Epoch: 3/3 Iter: 2/62 Batch time: 0.2304
+Phase: train Epoch: 3/3 Iter: 3/62 Batch time: 0.2346
+Phase: train Epoch: 3/3 Iter: 4/62 Batch time: 0.2354
+Phase: train Epoch: 3/3 Iter: 5/62 Batch time: 0.2340
+Phase: train Epoch: 3/3 Iter: 6/62 Batch time: 0.2317
+Phase: train Epoch: 3/3 Iter: 7/62 Batch time: 0.2357
+Phase: train Epoch: 3/3 Iter: 8/62 Batch time: 0.2322
+Phase: train Epoch: 3/3 Iter: 9/62 Batch time: 0.2337
+Phase: train Epoch: 3/3 Iter: 10/62 Batch time: 0.2345
+Phase: train Epoch: 3/3 Iter: 11/62 Batch time: 0.2335
+Phase: train Epoch: 3/3 Iter: 12/62 Batch time: 0.2317
+Phase: train Epoch: 3/3 Iter: 13/62 Batch time: 0.2449
+Phase: train Epoch: 3/3 Iter: 14/62 Batch time: 0.2341
+Phase: train Epoch: 3/3 Iter: 15/62 Batch time: 0.2325
+Phase: train Epoch: 3/3 Iter: 16/62 Batch time: 0.2333
+Phase: train Epoch: 3/3 Iter: 17/62 Batch time: 0.2346
+Phase: train Epoch: 3/3 Iter: 18/62 Batch time: 0.2360
+Phase: train Epoch: 3/3 Iter: 19/62 Batch time: 0.2339
+Phase: train Epoch: 3/3 Iter: 20/62 Batch time: 0.2332
+Phase: train Epoch: 3/3 Iter: 21/62 Batch time: 0.2360
+Phase: train Epoch: 3/3 Iter: 22/62 Batch time: 0.2419
+Phase: train Epoch: 3/3 Iter: 23/62 Batch time: 0.2335
+Phase: train Epoch: 3/3 Iter: 24/62 Batch time: 0.2335
+Phase: train Epoch: 3/3 Iter: 25/62 Batch time: 0.2342
+Phase: train Epoch: 3/3 Iter: 26/62 Batch time: 0.2389
+Phase: train Epoch: 3/3 Iter: 27/62 Batch time: 0.2411
+Phase: train Epoch: 3/3 Iter: 28/62 Batch time: 0.2353
+Phase: train Epoch: 3/3 Iter: 29/62 Batch time: 0.2351
+Phase: train Epoch: 3/3 Iter: 30/62 Batch time: 0.2380
+Phase: train Epoch: 3/3 Iter: 31/62 Batch time: 0.2367
+Phase: train Epoch: 3/3 Iter: 32/62 Batch time: 0.2368
+Phase: train Epoch: 3/3 Iter: 33/62 Batch time: 0.2329
+Phase: train Epoch: 3/3 Iter: 34/62 Batch time: 0.2584
+Phase: train Epoch: 3/3 Iter: 35/62 Batch time: 0.2351
+Phase: train Epoch: 3/3 Iter: 36/62 Batch time: 0.2332
+Phase: train Epoch: 3/3 Iter: 37/62 Batch time: 0.2351
+Phase: train Epoch: 3/3 Iter: 38/62 Batch time: 0.2350
+Phase: train Epoch: 3/3 Iter: 39/62 Batch time: 0.2346
+Phase: train Epoch: 3/3 Iter: 40/62 Batch time: 0.2323
+Phase: train Epoch: 3/3 Iter: 41/62 Batch time: 0.2371
+Phase: train Epoch: 3/3 Iter: 42/62 Batch time: 0.2331
+Phase: train Epoch: 3/3 Iter: 43/62 Batch time: 0.2344
+Phase: train Epoch: 3/3 Iter: 44/62 Batch time: 0.2340
+Phase: train Epoch: 3/3 Iter: 45/62 Batch time: 0.2339
+Phase: train Epoch: 3/3 Iter: 46/62 Batch time: 0.2312
+Phase: train Epoch: 3/3 Iter: 47/62 Batch time: 0.2338
+Phase: train Epoch: 3/3 Iter: 48/62 Batch time: 0.2332
+Phase: train Epoch: 3/3 Iter: 49/62 Batch time: 0.2360
+Phase: train Epoch: 3/3 Iter: 50/62 Batch time: 0.2357
+Phase: train Epoch: 3/3 Iter: 51/62 Batch time: 0.2336
+Phase: train Epoch: 3/3 Iter: 52/62 Batch time: 0.2339
+Phase: train Epoch: 3/3 Iter: 53/62 Batch time: 0.2354
+Phase: train Epoch: 3/3 Iter: 54/62 Batch time: 0.2328
+Phase: train Epoch: 3/3 Iter: 55/62 Batch time: 0.2343
+Phase: train Epoch: 3/3 Iter: 56/62 Batch time: 0.2330
+Phase: train Epoch: 3/3 Iter: 57/62 Batch time: 0.2344
+Phase: train Epoch: 3/3 Iter: 58/62 Batch time: 0.2318
+Phase: train Epoch: 3/3 Iter: 59/62 Batch time: 0.2673
+Phase: train Epoch: 3/3 Iter: 60/62 Batch time: 0.2443
+Phase: train Epoch: 3/3 Iter: 61/62 Batch time: 0.2342
+Phase: train Epoch: 3/3 Loss: 0.5652 Acc: 0.7418
+Phase: validation Epoch: 3/3 Iter: 1/39 Batch time: 0.1768
+Phase: validation Epoch: 3/3 Iter: 2/39 Batch time: 0.1747
+Phase: validation Epoch: 3/3 Iter: 3/39 Batch time: 0.1738
+Phase: validation Epoch: 3/3 Iter: 4/39 Batch time: 0.1726
+Phase: validation Epoch: 3/3 Iter: 5/39 Batch time: 0.1728
+Phase: validation Epoch: 3/3 Iter: 6/39 Batch time: 0.1731
+Phase: validation Epoch: 3/3 Iter: 7/39 Batch time: 0.1743
+Phase: validation Epoch: 3/3 Iter: 8/39 Batch time: 0.1736
+Phase: validation Epoch: 3/3 Iter: 9/39 Batch time: 0.1734
+Phase: validation Epoch: 3/3 Iter: 10/39 Batch time: 0.1731
+Phase: validation Epoch: 3/3 Iter: 11/39 Batch time: 0.1731
+Phase: validation Epoch: 3/3 Iter: 12/39 Batch time: 0.1765
+Phase: validation Epoch: 3/3 Iter: 13/39 Batch time: 0.1748
+Phase: validation Epoch: 3/3 Iter: 14/39 Batch time: 0.1728
+Phase: validation Epoch: 3/3 Iter: 15/39 Batch time: 0.1739
+Phase: validation Epoch: 3/3 Iter: 16/39 Batch time: 0.1778
+Phase: validation Epoch: 3/3 Iter: 17/39 Batch time: 0.1734
+Phase: validation Epoch: 3/3 Iter: 18/39 Batch time: 0.1728
+Phase: validation Epoch: 3/3 Iter: 19/39 Batch time: 0.2025
+Phase: validation Epoch: 3/3 Iter: 20/39 Batch time: 0.1745
+Phase: validation Epoch: 3/3 Iter: 21/39 Batch time: 0.1735
+Phase: validation Epoch: 3/3 Iter: 22/39 Batch time: 0.1732
+Phase: validation Epoch: 3/3 Iter: 23/39 Batch time: 0.1738
+Phase: validation Epoch: 3/3 Iter: 24/39 Batch time: 0.1806
+Phase: validation Epoch: 3/3 Iter: 25/39 Batch time: 0.1756
+Phase: validation Epoch: 3/3 Iter: 26/39 Batch time: 0.1724
+Phase: validation Epoch: 3/3 Iter: 27/39 Batch time: 0.1725
+Phase: validation Epoch: 3/3 Iter: 28/39 Batch time: 0.1733
+Phase: validation Epoch: 3/3 Iter: 29/39 Batch time: 0.1728
+Phase: validation Epoch: 3/3 Iter: 30/39 Batch time: 0.1740
+Phase: validation Epoch: 3/3 Iter: 31/39 Batch time: 0.1732
+Phase: validation Epoch: 3/3 Iter: 32/39 Batch time: 0.1733
+Phase: validation Epoch: 3/3 Iter: 33/39 Batch time: 0.2316
+Phase: validation Epoch: 3/3 Iter: 34/39 Batch time: 0.1804
+Phase: validation Epoch: 3/3 Iter: 35/39 Batch time: 0.1732
+Phase: validation Epoch: 3/3 Iter: 36/39 Batch time: 0.1723
+Phase: validation Epoch: 3/3 Iter: 37/39 Batch time: 0.1753
+Phase: validation Epoch: 3/3 Iter: 38/39 Batch time: 0.1753
+Phase: validation Epoch: 3/3 Iter: 39/39 Batch time: 0.0520
+Phase: validation   Epoch: 3/3 Loss: 0.4484 Acc: 0.8497
+Training completed in 1m 11s
+Best test loss: 0.4484 | Best test accuracy: 0.8497
+ </code>
+ </pre>
+ </details>
 
-[Dev](http://pennylane.ai-dev.s3-website-us-east-1.amazonaws.com/qml/demos/tutorial_qnn_module_tf.html):
+[Dev](http://pennylane.ai-dev.s3-website-us-east-1.amazonaws.com/qml/demos/tutorial_quantum_transfer_learning.html):
 
-```
-30/30 - 12s - loss: 0.4997 - accuracy: 0.5000 - val_loss: 0.5081 - val_accuracy: 0.4400 - 12s/epoch - 415ms/step
-30/30 - 13s - loss: 0.4673 - accuracy: 0.6200 - val_loss: 0.4488 - val_accuracy: 0.6200 - 13s/epoch - 418ms/step
-30/30 - 13s - loss: 0.3230 - accuracy: 0.8267 - val_loss: 0.2562 - val_accuracy: 0.8400 - 13s/epoch - 425ms/step
-30/30 - 13s - loss: 0.2124 - accuracy: 0.8867 - val_loss: 0.1997 - val_accuracy: 0.8400 - 13s/epoch - 426ms/step
-30/30 - 13s - loss: 0.1800 - accuracy: 0.8933 - val_loss: 0.1841 - val_accuracy: 0.8400 - 13s/epoch - 419ms/step
-30/30 - 13s - loss: 0.1593 - accuracy: 0.8667 - val_loss: 0.2177 - val_accuracy: 0.8400 - 13s/epoch - 424ms/step
-30/30 - 25s - loss: 0.5189 - accuracy: 0.4000 - val_loss: 0.4945 - val_accuracy: 0.5400 - 25s/epoch - 847ms/step
-30/30 - 25s - loss: 0.4822 - accuracy: 0.6200 - val_loss: 0.4412 - val_accuracy: 0.7200 - 25s/epoch - 842ms/step
-30/30 - 25s - loss: 0.3850 - accuracy: 0.7133 - val_loss: 0.2898 - val_accuracy: 0.7800 - 25s/epoch - 832ms/step
-30/30 - 25s - loss: 0.2720 - accuracy: 0.7867 - val_loss: 0.2185 - val_accuracy: 0.8200 - 25s/epoch - 829ms/step
-30/30 - 26s - loss: 0.2056 - accuracy: 0.8400 - val_loss: 0.1893 - val_accuracy: 0.8400 - 26s/epoch - 860ms/step
-30/30 - 25s - loss: 0.1753 - accuracy: 0.8400 - val_loss: 0.1856 - val_accuracy: 0.8400 - 25s/epoch - 827ms/step
-```
+<details> 
+ <summary>
+ More 
+ </summary>
+ <pre>
+ <code>
+  1%|1         | 592k/44.7M [00:00<00:07, 5.92MB/s]
+  3%|2         | 1.20M/44.7M [00:00<00:07, 6.16MB/s]
+  4%|4         | 1.79M/44.7M [00:00<00:07, 6.15MB/s]
+  5%|5         | 2.38M/44.7M [00:00<00:07, 6.09MB/s]
+  7%|6         | 3.10M/44.7M [00:00<00:06, 6.58MB/s]
+ 10%|#         | 4.48M/44.7M [00:00<00:04, 9.20MB/s]
+ 17%|#7        | 7.74M/44.7M [00:00<00:02, 17.3MB/s]
+ 32%|###2      | 14.5M/44.7M [00:00<00:00, 34.1MB/s]
+ 58%|#####7    | 25.8M/44.7M [00:00<00:00, 60.3MB/s]
+ 85%|########5 | 38.1M/44.7M [00:01<00:00, 81.3MB/s]
+100%|##########| 44.7M/44.7M [00:01<00:00, 44.0MB/s]
+Training started:
+Phase: train Epoch: 1/3 Iter: 1/62 Batch time: 0.4813
+Phase: train Epoch: 1/3 Iter: 2/62 Batch time: 0.3958
+Phase: train Epoch: 1/3 Iter: 3/62 Batch time: 0.4223
+Phase: train Epoch: 1/3 Iter: 4/62 Batch time: 0.4005
+Phase: train Epoch: 1/3 Iter: 5/62 Batch time: 0.4048
+Phase: train Epoch: 1/3 Iter: 6/62 Batch time: 0.4297
+Phase: train Epoch: 1/3 Iter: 7/62 Batch time: 0.4001
+Phase: train Epoch: 1/3 Iter: 8/62 Batch time: 0.4328
+Phase: train Epoch: 1/3 Iter: 9/62 Batch time: 0.3908
+Phase: train Epoch: 1/3 Iter: 10/62 Batch time: 0.3936
+Phase: train Epoch: 1/3 Iter: 11/62 Batch time: 0.3899
+Phase: train Epoch: 1/3 Iter: 12/62 Batch time: 0.3892
+Phase: train Epoch: 1/3 Iter: 13/62 Batch time: 0.4274
+Phase: train Epoch: 1/3 Iter: 14/62 Batch time: 0.4157
+Phase: train Epoch: 1/3 Iter: 15/62 Batch time: 0.3993
+Phase: train Epoch: 1/3 Iter: 16/62 Batch time: 0.4076
+Phase: train Epoch: 1/3 Iter: 17/62 Batch time: 0.3912
+Phase: train Epoch: 1/3 Iter: 18/62 Batch time: 0.4083
+Phase: train Epoch: 1/3 Iter: 19/62 Batch time: 0.3956
+Phase: train Epoch: 1/3 Iter: 20/62 Batch time: 0.4157
+Phase: train Epoch: 1/3 Iter: 21/62 Batch time: 0.4124
+Phase: train Epoch: 1/3 Iter: 22/62 Batch time: 0.3994
+Phase: train Epoch: 1/3 Iter: 23/62 Batch time: 0.3970
+Phase: train Epoch: 1/3 Iter: 24/62 Batch time: 0.3865
+Phase: train Epoch: 1/3 Iter: 25/62 Batch time: 0.4204
+Phase: train Epoch: 1/3 Iter: 26/62 Batch time: 0.3804
+Phase: train Epoch: 1/3 Iter: 27/62 Batch time: 0.4304
+Phase: train Epoch: 1/3 Iter: 28/62 Batch time: 0.4304
+Phase: train Epoch: 1/3 Iter: 29/62 Batch time: 0.3871
+Phase: train Epoch: 1/3 Iter: 30/62 Batch time: 0.4047
+Phase: train Epoch: 1/3 Iter: 31/62 Batch time: 0.3949
+Phase: train Epoch: 1/3 Iter: 32/62 Batch time: 0.3906
+Phase: train Epoch: 1/3 Iter: 33/62 Batch time: 0.3857
+Phase: train Epoch: 1/3 Iter: 34/62 Batch time: 0.3974
+Phase: train Epoch: 1/3 Iter: 35/62 Batch time: 0.3901
+Phase: train Epoch: 1/3 Iter: 36/62 Batch time: 0.3945
+Phase: train Epoch: 1/3 Iter: 37/62 Batch time: 0.4034
+Phase: train Epoch: 1/3 Iter: 38/62 Batch time: 0.4112
+Phase: train Epoch: 1/3 Iter: 39/62 Batch time: 0.3983
+Phase: train Epoch: 1/3 Iter: 40/62 Batch time: 0.3909
+Phase: train Epoch: 1/3 Iter: 41/62 Batch time: 0.3968
+Phase: train Epoch: 1/3 Iter: 42/62 Batch time: 0.3992
+Phase: train Epoch: 1/3 Iter: 43/62 Batch time: 0.4157
+Phase: train Epoch: 1/3 Iter: 44/62 Batch time: 0.3933
+Phase: train Epoch: 1/3 Iter: 45/62 Batch time: 0.3794
+Phase: train Epoch: 1/3 Iter: 46/62 Batch time: 0.3899
+Phase: train Epoch: 1/3 Iter: 47/62 Batch time: 0.4007
+Phase: train Epoch: 1/3 Iter: 48/62 Batch time: 0.3849
+Phase: train Epoch: 1/3 Iter: 49/62 Batch time: 0.3901
+Phase: train Epoch: 1/3 Iter: 50/62 Batch time: 0.3819
+Phase: train Epoch: 1/3 Iter: 51/62 Batch time: 0.3761
+Phase: train Epoch: 1/3 Iter: 52/62 Batch time: 0.3833
+Phase: train Epoch: 1/3 Iter: 53/62 Batch time: 0.4168
+Phase: train Epoch: 1/3 Iter: 54/62 Batch time: 0.4293
+Phase: train Epoch: 1/3 Iter: 55/62 Batch time: 0.3940
+Phase: train Epoch: 1/3 Iter: 56/62 Batch time: 0.4109
+Phase: train Epoch: 1/3 Iter: 57/62 Batch time: 0.3657
+Phase: train Epoch: 1/3 Iter: 58/62 Batch time: 0.3767
+Phase: train Epoch: 1/3 Iter: 59/62 Batch time: 0.3910
+Phase: train Epoch: 1/3 Iter: 60/62 Batch time: 0.3744
+Phase: train Epoch: 1/3 Iter: 61/62 Batch time: 0.3950
+Phase: train Epoch: 1/3 Loss: 0.6990 Acc: 0.5246
+Phase: validation Epoch: 1/3 Iter: 1/39 Batch time: 0.3187
+Phase: validation Epoch: 1/3 Iter: 2/39 Batch time: 0.3065
+Phase: validation Epoch: 1/3 Iter: 3/39 Batch time: 0.3376
+Phase: validation Epoch: 1/3 Iter: 4/39 Batch time: 0.2992
+Phase: validation Epoch: 1/3 Iter: 5/39 Batch time: 0.3033
+Phase: validation Epoch: 1/3 Iter: 6/39 Batch time: 0.2961
+Phase: validation Epoch: 1/3 Iter: 7/39 Batch time: 0.2955
+Phase: validation Epoch: 1/3 Iter: 8/39 Batch time: 0.3204
+Phase: validation Epoch: 1/3 Iter: 9/39 Batch time: 0.2967
+Phase: validation Epoch: 1/3 Iter: 10/39 Batch time: 0.3096
+Phase: validation Epoch: 1/3 Iter: 11/39 Batch time: 0.3058
+Phase: validation Epoch: 1/3 Iter: 12/39 Batch time: 0.3337
+Phase: validation Epoch: 1/3 Iter: 13/39 Batch time: 0.3250
+Phase: validation Epoch: 1/3 Iter: 14/39 Batch time: 0.3248
+Phase: validation Epoch: 1/3 Iter: 15/39 Batch time: 0.3086
+Phase: validation Epoch: 1/3 Iter: 16/39 Batch time: 0.2943
+Phase: validation Epoch: 1/3 Iter: 17/39 Batch time: 0.3140
+Phase: validation Epoch: 1/3 Iter: 18/39 Batch time: 0.2927
+Phase: validation Epoch: 1/3 Iter: 19/39 Batch time: 0.3071
+Phase: validation Epoch: 1/3 Iter: 20/39 Batch time: 0.2948
+Phase: validation Epoch: 1/3 Iter: 21/39 Batch time: 0.3118
+Phase: validation Epoch: 1/3 Iter: 22/39 Batch time: 0.3186
+Phase: validation Epoch: 1/3 Iter: 23/39 Batch time: 0.3018
+Phase: validation Epoch: 1/3 Iter: 24/39 Batch time: 0.2962
+Phase: validation Epoch: 1/3 Iter: 25/39 Batch time: 0.3103
+Phase: validation Epoch: 1/3 Iter: 26/39 Batch time: 0.3121
+Phase: validation Epoch: 1/3 Iter: 27/39 Batch time: 0.3173
+Phase: validation Epoch: 1/3 Iter: 28/39 Batch time: 0.3276
+Phase: validation Epoch: 1/3 Iter: 29/39 Batch time: 0.3212
+Phase: validation Epoch: 1/3 Iter: 30/39 Batch time: 0.3231
+Phase: validation Epoch: 1/3 Iter: 31/39 Batch time: 0.3269
+Phase: validation Epoch: 1/3 Iter: 32/39 Batch time: 0.3334
+Phase: validation Epoch: 1/3 Iter: 33/39 Batch time: 0.3243
+Phase: validation Epoch: 1/3 Iter: 34/39 Batch time: 0.3166
+Phase: validation Epoch: 1/3 Iter: 35/39 Batch time: 0.3087
+Phase: validation Epoch: 1/3 Iter: 36/39 Batch time: 0.3189
+Phase: validation Epoch: 1/3 Iter: 37/39 Batch time: 0.3228
+Phase: validation Epoch: 1/3 Iter: 38/39 Batch time: 0.2960
+Phase: validation Epoch: 1/3 Iter: 39/39 Batch time: 0.0838
+Phase: validation   Epoch: 1/3 Loss: 0.6429 Acc: 0.6536
+Phase: train Epoch: 2/3 Iter: 1/62 Batch time: 0.3858
+Phase: train Epoch: 2/3 Iter: 2/62 Batch time: 0.3717
+Phase: train Epoch: 2/3 Iter: 3/62 Batch time: 0.3745
+Phase: train Epoch: 2/3 Iter: 4/62 Batch time: 0.3755
+Phase: train Epoch: 2/3 Iter: 5/62 Batch time: 0.3818
+Phase: train Epoch: 2/3 Iter: 6/62 Batch time: 0.3846
+Phase: train Epoch: 2/3 Iter: 7/62 Batch time: 0.3908
+Phase: train Epoch: 2/3 Iter: 8/62 Batch time: 0.3805
+Phase: train Epoch: 2/3 Iter: 9/62 Batch time: 0.3884
+Phase: train Epoch: 2/3 Iter: 10/62 Batch time: 0.3968
+Phase: train Epoch: 2/3 Iter: 11/62 Batch time: 0.3849
+Phase: train Epoch: 2/3 Iter: 12/62 Batch time: 0.3997
+Phase: train Epoch: 2/3 Iter: 13/62 Batch time: 0.3883
+Phase: train Epoch: 2/3 Iter: 14/62 Batch time: 0.3914
+Phase: train Epoch: 2/3 Iter: 15/62 Batch time: 0.3925
+Phase: train Epoch: 2/3 Iter: 16/62 Batch time: 0.3916
+Phase: train Epoch: 2/3 Iter: 17/62 Batch time: 0.3964
+Phase: train Epoch: 2/3 Iter: 18/62 Batch time: 0.4020
+Phase: train Epoch: 2/3 Iter: 19/62 Batch time: 0.3915
+Phase: train Epoch: 2/3 Iter: 20/62 Batch time: 0.4021
+Phase: train Epoch: 2/3 Iter: 21/62 Batch time: 0.3969
+Phase: train Epoch: 2/3 Iter: 22/62 Batch time: 0.4024
+Phase: train Epoch: 2/3 Iter: 23/62 Batch time: 0.3876
+Phase: train Epoch: 2/3 Iter: 24/62 Batch time: 0.3940
+Phase: train Epoch: 2/3 Iter: 25/62 Batch time: 0.3684
+Phase: train Epoch: 2/3 Iter: 26/62 Batch time: 0.3708
+Phase: train Epoch: 2/3 Iter: 27/62 Batch time: 0.3860
+Phase: train Epoch: 2/3 Iter: 28/62 Batch time: 0.3854
+Phase: train Epoch: 2/3 Iter: 29/62 Batch time: 0.3802
+Phase: train Epoch: 2/3 Iter: 30/62 Batch time: 0.3811
+Phase: train Epoch: 2/3 Iter: 31/62 Batch time: 0.4080
+Phase: train Epoch: 2/3 Iter: 32/62 Batch time: 0.4065
+Phase: train Epoch: 2/3 Iter: 33/62 Batch time: 0.3854
+Phase: train Epoch: 2/3 Iter: 34/62 Batch time: 0.3970
+Phase: train Epoch: 2/3 Iter: 35/62 Batch time: 0.3864
+Phase: train Epoch: 2/3 Iter: 36/62 Batch time: 0.4112
+Phase: train Epoch: 2/3 Iter: 37/62 Batch time: 0.4200
+Phase: train Epoch: 2/3 Iter: 38/62 Batch time: 0.4156
+Phase: train Epoch: 2/3 Iter: 39/62 Batch time: 0.4167
+Phase: train Epoch: 2/3 Iter: 40/62 Batch time: 0.3824
+Phase: train Epoch: 2/3 Iter: 41/62 Batch time: 0.4229
+Phase: train Epoch: 2/3 Iter: 42/62 Batch time: 0.4083
+Phase: train Epoch: 2/3 Iter: 43/62 Batch time: 0.4332
+Phase: train Epoch: 2/3 Iter: 44/62 Batch time: 0.4005
+Phase: train Epoch: 2/3 Iter: 45/62 Batch time: 0.3936
+Phase: train Epoch: 2/3 Iter: 46/62 Batch time: 0.4355
+Phase: train Epoch: 2/3 Iter: 47/62 Batch time: 0.4153
+Phase: train Epoch: 2/3 Iter: 48/62 Batch time: 0.4035
+Phase: train Epoch: 2/3 Iter: 49/62 Batch time: 0.4081
+Phase: train Epoch: 2/3 Iter: 50/62 Batch time: 0.4062
+Phase: train Epoch: 2/3 Iter: 51/62 Batch time: 0.4335
+Phase: train Epoch: 2/3 Iter: 52/62 Batch time: 0.4071
+Phase: train Epoch: 2/3 Iter: 53/62 Batch time: 0.4067
+Phase: train Epoch: 2/3 Iter: 54/62 Batch time: 0.4078
+Phase: train Epoch: 2/3 Iter: 55/62 Batch time: 0.3972
+Phase: train Epoch: 2/3 Iter: 56/62 Batch time: 0.4135
+Phase: train Epoch: 2/3 Iter: 57/62 Batch time: 0.3961
+Phase: train Epoch: 2/3 Iter: 58/62 Batch time: 0.3876
+Phase: train Epoch: 2/3 Iter: 59/62 Batch time: 0.3960
+Phase: train Epoch: 2/3 Iter: 60/62 Batch time: 0.3951
+Phase: train Epoch: 2/3 Iter: 61/62 Batch time: 0.4205
+Phase: train Epoch: 2/3 Loss: 0.6134 Acc: 0.7008
+Phase: validation Epoch: 2/3 Iter: 1/39 Batch time: 0.3256
+Phase: validation Epoch: 2/3 Iter: 2/39 Batch time: 0.3173
+Phase: validation Epoch: 2/3 Iter: 3/39 Batch time: 0.2931
+Phase: validation Epoch: 2/3 Iter: 4/39 Batch time: 0.3136
+Phase: validation Epoch: 2/3 Iter: 5/39 Batch time: 0.3151
+Phase: validation Epoch: 2/3 Iter: 6/39 Batch time: 0.3042
+Phase: validation Epoch: 2/3 Iter: 7/39 Batch time: 0.3112
+Phase: validation Epoch: 2/3 Iter: 8/39 Batch time: 0.3206
+Phase: validation Epoch: 2/3 Iter: 9/39 Batch time: 0.3108
+Phase: validation Epoch: 2/3 Iter: 10/39 Batch time: 0.2930
+Phase: validation Epoch: 2/3 Iter: 11/39 Batch time: 0.3231
+Phase: validation Epoch: 2/3 Iter: 12/39 Batch time: 0.3060
+Phase: validation Epoch: 2/3 Iter: 13/39 Batch time: 0.2981
+Phase: validation Epoch: 2/3 Iter: 14/39 Batch time: 0.3155
+Phase: validation Epoch: 2/3 Iter: 15/39 Batch time: 0.3096
+Phase: validation Epoch: 2/3 Iter: 16/39 Batch time: 0.2930
+Phase: validation Epoch: 2/3 Iter: 17/39 Batch time: 0.3092
+Phase: validation Epoch: 2/3 Iter: 18/39 Batch time: 0.3068
+Phase: validation Epoch: 2/3 Iter: 19/39 Batch time: 0.3030
+Phase: validation Epoch: 2/3 Iter: 20/39 Batch time: 0.3126
+Phase: validation Epoch: 2/3 Iter: 21/39 Batch time: 0.3317
+Phase: validation Epoch: 2/3 Iter: 22/39 Batch time: 0.3264
+Phase: validation Epoch: 2/3 Iter: 23/39 Batch time: 0.3313
+Phase: validation Epoch: 2/3 Iter: 24/39 Batch time: 0.3059
+Phase: validation Epoch: 2/3 Iter: 25/39 Batch time: 0.2933
+Phase: validation Epoch: 2/3 Iter: 26/39 Batch time: 0.2905
+Phase: validation Epoch: 2/3 Iter: 27/39 Batch time: 0.3071
+Phase: validation Epoch: 2/3 Iter: 28/39 Batch time: 0.3146
+Phase: validation Epoch: 2/3 Iter: 29/39 Batch time: 0.2989
+Phase: validation Epoch: 2/3 Iter: 30/39 Batch time: 0.3121
+Phase: validation Epoch: 2/3 Iter: 31/39 Batch time: 0.2930
+Phase: validation Epoch: 2/3 Iter: 32/39 Batch time: 0.3086
+Phase: validation Epoch: 2/3 Iter: 33/39 Batch time: 0.3034
+Phase: validation Epoch: 2/3 Iter: 34/39 Batch time: 0.2919
+Phase: validation Epoch: 2/3 Iter: 35/39 Batch time: 0.3280
+Phase: validation Epoch: 2/3 Iter: 36/39 Batch time: 0.3104
+Phase: validation Epoch: 2/3 Iter: 37/39 Batch time: 0.3011
+Phase: validation Epoch: 2/3 Iter: 38/39 Batch time: 0.2962
+Phase: validation Epoch: 2/3 Iter: 39/39 Batch time: 0.0897
+Phase: validation   Epoch: 2/3 Loss: 0.5389 Acc: 0.8235
+Phase: train Epoch: 3/3 Iter: 1/62 Batch time: 0.3978
+Phase: train Epoch: 3/3 Iter: 2/62 Batch time: 0.3813
+Phase: train Epoch: 3/3 Iter: 3/62 Batch time: 0.3860
+Phase: train Epoch: 3/3 Iter: 4/62 Batch time: 0.3740
+Phase: train Epoch: 3/3 Iter: 5/62 Batch time: 0.3879
+Phase: train Epoch: 3/3 Iter: 6/62 Batch time: 0.3854
+Phase: train Epoch: 3/3 Iter: 7/62 Batch time: 0.3745
+Phase: train Epoch: 3/3 Iter: 8/62 Batch time: 0.3829
+Phase: train Epoch: 3/3 Iter: 9/62 Batch time: 0.3804
+Phase: train Epoch: 3/3 Iter: 10/62 Batch time: 0.3785
+Phase: train Epoch: 3/3 Iter: 11/62 Batch time: 0.4534
+Phase: train Epoch: 3/3 Iter: 12/62 Batch time: 0.3914
+Phase: train Epoch: 3/3 Iter: 13/62 Batch time: 0.4006
+Phase: train Epoch: 3/3 Iter: 14/62 Batch time: 0.3877
+Phase: train Epoch: 3/3 Iter: 15/62 Batch time: 0.3815
+Phase: train Epoch: 3/3 Iter: 16/62 Batch time: 0.3735
+Phase: train Epoch: 3/3 Iter: 17/62 Batch time: 0.3755
+Phase: train Epoch: 3/3 Iter: 18/62 Batch time: 0.3811
+Phase: train Epoch: 3/3 Iter: 19/62 Batch time: 0.3933
+Phase: train Epoch: 3/3 Iter: 20/62 Batch time: 0.4039
+Phase: train Epoch: 3/3 Iter: 21/62 Batch time: 0.3885
+Phase: train Epoch: 3/3 Iter: 22/62 Batch time: 0.3936
+Phase: train Epoch: 3/3 Iter: 23/62 Batch time: 0.3709
+Phase: train Epoch: 3/3 Iter: 24/62 Batch time: 0.3753
+Phase: train Epoch: 3/3 Iter: 25/62 Batch time: 0.3965
+Phase: train Epoch: 3/3 Iter: 26/62 Batch time: 0.3835
+Phase: train Epoch: 3/3 Iter: 27/62 Batch time: 0.3793
+Phase: train Epoch: 3/3 Iter: 28/62 Batch time: 0.3874
+Phase: train Epoch: 3/3 Iter: 29/62 Batch time: 0.3866
+Phase: train Epoch: 3/3 Iter: 30/62 Batch time: 0.3837
+Phase: train Epoch: 3/3 Iter: 31/62 Batch time: 0.3900
+Phase: train Epoch: 3/3 Iter: 32/62 Batch time: 0.3815
+Phase: train Epoch: 3/3 Iter: 33/62 Batch time: 0.3973
+Phase: train Epoch: 3/3 Iter: 34/62 Batch time: 0.3884
+Phase: train Epoch: 3/3 Iter: 35/62 Batch time: 0.3788
+Phase: train Epoch: 3/3 Iter: 36/62 Batch time: 0.3861
+Phase: train Epoch: 3/3 Iter: 37/62 Batch time: 0.4080
+Phase: train Epoch: 3/3 Iter: 38/62 Batch time: 0.3806
+Phase: train Epoch: 3/3 Iter: 39/62 Batch time: 0.3848
+Phase: train Epoch: 3/3 Iter: 40/62 Batch time: 0.3710
+Phase: train Epoch: 3/3 Iter: 41/62 Batch time: 0.3780
+Phase: train Epoch: 3/3 Iter: 42/62 Batch time: 0.3797
+Phase: train Epoch: 3/3 Iter: 43/62 Batch time: 0.3788
+Phase: train Epoch: 3/3 Iter: 44/62 Batch time: 0.3810
+Phase: train Epoch: 3/3 Iter: 45/62 Batch time: 0.3729
+Phase: train Epoch: 3/3 Iter: 46/62 Batch time: 0.3913
+Phase: train Epoch: 3/3 Iter: 47/62 Batch time: 0.3891
+Phase: train Epoch: 3/3 Iter: 48/62 Batch time: 0.4239
+Phase: train Epoch: 3/3 Iter: 49/62 Batch time: 0.4062
+Phase: train Epoch: 3/3 Iter: 50/62 Batch time: 0.3804
+Phase: train Epoch: 3/3 Iter: 51/62 Batch time: 0.4115
+Phase: train Epoch: 3/3 Iter: 52/62 Batch time: 0.3791
+Phase: train Epoch: 3/3 Iter: 53/62 Batch time: 0.3941
+Phase: train Epoch: 3/3 Iter: 54/62 Batch time: 0.3827
+Phase: train Epoch: 3/3 Iter: 55/62 Batch time: 0.3846
+Phase: train Epoch: 3/3 Iter: 56/62 Batch time: 0.3859
+Phase: train Epoch: 3/3 Iter: 57/62 Batch time: 0.3942
+Phase: train Epoch: 3/3 Iter: 58/62 Batch time: 0.3807
+Phase: train Epoch: 3/3 Iter: 59/62 Batch time: 0.3944
+Phase: train Epoch: 3/3 Iter: 60/62 Batch time: 0.3914
+Phase: train Epoch: 3/3 Iter: 61/62 Batch time: 0.3860
+Phase: train Epoch: 3/3 Loss: 0.5652 Acc: 0.7418
+Phase: validation Epoch: 3/3 Iter: 1/39 Batch time: 0.2859
+Phase: validation Epoch: 3/3 Iter: 2/39 Batch time: 0.2939
+Phase: validation Epoch: 3/3 Iter: 3/39 Batch time: 0.2967
+Phase: validation Epoch: 3/3 Iter: 4/39 Batch time: 0.2915
+Phase: validation Epoch: 3/3 Iter: 5/39 Batch time: 0.2864
+Phase: validation Epoch: 3/3 Iter: 6/39 Batch time: 0.2936
+Phase: validation Epoch: 3/3 Iter: 7/39 Batch time: 0.3030
+Phase: validation Epoch: 3/3 Iter: 8/39 Batch time: 0.2876
+Phase: validation Epoch: 3/3 Iter: 9/39 Batch time: 0.2830
+Phase: validation Epoch: 3/3 Iter: 10/39 Batch time: 0.2852
+Phase: validation Epoch: 3/3 Iter: 11/39 Batch time: 0.2831
+Phase: validation Epoch: 3/3 Iter: 12/39 Batch time: 0.2917
+Phase: validation Epoch: 3/3 Iter: 13/39 Batch time: 0.2914
+Phase: validation Epoch: 3/3 Iter: 14/39 Batch time: 0.3017
+Phase: validation Epoch: 3/3 Iter: 15/39 Batch time: 0.3022
+Phase: validation Epoch: 3/3 Iter: 16/39 Batch time: 0.3036
+Phase: validation Epoch: 3/3 Iter: 17/39 Batch time: 0.3133
+Phase: validation Epoch: 3/3 Iter: 18/39 Batch time: 0.2953
+Phase: validation Epoch: 3/3 Iter: 19/39 Batch time: 0.3087
+Phase: validation Epoch: 3/3 Iter: 20/39 Batch time: 0.3047
+Phase: validation Epoch: 3/3 Iter: 21/39 Batch time: 0.3020
+Phase: validation Epoch: 3/3 Iter: 22/39 Batch time: 0.3081
+Phase: validation Epoch: 3/3 Iter: 23/39 Batch time: 0.2924
+Phase: validation Epoch: 3/3 Iter: 24/39 Batch time: 0.3020
+Phase: validation Epoch: 3/3 Iter: 25/39 Batch time: 0.3014
+Phase: validation Epoch: 3/3 Iter: 26/39 Batch time: 0.2899
+Phase: validation Epoch: 3/3 Iter: 27/39 Batch time: 0.2939
+Phase: validation Epoch: 3/3 Iter: 28/39 Batch time: 0.3003
+Phase: validation Epoch: 3/3 Iter: 29/39 Batch time: 0.2930
+Phase: validation Epoch: 3/3 Iter: 30/39 Batch time: 0.3085
+Phase: validation Epoch: 3/3 Iter: 31/39 Batch time: 0.2978
+Phase: validation Epoch: 3/3 Iter: 32/39 Batch time: 0.2941
+Phase: validation Epoch: 3/3 Iter: 33/39 Batch time: 0.2895
+Phase: validation Epoch: 3/3 Iter: 34/39 Batch time: 0.2906
+ </code>
+ </pre>
+ </details>
 
 ---
 
