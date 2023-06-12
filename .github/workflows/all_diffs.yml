@@ -1,0 +1,220 @@
+name: Run Text and Image Diff Checks
+on:
+  pull_request:
+  schedule:
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
+
+jobs:
+  get-dev-build:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.4.1
+        with:
+          access_token: ${{ github.token }}
+
+      - uses: actions/checkout@v2
+        with:
+          ref: master
+
+      - name: Get Workflow run ID
+        id: workflow_run_id
+        uses: actions/github-script@v6
+        with:
+          result-encoding: string
+          script: |
+            const workflowRuns = await github.paginate(github.rest.actions.listWorkflowRuns.endpoint.merge({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'build-branch-dev.yml',
+              branch: 'master',
+              event: 'schedule',
+              status: 'success'
+            }));
+            const workflowRunsSorted = workflowRuns.sort((a, b) => b.run_number - a.run_number);
+
+            return workflowRunsSorted[0].id
+
+      - name: Add dev folder
+        run: |
+          mkdir dev
+
+      - name: Download Dev Artifact
+        uses: XanaduAI/cloud-actions/download-github-workflow-artifact@main
+        with:
+          workflow_run_id: ${{ steps.workflow_run_id.outputs.result }}
+          artifact_name_regex: html.zip
+          github_token: ${{ github.token }}
+          artifact_download_dir: ${{ github.workspace }}/dev
+
+      - name: Unpack Artifact
+        run: |
+          cd dev
+          FILE='html.zip.zip'
+          if [ -f "$FILE" ]; then
+            echo "$FILE exists."
+            unzip html.zip
+          fi
+
+      # - name: Check Artifact Exists
+      #   id: check_dev_build_existence
+      #   run: |
+      #     cd dev
+      #     ls
+      #     [ -d "html.zip" ] && result='true' || result='false'
+      #     echo $result
+
+      #     if [ "$result" == "false"]; then
+      #       echo "Did not find unpacked build."
+      #     else
+      #       echo "Found unpacked build."
+
+      - name: Save cache
+        uses: actions/cache@v2
+        with:
+          path: ${{ github.workspace }}/dev
+          key: dev_build-${{ runner.os }}
+
+  get-master-build:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.4.1
+        with:
+          access_token: ${{ github.token }}
+
+      - uses: actions/checkout@v2
+        with:
+          ref: master
+
+      - name: Get Workflow run ID
+        id: workflow_run_id
+        uses: actions/github-script@v6
+        with:
+          result-encoding: string
+          script: |
+            const workflowRuns = await github.paginate(github.rest.actions.listWorkflowRuns.endpoint.merge({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'build-branch-master.yml',
+              branch: 'master',
+              event: 'schedule',
+              status: 'success'
+            }));
+            const workflowRunsSorted = workflowRuns.sort((a, b) => b.run_number - a.run_number);
+
+            return workflowRunsSorted[0].id
+
+      - name: Add master folder
+        run: |
+          mkdir master
+
+      - name: Download Dev Artifact
+        uses: XanaduAI/cloud-actions/download-github-workflow-artifact@main
+        with:
+          workflow_run_id: ${{ steps.workflow_run_id.outputs.result }}
+          artifact_name_regex: html.zip
+          github_token: ${{ github.token }}
+          artifact_download_dir: ${{ github.workspace }}/master
+
+      - name: Unpack Artifact
+        run: |
+          cd master
+          FILE='html.zip.zip'
+          if [ -f "$FILE" ]; then
+            echo "$FILE exists."
+            unzip html.zip
+          fi
+
+      # - name: Check Artifact Exists
+      #   id: check_dev_build_existence
+      #   run: |
+      #     cd master
+      #     ls
+      #     [ -d "html.zip" ] && result='true' || result='false'
+      #     echo $result
+
+      #     if [ "$result" == "false"]
+      #     then
+      #       echo "Did not find unpacked build."
+      #       exit 1
+      #     else
+      #       echo "Found unpacked build."
+
+      - name: Save cache
+        uses: actions/cache@v2
+        with:
+          path: ${{ github.workspace }}/master
+          key: master_build-${{ runner.os }}
+
+  check-diffs:
+    runs-on: ubuntu-latest
+    needs: [get-dev-build, get-master-build]
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: demo_output_comparison_new
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Restore dev cache
+        uses: actions/cache@v2
+        with:
+          path: ${{ github.workspace }}/dev
+          key: dev_build-${{ runner.os }}
+
+      - name: Restore master cache
+        uses: actions/cache@v2
+        with:
+          path: ${{ github.workspace }}/master
+          key: master_build-${{ runner.os }}
+
+      - name: Update Text Diff File
+        run: |
+          git config user.name "QML demo checker Bot"
+          git config user.email "<>"
+
+          pip install pytz
+          python .github/workflows/generate_diffs.py
+          mv demo_diffs.md demo_checker
+          git add demo_checker/demo_diffs.md
+          git commit -m "Update the demonstration text differences found"
+          git push
+
+      - name: Update Image Diff File
+        run: |
+          mkdir -p "$HOME/.local/bin"
+          curl -O 'https://download.imagemagick.org/ImageMagick/download/binaries/magick'
+          chmod u+x magick
+          mv magick "$HOME/.local/bin"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+          git config user.name "QML demo checker Bot"
+          git config user.email "<>"
+
+          python .github/workflows/image_compare.py
+          mv image_compare.md demo_checker
+          git add demo_checker/image_compare.md
+          git commit -m "Update the demonstration image differences found"
+          git push
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: demo_diffs
+          path: |
+            demo_checker/demo_diffs.md
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: image_compare
+          path: |
+            demo_checker/image_compare.md
