@@ -1,5 +1,6 @@
 name: Run Text and Image Diff Checks
 on:
+  pull_request:
   schedule:
     - cron: '0 0 * * 0'
   workflow_dispatch:
@@ -77,7 +78,46 @@ jobs:
 
       - uses: actions/checkout@v3
         with:
-          ref: demo_output_comparison_new
+          ref: diff_action
+
+      - name: Create Build Folders
+        run: |
+          mkdir dev-build
+          mkdir master-build
+
+      - name: Download Dev Artifact
+        uses: XanaduAI/cloud-actions/download-github-workflow-artifact@main
+        with:
+          workflow_run_id: ${{ needs.get-dev-build.outputs.workflow_id }}
+          artifact_name_regex: html.zip
+          github_token: ${{ github.token }}
+          artifact_download_dir: ${{ github.workspace }}/dev-build
+
+      - name: Unpack Dev Artifact
+        run: |
+          cd dev-build
+          FILE='html.zip.zip'
+          if [ -f "$FILE" ]; then
+            echo "$FILE exists."
+            unzip html.zip
+          fi
+
+      - name: Download Master Artifact
+        uses: XanaduAI/cloud-actions/download-github-workflow-artifact@main
+        with:
+          workflow_run_id: ${{ needs.get-master-build.outputs.workflow_id }}
+          artifact_name_regex: html.zip
+          github_token: ${{ github.token }}
+          artifact_download_dir: ${{ github.workspace }}/master-build
+
+      - name: Unpack Master Artifact
+        run: |
+          cd master-build
+          FILE='html.zip.zip'
+          if [ -f "$FILE" ]; then
+            echo "$FILE exists."
+            unzip html.zip
+          fi
 
       - name: Create Build Folders
         run: |
