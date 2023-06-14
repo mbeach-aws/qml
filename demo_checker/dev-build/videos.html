@@ -1,0 +1,1095 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta content="Sit back and explore quantum machine learning and quantum programming with our curated selection of expert videos." property="og:description" />
+<meta content="https://pennylane.ai/qml/_static/videos_card.png" property="og:image" />
+
+  <link rel="icon" type="image/x-icon" href="_static/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="_static/favicon.ico">
+  
+
+
+  <meta property="og:title" content="Videos &#8212; PennyLane">
+  <meta property="og:url" content="https://pennylane.ai/qml/videos.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  
+  
+  <meta content="Sit back and explore quantum machine learning and quantum programming with our curated selection of expert videos." property="og:description" />
+  
+
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.14/css/mdb.min.css">
+  <!-- NanoScroller -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.nanoscroller/0.8.7/css/nanoscroller.min.css">
+  <!-- Syntax Highlighting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/tomorrow-night.min.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+       "HTML-CSS": { scale: 90, linebreaks: { automatic: true } },
+       TeX: {
+         Macros: {
+           pr : ['|\#1\\rangle\\langle\#1|',1],
+           ket: ['\\left| \#1\\right\\rangle',1],
+           bra: ['\\left\\langle \#1\\right|',1],
+           xket: ['\\left| \#1\\right\\rangle_x',1],
+           xbra: ['\\left\\langle \#1\\right|_x',1],
+           braket: ['\\langle \#1 \\rangle',1],
+           braketD: ['\\langle \#1 \\mid \#2 \\rangle',2],
+           braketT: ['\\langle \#1 \\mid \#2 \\mid \#3 \\rangle',3],
+           ketbra: ['| #1 \\rangle \\langle #2 |',2],
+           hc: ['\\text{h.c.}',0],
+           cc: ['\\text{c.c.}',0],
+           h: ['\\hat',0],
+           nn: ['\\nonumber',0],
+           di: ['\\frac{d}{d \#1}',1],
+           uu: ['\\mathcal{U}',0],
+           inn: ['\\text{in}',0],
+           out: ['\\text{out}',0],
+           vac: ['\\text{vac}',0],
+           I: ['\\hat{\\mathbf{1}}',0],
+           x: ['\\hat{x}',0],
+           p: ['\\hat{p}',0],
+           a: ['\\hat{a}',0],
+           ad: ['\\hat{a}^\\dagger',0],
+           n: ['\\hat{n}',0],
+           nbar: ['\\overline{n}',0],
+           sech: ['\\mathrm{sech~}',0],
+           tanh: ['\\mathrm{tanh~}',0],
+           re: ['\\text{Re}',0],
+           im: ['\\text{Im}',0],
+           tr: ['\\mathrm{Tr} #1',1],
+           sign: ['\\text{sign}',0],
+           overlr: ['\\overset\\leftrightarrow{\#1}',1],
+           overl: ['\\overset\leftarrow{\#1}',1],
+           overr: ['\\overset\rightarrow{\#1}',1],
+           avg: ['\\left< \#1 \\right>',1],
+           slashed: ['\\cancel{\#1}',1],
+           bold: ['\\boldsymbol{\#1}',1],
+           d: ['\\mathrm d',0],
+           expect: ["\\langle #1 \\rangle",1],
+           pde: ["\\frac{\\partial}{\\partial \#1}",1],
+           R: ["\\mathbb{R}",0],
+           C: ["\\mathbb{C}",0],
+           Ad: ["\\text{Ad}",0],
+           Var: ["\\text{Var}",0],
+           bx: ["\\mathbf{x}", 0],
+           bm: ["\\boldsymbol{\#1}",1],
+           haf: ["\\mathrm{haf}",0],
+           lhaf: ["\\mathrm{lhaf}",0]
+         }
+       }
+     });
+     </script>
+
+  <!-- Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130507810-1"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-130507810-1');
+      </script>
+  
+    <title>Videos &#8212; PennyLane  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/xanadu.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/light-slider.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/hubs.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="canonical" href="https://pennylane.ai/qml/videos.html" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Quantum machine learning" href="quantum-machine-learning.html" />
+    <link rel="prev" title="Here comes the SU(N): multivariate quantum gates and gradients" href="demos/tutorial_here_comes_the_sun.html" /> 
+  </head><body><nav class="navbar navbar-expand-lg navbar-light white sticky-top">
+
+<!-- Logo and Title -->
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  <a class="navbar-brand nav-link" href="https://pennylane.ai">
+    
+  <img class="pr-1" src=" _static/logo.png" width="28px"></img>
+  
+    <img id="navbar-wordmark" src="_static/pennylane.svg"></img>
+  
+  </a>
+
+
+  <!-- [Mobile] Collapse Button -->
+  <div class="row right">
+    
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+      aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+
+  <!-- [Mobile] Collapsible Content -->
+  <div class="collapse navbar-collapse" id="basicExampleNav">
+
+    <!-- Links on the Left -->
+    <ul class="navbar-nav mr-auto">
+      
+        
+          
+            <li class="nav-item active">
+              <a class="nav-link" href="https://pennylane.ai/qml/">
+                
+  
+    Learn
+  
+
+              </a>
+              <span class="sr-only">(current)</span>
+            </li>
+          
+
+        
+      
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://pennylane.ai/qml/demonstrations.html">
+                
+  
+    Demos
+  
+
+            </a>
+          </li>
+        
+      
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://pennylane.ai/install.html">
+                
+  
+    Install
+  
+
+            </a>
+          </li>
+        
+      
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://pennylane.ai/plugins.html">
+                
+  
+    Plugins
+  
+
+            </a>
+          </li>
+        
+      
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://docs.pennylane.ai">
+                
+  
+    Documentation
+  
+
+            </a>
+          </li>
+        
+      
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://pennylane.ai/blog/">
+                
+  
+    Blog
+  
+
+            </a>
+          </li>
+        
+      
+    </ul>
+
+    <!-- Links on the Right -->
+    <ul class="navbar-nav ml-auto nav-flex-icons">
+      
+        <li class="nav-item">
+          <a class="nav-link" href="https://pennylane.ai/faq.html">
+            <i class="fas fa-question pr-1"></i> FAQ
+          </a>
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link" href="https://discuss.pennylane.ai/">
+            <i class="fab fa-discourse pr-1"></i> Support
+          </a>
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/PennyLaneAI/pennylane">
+            <i class="fab fa-github pr-1"></i> GitHub
+          </a>
+        </li>
+      
+
+    </ul>
+  </div>
+
+</nav>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="quantum-machine-learning.html" title="Quantum machine learning"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="demos/tutorial_here_comes_the_sun.html" title="Here comes the SU(N): multivariate quantum gates and gradients"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PennyLane  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="quantum-computing.html" accesskey="U">Quantum Computing</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Videos</a></li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+        <div id="content">
+          <div id="right-column">
+            
+            
+
+            <div class="document clearer body">
+              
+    <div class="section" id="videos">
+<h1>Videos<a class="headerlink" href="#videos" title="Permalink to this headline">¶</a></h1>
+<p>Sit back and explore quantum machine learning and quantum programming with our curated selection of expert videos.</p>
+<style>
+    .up-button {
+      position: absolute;
+      top: 60px;
+    }
+
+    .video-card h4 {
+      font-weight: 500 !important;
+    }
+
+    .youtube-video-gallery {
+      width: 150%;
+      margin-left: calc(100% - 990px);
+    }
+
+    @media screen and (max-width: 768px) {
+      .youtube-video-gallery {
+        margin-left: 0px !important;
+        width: 100%!important;
+      }
+    }
+
+    @media screen and (max-width: 1400px) and (min-width: 768px){
+      .youtube-video-gallery {
+        margin-left: 0px !important;
+        width: 100%!important;
+      }
+    }
+
+</style><br><div class="youtube-video-gallery gallery-grid row"><p><a href="https://youtube.com/watch?v=YJhv4bhNf6M" target="_blank">
+    <div class="card video-card">
+        <img
+          class="card-img-top img-fluid"
+          src="https://img.youtube.com/vi/YJhv4bhNf6M/hqdefault.jpg"
+        />
+        <div class="card-body">
+            <h4 class="card-title">How to solve the QUBO problem</h4>
+            <p class="card-text grey-text">Guillermo Alonso (Xanadu)</p>
+            <p class="card-text">
+                Learn how to solve quadratic unconstrained binary optimization (QUBO) problems in PennyLane.
+            </p>
+        </div>
+        <div class="white-text watch">
+            <hr>
+            <h5>Watch <i class="fas fa-angle-double-right"></i></h5>
+        </div>
+    </div>
+</a></p>
+<p><a href="https://youtube.com/watch?v=_ediOdFUr10" target="_blank">
+    <div class="card video-card">
+        <img
+          class="card-img-top img-fluid"
+          src="https://img.youtube.com/vi/_ediOdFUr10/hqdefault.jpg"
+        />
+        <div class="card-body">
+            <h4 class="card-title">Introduction to Quantum Chemistry</h4>
+            <p class="card-text grey-text">Alvaro Ballon (Xanadu)</p>
+            <p class="card-text">
+                Learn how to model molecules on quantum circuits and then implement some basic calculations using PennyLane.
+            </p>
+        </div>
+        <div class="white-text watch">
+            <hr>
+            <h5>Watch <i class="fas fa-angle-double-right"></i></h5>
+        </div>
+    </div>
+</a></p>
+<p><a href="https://youtube.com/watch?v=yMXJ0irhPZY" target="_blank">
+    <div class="card video-card">
+        <img
+          class="card-img-top img-fluid"
+          src="https://img.youtube.com/vi/yMXJ0irhPZY/hqdefault.jpg"
+        />
+        <div class="card-body">
+            <h4 class="card-title">Differentiation on quantum hardware</h4>
+            <p class="card-text grey-text">Isaac De Vlugt (Xanadu)</p>
+            <p class="card-text">
+                Have you ever wondered how we can differentiate an actual quantum computer? In this video, we look at hardware-compatible differentiation methods.
+            </p>
+        </div>
+        <div class="white-text watch">
+            <hr>
+            <h5>Watch <i class="fas fa-angle-double-right"></i></h5>
+        </div>
+    </div>
+</a></p>
+<p><a href="https://youtube.com/watch?v=TiQ7T1h8VAQ" target="_blank">
+    <div class="card video-card">
+        <img
+          class="card-img-top img-fluid"
+          src="https://img.youtube.com/vi/TiQ7T1h8VAQ/hqdefault.jpg"
+        />
+        <div class="card-body">
+            <h4 class="card-title">Optimizing a quantum circuit with PennyLane</h4>
+            <p class="card-text grey-text">Catalina Albornoz (Xanadu)</p>
+            <p class="card-text">
+                Understand one of the most fundamental ingredients used in near-term quantum algorithms and quantum machine learning: optimizing quantum circuits.
+            </p>
+        </div>
+        <div class="white-text watch">
+            <hr>
+            <h5>Watch <i class="fas fa-angle-double-right"></i></h5>
+        </div>
+    </div>
+</a></p>
+<p><a href="https://youtube.com/watch?v=eRBk1_qA86Y" target="_blank">
+    <div class="card video-card">
+        <img
+          class="card-img-top img-fluid"
+          src="https://img.youtube.com/vi/eRBk1_qA86Y/hqdefault.jpg"
+        />
+        <div class="card-body">
+            <h4 class="card-title">Introduction to PennyLane devices</h4>
+            <p class="card-text grey-text">Guillermo Alonso (Xanadu)</p>
+            <p class="card-text">
+                From simulators to real hardware, there are plenty of devices to access in PennyLane. Learn about some of their key features in this video.
+            </p>
+        </div>
+        <div class="white-text watch">
+            <hr>
+            <h5>Watch <i class="fas fa-angle-double-right"></i></h5>
+        </div>
+    </div>
+</a></p>
+<p><a href="https://youtube.com/watch?v=2T8lSejPFog" target="_blank">
+    <div class="card video-card">
+        <img
+          class="card-img-top img-fluid"
+          src="https://img.youtube.com/vi/2T8lSejPFog/hqdefault.jpg"
+        />
+        <div class="card-body">
+            <h4 class="card-title">My first quantum circuit in PennyLane</h4>
+            <p class="card-text grey-text">Isaac De Vlugt (Xanadu)</p>
+            <p class="card-text">
+                Learn about the fundamental concept behind what makes PennyLane tick: QNodes.
+            </p>
+        </div>
+        <div class="white-text watch">
+            <hr>
+            <h5>Watch <i class="fas fa-angle-double-right"></i></h5>
+        </div>
+    </div>
+</a></p>
+<p><a href="https://youtube.com/watch?v=eiah6I3SnFk" target="_blank">
+    <div class="card video-card">
+        <img
+          class="card-img-top img-fluid"
+          src="https://img.youtube.com/vi/eiah6I3SnFk/hqdefault.jpg"
+        />
+        <div class="card-body">
+            <h4 class="card-title">How to install PennyLane</h4>
+            <p class="card-text grey-text">Alvaro Ballon (Xanadu)</p>
+            <p class="card-text">
+                Get PennyLane installed on your computer (Windows, MacOS, or Linux) with this step-by-step guide.
+            </p>
+        </div>
+        <div class="white-text watch">
+            <hr>
+            <h5>Watch <i class="fas fa-angle-double-right"></i></h5>
+        </div>
+    </div>
+</a></p>
+<p><a href="https://youtube.com/watch?v=o377m0doD6M" target="_blank">
+    <div class="card video-card">
+        <img
+          class="card-img-top img-fluid"
+          src="https://img.youtube.com/vi/o377m0doD6M/hqdefault.jpg"
+        />
+        <div class="card-body">
+            <h4 class="card-title">What are quantum computers, and how can we train them in Python?</h4>
+            <p class="card-text grey-text">Josh Izaac (Xanadu)</p>
+            <p class="card-text">
+                Using a mixture of real Python examples and illustrated diagrams, we show how to not only evaluate, but also differentiate small quantum programs directly on quantum hardware. By extracting the gradients, we can integrate these quantum programs directly into larger differentiable programs in Python, and train/optimize the full (hybrid quantum-classical!) program.
+            </p>
+        </div>
+        <div class="white-text watch">
+            <hr>
+            <h5>Watch <i class="fas fa-angle-double-right"></i></h5>
+        </div>
+    </div>
+</a></p>
+<p><a href="https://youtube.com/watch?v=EwGaU-qOPUQ" target="_blank">
+    <div class="card video-card">
+        <img
+          class="card-img-top img-fluid"
+          src="https://img.youtube.com/vi/EwGaU-qOPUQ/hqdefault.jpg"
+        />
+        <div class="card-body">
+            <h4 class="card-title">Using Multiple QPUs</h4>
+            <p class="card-text grey-text">Nathan Killoran (Xanadu)</p>
+            <p class="card-text">
+                What would you do with 1000 QPUs? In the latest release of PennyLane, we've introduced a number of new features to make computations involving multiple QPUs more seamless and accessible. See a number of simple ideas and use-cases where many QPUs could provide a benefit over a single QPU, even for today's small and noisy devices.
+            </p>
+        </div>
+        <div class="white-text watch">
+            <hr>
+            <h5>Watch <i class="fas fa-angle-double-right"></i></h5>
+        </div>
+    </div>
+</a></p>
+<p><a href="https://youtube.com/watch?v=WBVnE8ChGX8" target="_blank">
+    <div class="card video-card">
+        <img
+          class="card-img-top img-fluid"
+          src="https://img.youtube.com/vi/WBVnE8ChGX8/hqdefault.jpg"
+        />
+        <div class="card-body">
+            <h4 class="card-title">Welcome to QHACK'19</h4>
+            <p class="card-text grey-text">Nathan Killoran (Xanadu)</p>
+            <p class="card-text">
+                The Xanadu team hosted its first quantum machine learning hackathon, QHACK, from Nov 25–26, 2019, bringing together experts and enthusiasts in quantum computing and quantum machine learning.
+            </p>
+        </div>
+        <div class="white-text watch">
+            <hr>
+            <h5>Watch <i class="fas fa-angle-double-right"></i></h5>
+        </div>
+    </div>
+</a></p>
+<p><a href="https://youtube.com/watch?v=cobp2Sf5f3o" target="_blank">
+    <div class="card video-card">
+        <img
+          class="card-img-top img-fluid"
+          src="https://img.youtube.com/vi/cobp2Sf5f3o/hqdefault.jpg"
+        />
+        <div class="card-body">
+            <h4 class="card-title">Quantum Gates and Gradients</h4>
+            <p class="card-text grey-text">Gavin Crooks (X, The Moonshot Factory)</p>
+            <p class="card-text">
+                See how the space of all 2-qubit gates can be mapped to a pyramid—which can be printed and folded for personal reference! By using known 2-qubit gate decompositions, the parameter-shift rule for calculating quantum gradients on hardware can be extended to any 2-qubit unitary operation.
+            </p>
+        </div>
+        <div class="white-text watch">
+            <hr>
+            <h5>Watch <i class="fas fa-angle-double-right"></i></h5>
+        </div>
+    </div>
+</a></p>
+<p><a href="https://youtube.com/watch?v=7ALa_JZvV3o" target="_blank">
+    <div class="card video-card">
+        <img
+          class="card-img-top img-fluid"
+          src="https://img.youtube.com/vi/7ALa_JZvV3o/hqdefault.jpg"
+        />
+        <div class="card-body">
+            <h4 class="card-title">Using Quantum Circuits as Machine Learning Models</h4>
+            <p class="card-text grey-text">Maria Schuld (Xanadu)</p>
+            <p class="card-text">
+                Exploring links between quantum circuits, neural networks, kernel methods, and generative models.
+            </p>
+        </div>
+        <div class="white-text watch">
+            <hr>
+            <h5>Watch <i class="fas fa-angle-double-right"></i></h5>
+        </div>
+    </div>
+</a></p>
+<p><a href="https://youtube.com/watch?v=QRt5wKwzzFQ" target="_blank">
+    <div class="card video-card">
+        <img
+          class="card-img-top img-fluid"
+          src="https://img.youtube.com/vi/QRt5wKwzzFQ/hqdefault.jpg"
+        />
+        <div class="card-body">
+            <h4 class="card-title">Everything and the (Quantum) Kitchen Sink: Quantum Machine Learning at Rigetti</h4>
+            <p class="card-text grey-text">Max Henderson (Rigetti)</p>
+            <p class="card-text">
+                Learn about two of the best-named quantum machine learning models—Quantum Kitchen Sinks and Quanvolutional Neural Networks—courtesy of Max Henderson of Rigetti Computing.
+            </p>
+        </div>
+        <div class="white-text watch">
+            <hr>
+            <h5>Watch <i class="fas fa-angle-double-right"></i></h5>
+        </div>
+    </div>
+</a></p>
+<p><a href="https://youtube.com/watch?v=eShyPOLIfYk" target="_blank">
+    <div class="card video-card">
+        <img
+          class="card-img-top img-fluid"
+          src="https://img.youtube.com/vi/eShyPOLIfYk/hqdefault.jpg"
+        />
+        <div class="card-body">
+            <h4 class="card-title">Quantum Machine Learning with PennyLane</h4>
+            <p class="card-text grey-text">Josh Izaac (Xanadu)</p>
+            <p class="card-text">
+                A 20-minute crash-course on PennyLane, its features, and how it can be used to streamline quantum machine learning.
+            </p>
+        </div>
+        <div class="white-text watch">
+            <hr>
+            <h5>Watch <i class="fas fa-angle-double-right"></i></h5>
+        </div>
+    </div>
+</a></p>
+<p><a href="https://youtube.com/watch?v=ijY7WSa7u-4" target="_blank">
+    <div class="card video-card">
+        <img
+          class="card-img-top img-fluid"
+          src="https://img.youtube.com/vi/ijY7WSa7u-4/hqdefault.jpg"
+        />
+        <div class="card-body">
+            <h4 class="card-title">Barren Plateau Issues for Variational Quantum-Classical Algorithms</h4>
+            <p class="card-text grey-text">Patrick Coles (Los Alamos National Lab)</p>
+            <p class="card-text">
+                In order to train quantum circuits, we need to pay careful attention to the cost functions that we choose to optimize, otherwise the training can suffer from barren plateau problems.
+            </p>
+        </div>
+        <div class="white-text watch">
+            <hr>
+            <h5>Watch <i class="fas fa-angle-double-right"></i></h5>
+        </div>
+    </div>
+</a></p>
+<p><a href="https://youtube.com/watch?v=uf_BRg5ovtg" target="_blank">
+    <div class="card video-card">
+        <img
+          class="card-img-top img-fluid"
+          src="https://img.youtube.com/vi/uf_BRg5ovtg/hqdefault.jpg"
+        />
+        <div class="card-body">
+            <h4 class="card-title">Machine Learning With Quantum Computers</h4>
+            <p class="card-text grey-text">Maria Schuld (Xanadu)</p>
+            <p class="card-text">
+                An introduction to quantum machine learning for machine learning scientists. Learn what makes quantum computing so different from classical computing, and explore techniques for training and machine learning with quantum computers.
+            </p>
+        </div>
+        <div class="white-text watch">
+            <hr>
+            <h5>Watch <i class="fas fa-angle-double-right"></i></h5>
+        </div>
+    </div>
+</a></p>
+<p><a href="https://youtube.com/watch?v=tvVnjVa3ErY" target="_blank">
+    <div class="card video-card">
+        <img
+          class="card-img-top img-fluid"
+          src="https://img.youtube.com/vi/tvVnjVa3ErY/hqdefault.jpg"
+        />
+        <div class="card-body">
+            <h4 class="card-title">PennyLane - Automatic differentiation and machine learning of quantum computations</h4>
+            <p class="card-text grey-text">Josh Izaac (Xanadu)</p>
+            <p class="card-text">
+                Introducing PennyLane, a Python-based software framework for optimization and machine learning of quantum and hybrid quantum-classical computations.
+            </p>
+        </div>
+        <div class="white-text watch">
+            <hr>
+            <h5>Watch <i class="fas fa-angle-double-right"></i></h5>
+        </div>
+    </div>
+</a></p>
+<p><a href="https://youtube.com/watch?v=Xh9pUu3-WxM" target="_blank">
+    <div class="card video-card">
+        <img
+          class="card-img-top img-fluid"
+          src="https://img.youtube.com/vi/Xh9pUu3-WxM/hqdefault.jpg"
+        />
+        <div class="card-body">
+            <h4 class="card-title">Innovating machine learning with near-term quantum computing</h4>
+            <p class="card-text grey-text">Maria Schuld (Xanadu)</p>
+            <p class="card-text">
+                Explore different aspects of variational quantum machine learning algorithms, including their role in the development of near-term quantum technologies, strategies of automatic differentiation, and how to integrate quantum circuits with machine learning frameworks such as PyTorch and Tensorflow using open-source software.
+            </p>
+        </div>
+        <div class="white-text watch">
+            <hr>
+            <h5>Watch <i class="fas fa-angle-double-right"></i></h5>
+        </div>
+    </div>
+</a></p>
+<p><a href="https://youtube.com/watch?v=YBHzT5V1SzU" target="_blank">
+    <div class="card video-card">
+        <img
+          class="card-img-top img-fluid"
+          src="https://img.youtube.com/vi/YBHzT5V1SzU/hqdefault.jpg"
+        />
+        <div class="card-body">
+            <h4 class="card-title">Quantum Deep Learning</h4>
+            <p class="card-text grey-text">Nathan Killoran (Xanadu)</p>
+            <p class="card-text">
+                Explore the relationships between deep learning, differentiable programming, and quantum computing. Learn how quantum circuits can be trained just like neural networks!
+            </p>
+        </div>
+        <div class="white-text watch">
+            <hr>
+            <h5>Watch <i class="fas fa-angle-double-right"></i></h5>
+        </div>
+    </div>
+</a></p>
+<p><a href="https://youtube.com/watch?v=McgBeSVIGus" target="_blank">
+    <div class="card video-card">
+        <img
+          class="card-img-top img-fluid"
+          src="https://img.youtube.com/vi/McgBeSVIGus/hqdefault.jpg"
+        />
+        <div class="card-body">
+            <h4 class="card-title">Automatic Differentiation of Quantum Circuits</h4>
+            <p class="card-text grey-text">Nathan Killoran (Xanadu)</p>
+            <p class="card-text">
+                Dive into the world of quantum gradients. Learn how to apply the parameter-shift rule, and how derivatives of quantum circuits can be computed automatically in software.
+            </p>
+        </div>
+        <div class="white-text watch">
+            <hr>
+            <h5>Watch <i class="fas fa-angle-double-right"></i></h5>
+        </div>
+    </div>
+</a></p>
+<p><a href="https://youtube.com/watch?v=YtepXvx5zdI" target="_blank">
+    <div class="card video-card">
+        <img
+          class="card-img-top img-fluid"
+          src="https://img.youtube.com/vi/YtepXvx5zdI/hqdefault.jpg"
+        />
+        <div class="card-body">
+            <h4 class="card-title">Variational Quantum Algorithms</h4>
+            <p class="card-text grey-text">Nathan Killoran (Xanadu)</p>
+            <p class="card-text">
+                Take a trip to the variational algorithm zoo! Gain a new appreciation for the techniques and challenges involved in implementing methods like the VQE, QAOA, and quantum GANs.
+            </p>
+        </div>
+        <div class="white-text watch">
+            <hr>
+            <h5>Watch <i class="fas fa-angle-double-right"></i></h5>
+        </div>
+    </div>
+</a></p>
+<p><a href="https://youtube.com/watch?v=t9ytqPTij7k" target="_blank">
+    <div class="card video-card">
+        <img
+          class="card-img-top img-fluid"
+          src="https://img.youtube.com/vi/t9ytqPTij7k/hqdefault.jpg"
+        />
+        <div class="card-body">
+            <h4 class="card-title">Hybrid Quantum-Classical Machine Learning</h4>
+            <p class="card-text grey-text">Nathan Killoran (Xanadu)</p>
+            <p class="card-text">
+                Connect the quantum and classical worlds to build trainable hybrid machine learning models! See how quantum computing and your favourite machine learning libraries can be combined to augment classical techniques.
+            </p>
+        </div>
+        <div class="white-text watch">
+            <hr>
+            <h5>Watch <i class="fas fa-angle-double-right"></i></h5>
+        </div>
+    </div>
+</a></p>
+</div><div style='clear:both'></div>
+
+
+    <script type="text/javascript">
+        // This script ensures that the active navbar entry switches
+        // from 'QML' to 'Demos' for any webpage within the demos/ directory,
+        // or for any of the demonstration landing pages
+        // (e.g., demos_optimization).
+        var pagename = document.location.href.match(/[^\/]+$/)[0];
+        var dir = document.URL.substr(0,document.URL.lastIndexOf('/')).match(/[^\/]+$/)[0];
+
+        if (pagename.includes("demos") || pagename.includes("demonstrations") || dir.includes("demos")) {
+
+            $(".nav-item.active").removeClass("active");
+            var demos_link = $('.navbar-nav a').filter(function(index) { return $(this).text() === "Demos"; })[0]
+            $(demos_link).parent().addClass("active");
+        }
+    </script>
+
+              <div id="bottom-dl" class="xanadu-call-to-action-links">
+                <div id="tutorial-type">videos</div>
+                <div class="download-python-link">
+                  <i class="fab fa-python"></i>&nbsp;
+                  <div class="call-to-action-desktop-view">Download Python script</div>
+                </div>
+                <div class="download-notebook-link">
+                  <i class="fas fa-download"></i>&nbsp;
+                  <div class="call-to-action-desktop-view">Download Notebook</div>
+                </div>
+                <div class="github-view-link">
+                  <i class="fab fa-github"></i>&nbsp;
+                  <div class="call-to-action-desktop-view">View on GitHub</div>
+                </div>
+              </div>
+
+            </div>
+            
+          </div>
+    
+          <div class="up-button">
+            
+              
+                <a href="quantum-computing.html"><i class="fas fa-angle-double-left"></i></a>
+              
+            
+          </div>
+
+          <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="quantum-machine-learning.html" title="Quantum machine learning"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="demos/tutorial_here_comes_the_sun.html" title="Here comes the SU(N): multivariate quantum gates and gradients"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PennyLane  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="quantum-computing.html" >Quantum Computing</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Videos</a></li> 
+      </ul>
+    </div>
+  <script type="text/javascript">
+    $("#mobile-toggle").click(function () {
+      $("#left-column").slideToggle("slow");
+    });
+  </script>
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <!-- MathJax -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/js/mdb.min.js"></script>
+  <!-- NanoScroller -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nanoscroller/0.8.7/javascripts/jquery.nanoscroller.min.js"></script>
+  <!-- Syntax Highlighting -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+  <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+
+  <script type="text/javascript">
+    $("a.reference.internal").each(function(){
+      var link = $(this).attr("href");
+
+      var hash = link.split("#")[1];
+      var page = link.split("#")[0].split("/").slice(-1)[0].replace(".html", "");
+
+      if (hash == page) {
+        $(this).attr("href", link.split("#")[0]);
+      }
+    });
+
+    $(".document > .section").removeClass("section");
+    $("h1 ~ .section").removeClass("section");
+    $(".localtoc-container .nano-content").css("height", $("#content").height());
+    $(".localtoc-container").css("height", $("#content").height());
+    $(".nano").nanoScroller();
+  </script>
+
+  <script type="text/javascript">
+      $(window).scroll(function(){
+        var scrollBottom = $(document).height() - $(window).height() - $(window).scrollTop();
+        if (scrollBottom < 342) {
+          $(".localtoc-container").css("height", "calc(100% - " + (342 - scrollBottom) + "px)");
+          $(".localtoc-container .nano-content").css("height", "calc(100% - 119px)");
+        }
+      });
+  </script>
+
+  <script type="text/javascript">
+    if ($(".current").length) {
+      var target = $(".current")[0]
+      var rect = target.getBoundingClientRect();
+      if (rect.bottom > window.innerHeight) {
+          $(".nano").nanoScroller({ scrollTo: $(".current") });
+      } else {
+          $(".nano").nanoScroller({ scrollTop: 0 });
+      }
+    }
+    $(document).ready(function () {
+        $(".css-transitions-only-after-page-load").each(function (index, element) {
+            setTimeout(function () { $(element).removeClass("css-transitions-only-after-page-load") }, 10);
+        });
+        if (window.location.hash) {
+          var target = $("[id='" + window.location.hash.substr(1) + "']");
+          if (target.closest(".collapse").length) {
+            target.closest(".collapse").addClass("show");
+            target.closest(".collapse").prev().find(".rotate").addClass("up");
+          }
+        }
+    });
+  </script>
+
+    <script type="text/javascript">
+    var downloadNote = $(".sphx-glr-download-link-note.admonition.note");
+    if (downloadNote.length >= 1) {
+      var tutorialUrlArray = $("#tutorial-type").text().split('/');
+
+      if (tutorialUrlArray[0] == "demos") {
+        tutorialUrlArray[0] = "demonstrations";
+      }
+
+      var githubLink = "https://github.com/" + "PennyLaneAI/qml" + "/blob/master/" + tutorialUrlArray.join("/") + ".py",
+          pythonLink = $(".sphx-glr-download .reference.download")[0].href,
+          notebookLink = $(".sphx-glr-download .reference.download")[1].href;
+
+      $(".download-python-link").wrap("<a href=" + pythonLink + " data-behavior='call-to-action-event' data-response='Download Python script' download target='_blank'/>");
+      $(".download-notebook-link").wrap("<a href=" + notebookLink + " data-behavior='call-to-action-event' data-response='Download Notebook' download target='_blank'/>");
+      $(".github-view-link").wrap("<a href=" + githubLink + " data-behavior='call-to-action-event' data-response='View on Github' target='_blank'/>");
+      $("#right-column").addClass("page-shadow");
+    } else {
+      $(".xanadu-call-to-action-links").hide();
+      $("#bottom-dl").attr('style','display: none !important');
+    }
+    </script>
+
+    <script type="text/javascript">
+      function makeUL(urls, text) {
+          var list = document.createElement('ul');
+
+          for (var i = 0; i < urls.length; i++) {
+              var item = document.createElement('li');
+              var a = document.createElement('a');
+              var linkText = document.createTextNode(text[i]);
+              a.appendChild(linkText);
+              a.href = urls[i];
+              item.appendChild(a);
+              list.appendChild(item);
+          }
+          return list;
+      }
+
+      if (typeof related_tutorials !== 'undefined') {
+          document.getElementById('related-tutorials').appendChild(makeUL(related_tutorials, related_tutorials_titles));
+          $("#related-tutorials ul li a").append(' <i class="fas fa-angle-double-right" style="font-size: smaller;"></i>')
+          $("#related-tutorials").show();
+
+    } else {
+          $("#related-tutorials").hide();
+    }
+    </script>
+
+  <!-- Account for MathJax when navigating to anchor tags. -->
+  <script type="text/javascript">
+    function scrollToElement(e) {
+      // Scrolls to the given element, taking into account the navbar.
+      MathJax.Hub.Queue(function() {
+        // The following MUST be done asynchronously to take effect.
+        setTimeout(function() {
+          const navbar = document.querySelector("nav.navbar");
+          const navbarHeight = navbar ? navbar.offsetHeight : 0;
+          const scrollToY = e.offsetTop + e.offsetParent.offsetTop - navbarHeight;
+          window.scrollTo(0, scrollToY);
+        }, 0);
+      });
+    }
+
+    function scrollToFragment(fragment) {
+      // Scrolls to the position of the given URL fragment (which includes the "#").
+      const elementID = fragment.replace(".", "\\.");
+      if (elementID !== "") {
+        const element = document.querySelector(elementID);
+        if (element !== null) {
+          scrollToElement(element);
+        }
+      }
+    }
+
+    $(document).ready(() => {
+      scrollToFragment(window.location.hash);
+      window.addEventListener("popstate", (_) => scrollToFragment(document.location.hash), false);
+    });
+  </script>
+
+  <!-- Hide the rendering of :orphan: metadata. -->
+  <script type="text/javascript">
+    $(document).ready(() => {
+      const elements = document.getElementsByClassName("field-odd");
+      for (const element of elements) {
+          if (element.innerHTML.trim() === "orphan") {
+            element.style.display = "none";
+          }
+      }
+    });
+  </script>
+
+  <script type="text/javascript">
+    jQuery.noConflict(true);
+  </script>
+
+  
+
+<footer class="page-footer text-md-left pt-4">
+
+  <hr class="pb-0 mb-0">
+  <div class="container-fluid">
+    <div class="row justify-content-md-center">
+
+      
+      <!-- About -->
+      <div class="col-md-4">
+        <h5 class="mb-1 footer-heading">PennyLane</h5>
+        <hr width=100px class="d-inline-block mt-0 mb-1 accent-4">
+        <p>        PennyLane is an open-source software framework for quantum
+        machine learning, quantum chemistry, and quantum computing, 
+        with the ability to run on all hardware.
+        Maintained with ❤️ by Xanadu.
+        </p>
+      </div>
+      
+
+      <!-- Links -->
+      
+      <div class="col-md-2 col-4">
+        <h5 class="mb-1 footer-heading">PennyLane</h5>
+        <hr width=100px class="d-inline-block mt-0 mb-1 accent-4">
+        <ul class="list-unstyled">
+          
+          <li><a href="https://pennylane.ai/">Home</a></li>
+          
+          <li><a href="https://pennylane.ai/qml">Learn</a></li>
+          
+          <li><a href="https://pennylane.ai/qml/demonstrations.html">Demonstrations</a></li>
+          
+          <li><a href="https://docs.pennylane.ai/">Documentation</a></li>
+          
+          <li><a href="https://github.com/PennyLaneAI/pennylane">GitHub</a></li>
+          
+          <li><a href="https://twitter.com/pennylaneai">Twitter</a></li>
+          
+          <li><a href="https://pennylane.ai/blog">Blog</a></li>
+          
+        </ul>
+      </div>
+      
+      <div class="col-md-2 col-4">
+        <h5 class="mb-1 footer-heading">Xanadu</h5>
+        <hr width=100px class="d-inline-block mt-0 mb-1 accent-4">
+        <ul class="list-unstyled">
+          
+          <li><a href="https://xanadu.ai/">Home</a></li>
+          
+          <li><a href="https://xanadu.ai/about/">About</a></li>
+          
+          <li><a href="https://xanadu.ai/photonics">Hardware</a></li>
+          
+          <li><a href="https://xanadu.ai/careers/">Careers</a></li>
+          
+          <li><a href="https://cloud.xanadu.ai">Cloud</a></li>
+          
+          <li><a href="https://discuss.pennylane.ai/">Forum</a></li>
+          
+          <li><a href="https://xanadu.ai/blog">Blog</a></li>
+          
+        </ul>
+      </div>
+      
+
+    </div>
+  </div>
+  <hr>
+
+  <!-- Social -->
+  <div class="social-section text-center">
+      <ul class="list-unstyled list-inline mb-0">
+          
+          <li class="list-inline-item"><a class="btn-git" href="https://twitter.com/PennyLaneAI"><i class="fab fa-twitter"> </i></a></li>
+          
+          <li class="list-inline-item"><a class="btn-git" href="https://github.com/PennyLaneAI/pennylane"><i class="fab fa-github"> </i></a></li>
+          
+          <li class="list-inline-item"><a class="btn-git" href="https://linkedin.com/company/xanaduai/"><i class="fab fa-linkedin-in"> </i></a></li>
+          
+          <li class="list-inline-item"><a class="btn-git" href="https://discuss.pennylane.ai"><i class="fab fa-discourse"> </i></a></li>
+          
+          <li class="list-inline-item"><a class="btn-git" href="https://xanadu-quantum.slack.com/join/shared_invite/zt-nkwn25v9-H4hituCb_PUj4idG0MhSug#/shared-invite/email"><i class="fab fa-slack"> </i></a></li>
+          
+          <li class="list-inline-item"><a class="btn-git" href="https://pennylane.ai/blog/"><i class="fas fa-rss"> </i></a></li>
+          
+      </ul>
+      
+        
+          <a href="https://xanadu.us17.list-manage.com/subscribe?u=725f07a1d1a4337416c3129fd&id=294b062630" style="font-size: initial;">
+            Stay updated with our newsletter
+          </a>
+        
+      
+  </div>
+
+  <!-- Copyright -->
+  <div class="footer-copyright py-3 mt-0 text-center">
+      <div class="container-fluid">
+            Copyright &copy; 2022, Xanadu Quantum Technologies, Inc.
+
+        
+          <br>
+          TensorFlow, the TensorFlow logo, and any related marks are trademarks of Google Inc.
+        
+      </div>
+  </div>
+</footer>
+  </body>
+</html>
