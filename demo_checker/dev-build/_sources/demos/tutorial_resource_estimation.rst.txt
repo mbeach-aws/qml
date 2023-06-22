@@ -107,33 +107,32 @@ We can also estimate the number of non-Clifford gates with respect to the thresh
 for discarding the negligible factors in the factorized Hamiltonian [#vonburg2021]_ and plot the
 estimated numbers.
 
-.. GENERATED FROM PYTHON SOURCE LINES 127-137
+.. GENERATED FROM PYTHON SOURCE LINES 127-136
 
 QPE cost for simulating periodic materials
 ******************************************
-For periodic materials, we estimate the cost of implementing the QPE algorithm of [#su2021]_
+For periodic materials, we estimate the cost of implementing the QPE algorithm of [#zini2023]_
 using Hamiltonians represented in first quantization and in a plane wave basis. We first need to
-define the number of plane waves, the number of electrons, and the volume of the unit cell that
-constructs the periodic material. Let's use dilithium iron silicate
+define the number of plane waves, the number of electrons, and the lattice vectors that construct
+the unit cell of the periodic material. Let's use dilithium iron silicate
 :math:`\text{Li}_2\text{FeSiO}_4` as an example taken from [#delgado2022]_. For this material, the
 unit cell contains 156 electrons and has dimensions :math:`9.49 \times 10.20 \times 11.83` in
-atomic units, amounting to a volume of :math:`1145 a_0^3`, where :math:`a_0` is the
-`Bohr radius <https://en.wikipedia.org/wiki/Bohr_radius>`_. We also use :math:`10^5` plane waves.
+`atomic units <https://en.wikipedia.org/wiki/Bohr_radius>`_. We also use :math:`10^5` plane waves.
 
-.. GENERATED FROM PYTHON SOURCE LINES 143-144
+.. GENERATED FROM PYTHON SOURCE LINES 144-145
 
 We now create an instance of the :class:`~.pennylane.resource.FirstQuantization` class
 
-.. GENERATED FROM PYTHON SOURCE LINES 147-148
+.. GENERATED FROM PYTHON SOURCE LINES 148-149
 
 and obtain the estimated number of non-Clifford gates and logical qubits.
 
-.. GENERATED FROM PYTHON SOURCE LINES 151-153
+.. GENERATED FROM PYTHON SOURCE LINES 152-154
 
 We can also plot the estimated numbers as a function of the number of plane waves for different
 target errors
 
-.. GENERATED FROM PYTHON SOURCE LINES 189-196
+.. GENERATED FROM PYTHON SOURCE LINES 190-197
 
 The algorithm uses a decomposition of the Hamiltonian as a linear combination of unitaries,
 
@@ -143,7 +142,7 @@ The parameter :math:`\lambda=\sum_i c_i`, which can be interpreted as the 1-norm
 Hamiltonian, plays an important role in determining the cost of implementing the QPE
 algorithm [#delgado2022]_. In PennyLane, the 1-norm of the Hamiltonian can be obtained with
 
-.. GENERATED FROM PYTHON SOURCE LINES 200-219
+.. GENERATED FROM PYTHON SOURCE LINES 201-220
 
 PennyLane allows you to get more detailed information about the cost of the algorithms as
 explained in the documentation of :class:`~.pennylane.resource.FirstQuantization`
@@ -165,7 +164,7 @@ Hamiltonian.
 
 First, we construct the molecular Hamiltonian.
 
-.. GENERATED FROM PYTHON SOURCE LINES 223-228
+.. GENERATED FROM PYTHON SOURCE LINES 224-229
 
 The number of measurements needed to compute :math:`\left \langle H \right \rangle` can be
 obtained with the :func:`~.pennylane.resource.estimate_shots` function, which requires the
@@ -173,18 +172,18 @@ Hamiltonian coefficients as input. The number of measurements required to comput
 :math:`\left \langle H \right \rangle` with a target error set to the chemical accuracy, 0.0016
 :math:`\text{Ha}`, is obtained as follows.
 
-.. GENERATED FROM PYTHON SOURCE LINES 233-237
+.. GENERATED FROM PYTHON SOURCE LINES 234-238
 
 This number corresponds to the measurement process where each term in the Hamiltonian is measured
 independently. The number can be reduced by using
 :func:`~.pennylane.pauli.group_observables()`, which partitions the Pauli words into
 groups of commuting terms that can be measured simultaneously.
 
-.. GENERATED FROM PYTHON SOURCE LINES 244-245
+.. GENERATED FROM PYTHON SOURCE LINES 245-246
 
 It is also interesting to illustrate how the number of shots depends on the target error.
 
-.. GENERATED FROM PYTHON SOURCE LINES 264-314
+.. GENERATED FROM PYTHON SOURCE LINES 265-316
 
 We have added a line showing the dependency of the shots to the error, as
 :math:`\text{shots} = 1.4\text{e}4 \times 1/\epsilon^2`, for comparison. Can you draw any
@@ -221,12 +220,13 @@ References
     `PRX Quantum 2, 030305 (2021)
     <https://journals.aps.org/prxquantum/abstract/10.1103/PRXQuantum.2.030305>`__
 
-.. [#su2021]
+.. [#zini2023]
 
-    Yuan Su, Dominic W. Berry, Nathan Wiebe, Nicholas Rubin, and Ryan Babbush,
-    "Fault-Tolerant Quantum Simulations of Chemistry in First Quantization".
-    `PRX Quantum 2, 040332 (2021)
-    <https://journals.aps.org/prxquantum/abstract/10.1103/PRXQuantum.2.040332>`__
+    Modjtaba Shokrian Zini, Alain Delgado, Roberto dos Reis, Pablo A. M. Casares,
+    Jonathan E. Mueller, Arne-Christian Voigt, Juan Miguel Arrazola,
+    "Quantum simulation of battery materials using ionic pseudopotentials".
+    `	arXiv:2302.07981 (2023)
+    <https://arxiv.org/abs/2302.07981>`__
 
 .. [#delgado2022]
 

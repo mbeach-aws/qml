@@ -448,7 +448,7 @@ as an intermediate representation when working with Mitiq.</p>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>0.8985196547410811
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>0.898519654741083
 </pre></div>
 </div>
 <p>Amazing! Using PennyLane’s <a class="reference external" href="https://docs.pennylane.ai/en/stable/code/api/pennylane.transforms.mitigate_with_zne.html#pennylane.transforms.mitigate_with_zne" title="(in PennyLane v0.30)"><code class="xref py py-func docutils literal notranslate"><span class="pre">mitigate_with_zne</span></code></a>
@@ -646,7 +646,7 @@ using:</p>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>ZNE result: 0.8985196547410811
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>ZNE result: 0.898519654741083
 </pre></div>
 </div>
 <p>Let’s make a plot of the data and fitted extrapolation function.</p>
@@ -694,7 +694,7 @@ module.</p>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>0.962686958149959
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>0.970711558910301
 </pre></div>
 </div>
 <p>In the above, we can easily add in error mitigation using the <code class="docutils literal notranslate"><span class="pre">&#64;mitigate_with_zne</span></code> decorator. To
@@ -707,33 +707,33 @@ circuits are all folded with a scale factor of <span class="math notranslate noh
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>0: ──RY(4.56)─╭●──RY(5.93)──RY(-5.93)──────────────────────────────────────────
-1: ──RY(3.60)─╰Z──RY(5.90)─╭●──────────RY(5.18)──RY(-5.18)──RY(5.18)──RY(-5.18)
-2: ──RY(4.05)─╭●──RY(3.32)─╰Z──────────RY(1.07)──RY(-1.07)─────────────────────
-3: ──RY(3.51)─╰Z──RY(3.66)──RY(-3.66)──────────────────────────────────────────
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>0: ──RY(4.56)─╭●──RY(5.93)──RY(-5.93)────────────────────────────────────╭●
+1: ──RY(3.60)─╰Z──RY(5.90)─╭●──────────RY(5.18)──RY(-5.18)─╭●──RY(-5.90)─╰Z
+2: ──RY(4.05)─╭●──RY(3.32)─╰Z──────────RY(1.07)──RY(-1.07)─╰Z──RY(-3.32)─╭●
+3: ──RY(3.51)─╰Z──RY(3.66)──RY(-3.66)──RY(3.66)──RY(-3.66)───────────────╰Z
 
-────────────────╭●──RY(-4.56)─┤
-──╭●──RY(-5.90)─╰Z──RY(-3.60)─┤
-──╰Z──RY(-3.32)─╭●──RY(-4.05)─┤
-────────────────╰Z──RY(-3.51)─┤
-0: ──RY(4.56)─╭●─╭●────────╭●──────────RY(5.93)──RY(-5.93)─────────────────────
-1: ──RY(3.60)─╰Z─╰Z────────╰Z──────────RY(5.90)─╭●──────────RY(5.18)──RY(-5.18)
-2: ──RY(4.05)─╭●──RY(3.32)──────────────────────╰Z──────────RY(1.07)──RY(-1.07)
-3: ──RY(3.51)─╰Z──RY(3.66)──RY(-3.66)──────────────────────────────────────────
+───RY(-4.56)─┤
+───RY(-3.60)─┤
+───RY(-4.05)─┤
+───RY(-3.51)─┤
+0: ──RY(4.56)─╭●──RY(5.93)──RY(-5.93)─────────────────────────────────────────
+1: ──RY(3.60)─╰Z──RY(5.90)─╭●─────────╭●─╭●──RY(5.18)──RY(-5.18)─╭●──RY(-5.90)
+2: ──RY(4.05)─╭●──RY(3.32)─╰Z─────────╰Z─╰Z──RY(1.07)──RY(-1.07)─╰Z──RY(-3.32)
+3: ──RY(3.51)─╰Z──RY(3.66)──RY(-3.66)─────────────────────────────────────────
 
-────────────────╭●──RY(-4.56)─┤
-──╭●──RY(-5.90)─╰Z──RY(-3.60)─┤
-──╰Z──RY(-3.32)─╭●──RY(-4.05)─┤
-────────────────╰Z──RY(-3.51)─┤
-0: ──RY(4.56)─╭●──RY(5.93)──RY(-5.93)──────────────────────────────────────────
-1: ──RY(3.60)─╰Z──RY(5.90)─╭●──────────RY(5.18)──RY(-5.18)──RY(5.18)──RY(-5.18)
-2: ──RY(4.05)─╭●──RY(3.32)─╰Z──────────RY(1.07)──RY(-1.07)─────────────────────
-3: ──RY(3.51)─╰Z──RY(3.66)──RY(-3.66)──────────────────────────────────────────
+──╭●──RY(-4.56)─┤
+──╰Z──RY(-3.60)─┤
+──╭●──RY(-4.05)─┤
+──╰Z──RY(-3.51)─┤
+0: ──RY(4.56)─╭●──RY(5.93)──RY(-5.93)─────────────────────────────────────
+1: ──RY(3.60)─╰Z──RY(5.90)──RY(-5.90)──RY(5.90)─╭●──RY(5.18)──RY(-5.18)─╭●
+2: ──RY(4.05)─╭●──RY(3.32)──────────────────────╰Z──RY(1.07)──RY(-1.07)─╰Z
+3: ──RY(3.51)─╰Z──RY(3.66)──RY(-3.66)─────────────────────────────────────
 
-────────────────╭●──RY(-4.56)─┤
-──╭●──RY(-5.90)─╰Z──RY(-3.60)─┤
-──╰Z──RY(-3.32)─╭●──RY(-4.05)─┤
-────────────────╰Z──RY(-3.51)─┤
+─────────────╭●──RY(-4.56)─┤
+───RY(-5.90)─╰Z──RY(-3.60)─┤
+───RY(-3.32)─╭●──RY(-4.05)─┤
+─────────────╰Z──RY(-3.51)─┤
 </pre></div>
 </div>
 <p>To accommodate for this randomness, we can perform multiple repetitions of random folding for a
@@ -758,7 +758,7 @@ sequence of scale factors for extrapolation using Mitiq’s
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>0.9589759363296225
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>0.9589759281849715
 </pre></div>
 </div>
 <p>Recall that <code class="docutils literal notranslate"><span class="pre">circuit</span></code> is a PennyLane <a class="reference external" href="https://docs.pennylane.ai/en/stable/code/api/pennylane.tape.QuantumTape.html#pennylane.tape.QuantumTape" title="(in PennyLane v0.30)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuantumTape</span></code></a> and that
@@ -955,7 +955,7 @@ IEEE International Conference on Quantum Computing and Engineering (2020).</p>
         <h4 class="bio-text__author-name">Andrea Mari</h4>
         <p class="bio-text__author-description">Andrea obtained a PhD in quantum information theory from the University of Potsdam (Germany). He worked as a postdoc at Scuola Normale Superiore (Pisa, Italy) and as a remote researcher at Xanadu. Since 2020 is a Member of Technical Staff at Unitary Fund.</p>
     </div>
-</div><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 2 minutes  39.198 seconds)</p>
+</div><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  53.644 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-demos-tutorial-error-mitigation-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/b7abba86c39e6737ead1f0cc1cab5739/tutorial_error_mitigation.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">tutorial_error_mitigation.py</span></code></a></p>

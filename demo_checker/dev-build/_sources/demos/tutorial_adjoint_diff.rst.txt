@@ -36,7 +36,7 @@ Adjoint Differentiation
 
 .. GENERATED FROM PYTHON SOURCE LINES 23-72
 
-*Author: Christina Lee. Posted: 23 Nov 2021. Last updated: 23 Nov 2021.*
+*Author: Christina Lee. Posted: 23 Nov 2021. Last updated: 20 Jun 2023.*
 
 `Classical automatic differentiation <https://en.wikipedia.org/wiki/Automatic_differentiation#The_chain_rule,_forward_and_reverse_accumulation>`__
 has two methods of calculation: forward and reverse.
@@ -101,20 +101,23 @@ adjoint differentiation on ``"lightning.qubit"`` for substantial performance inc
 We will use the ``circuit`` QNode just for comparison purposes.  Throughout this
 demo, we will instead use a list of its operations ``ops`` and a single observable ``M``.
 
-.. GENERATED FROM PYTHON SOURCE LINES 113-123
+.. GENERATED FROM PYTHON SOURCE LINES 113-126
 
-We create our state by using the ``"default.qubit"`` methods ``_create_basis_state``
-and ``_apply_operation``.
+We will be using internal functions to manipulate the nuts and bolts of a statevector
+simulation.
 
-These are private methods that you shouldn't typically use and are subject to change
-without a deprecation period,
-but we use them here to illustrate the algorithm.
+Internally, the statevector simulation uses a 2x2x2x... array to represent the state, whereas
+the result of a measurement ``qml.state()`` flattens this internal representation. Each dimension
+in the statevector corresponds to a different qubit.
 
-Internally, the device uses a 2x2x2x... array to represent the state, whereas
-the measurement ``qml.state()`` and the device attribute ``dev.state``
-flatten this internal representation.
+The internal functions ``create_initial_state`` and ``apply_operation``
+make additional assumptions about their inputs, and will fail or give incorrect results
+if those assumptions are not met. To work with these simulation tools, all operations should provide
+a matrix, and all wires must corresponding to dimensions of the statevector. This means all wires must already
+be integers starting from ``0``, and not exceed the number of dimensions in the state vector.
 
-.. GENERATED FROM PYTHON SOURCE LINES 132-147
+
+.. GENERATED FROM PYTHON SOURCE LINES 137-152
 
 We can think of the expectation :math:`\langle M \rangle` as an inner product between a bra and a ket:
 
@@ -132,12 +135,12 @@ bra or the ket, but attaching it to the bra side will be useful later.
 Using the ``state`` calculated above, we can create these :math:`|b\rangle` and :math:`|k\rangle`
 vectors.
 
-.. GENERATED FROM PYTHON SOURCE LINES 152-154
+.. GENERATED FROM PYTHON SOURCE LINES 157-159
 
 Now we use ``np.vdot`` to take their inner product.  ``np.vdot`` sums over all dimensions
 and takes the complex conjugate of the first input.
 
-.. GENERATED FROM PYTHON SOURCE LINES 160-173
+.. GENERATED FROM PYTHON SOURCE LINES 165-178
 
 We got the same result via both methods! This validates our use of ``vdot`` and
 device methods.
@@ -153,7 +156,7 @@ to the other :math:`|0\rangle`. For example, we could have used
 and gotten the exact same results.  Here, the subscript :math:`n` is used to indicate that :math:`U_n`
 was moved to the bra side of the expression.  Let's calculate that instead:
 
-.. GENERATED FROM PYTHON SOURCE LINES 190-212
+.. GENERATED FROM PYTHON SOURCE LINES 195-217
 
 Same answer!
 
@@ -178,7 +181,7 @@ operates on both :math:`|k_n\rangle` and :math:`|b_n\rangle` to move the splitti
 
 Let's call this the "version 2" method.
 
-.. GENERATED FROM PYTHON SOURCE LINES 225-242
+.. GENERATED FROM PYTHON SOURCE LINES 230-247
 
 Much simpler!
 
@@ -198,7 +201,7 @@ Rewritten, we have our iteration formulas
 For each iteration, we move an operation from the ket side to the bra side.
 We start near the center at :math:`U_n` and reverse through the operations list until we reach :math:`U_0`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 253-338
+.. GENERATED FROM PYTHON SOURCE LINES 258-343
 
 Finally to Derivatives!
 -----------------------
@@ -286,19 +289,18 @@ Thus we can easily calculate their derivatives:
 
 Luckily, PennyLane already has a built-in function for calculating this.
 
-.. GENERATED FROM PYTHON SOURCE LINES 343-349
+.. GENERATED FROM PYTHON SOURCE LINES 348-354
 
 Now for calculating the full derivative using the adjoint method!
 
 We loop over the reversed operations, just as before.  But if the operation has a parameter,
 we calculate its derivative and append it to a list before moving on. Since the ``operation_derivative``
 function spits back out a matrix instead of an operation,
-we have to use ``dev._apply_unitary`` instead to create :math:`|\tilde{k}_i\rangle`.
+we have to use :class:`~pennylane.QubitUnitary` instead to create :math:`|\tilde{k}_i\rangle`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 349-380
+.. GENERATED FROM PYTHON SOURCE LINES 354-384
 
 .. code-block:: default
-
 
 
 
@@ -337,7 +339,7 @@ we have to use ``dev._apply_unitary`` instead to create :math:`|\tilde{k}_i\rang
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 381-386
+.. GENERATED FROM PYTHON SOURCE LINES 385-390
 
 It matches!!!
 
@@ -345,7 +347,7 @@ If you want to use adjoint differentiation without having to code up your own
 method that can support arbitrary circuits, you can use ``diff_method="adjoint"`` in PennyLane with
 ``"default.qubit"`` or PennyLane's fast C++ simulator ``"lightning.qubit"``.
 
-.. GENERATED FROM PYTHON SOURCE LINES 401-451
+.. GENERATED FROM PYTHON SOURCE LINES 405-455
 
 Performance
 --------------

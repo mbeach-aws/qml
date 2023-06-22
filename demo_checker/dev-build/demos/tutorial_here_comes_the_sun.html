@@ -548,7 +548,7 @@ an auxiliary circuit.</p>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Stochastic parameter-shift: 0.82560
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Stochastic parameter-shift: 0.51482
 </pre></div>
 </div>
 <p>Finally, we can make use of the custom parameter-shift rule introduced in
@@ -741,6 +741,28 @@ For this we define a <code class="docutils literal notranslate"><span class="pre
 ──╭SpecialUnitary(M0)─│───────────────────┤ ├&lt;𝓗(M1)&gt;
 ──╰SpecialUnitary(M0)─│───────────────────┤ ├&lt;𝓗(M1)&gt;
 ──────────────────────╰SpecialUnitary(M0)─┤ ╰&lt;𝓗(M1)&gt;
+M0 =
+[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+M1 =
+[[ 0.10834725 +0.j          2.08348467 +6.90753132j
+  -2.06930568 +8.2114041j  ...  0.63580509 -7.5170844j
+   1.33702141 -0.66250058j -3.44948445 +1.10506823j]
+ [ 2.08348467 -6.90753132j 12.06022571 +0.j
+  -3.89353152 -2.42098631j ... 10.23876267 +0.47309831j
+  -1.83210857 +2.22847103j -4.16991712 +1.71059305j]
+ [-2.06930568 -8.2114041j  -3.89353152 +2.42098631j
+  14.50251133 +0.j         ...  6.8222437  +8.05188006j
+   1.43571374 +7.22783113j  9.69457141 -5.86808992j]
+ ...
+ [ 0.63580509 +7.5170844j  10.23876267 -0.47309831j
+   6.8222437  -8.05188006j ... -2.85717475 +0.j
+  -1.23339179 +0.43575506j -1.62854071-10.10842486j]
+ [ 1.33702141 +0.66250058j -1.83210857 -2.22847103j
+   1.43571374 -7.22783113j ... -1.23339179 -0.43575506j
+   0.50276775 +0.j          1.02792165 +1.37582788j]
+ [-3.44948445 -1.10506823j -4.16991712 -1.71059305j
+   9.69457141 +5.86808992j ... -1.62854071+10.10842486j
+   1.02792165 -1.37582788j -3.0588789  +0.j        ]]
 </pre></div>
 </div>
 <p>We can now proceed to prepare the optimization task using this circuit
@@ -882,7 +904,7 @@ General Quantum Evolution with the Stochastic Parameter Shift Rule.”
         <h4 class="bio-text__author-name">David Wierichs</h4>
         <p class="bio-text__author-description">David is a researcher and quantum software developer at Xanadu, who likes to think about quantum gradients and how to use them in variational quantum algorithms. He enjoys sharing ideas in science and open source software and likes implementing cool stuff in PennyLane.</p>
     </div>
-</div><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 2 minutes  47.112 seconds)</p>
+</div><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 2 minutes  43.636 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-demos-tutorial-here-comes-the-sun-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/0f7e54c016909079d96d7462c240d575/tutorial_here_comes_the_sun.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">tutorial_here_comes_the_sun.py</span></code></a></p>

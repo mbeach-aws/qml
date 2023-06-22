@@ -617,22 +617,22 @@ with respect to the Hartree-Fock state.</p>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Excitation : [0, 1, 2, 3], Gradient: -0.012782168180745691
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Excitation : [0, 1, 2, 3], Gradient: -0.012782168180745634
 Excitation : [0, 1, 2, 5], Gradient: 0.0
 Excitation : [0, 1, 2, 7], Gradient: 0.0
-Excitation : [0, 1, 2, 9], Gradient: 0.034264503599058166
+Excitation : [0, 1, 2, 9], Gradient: 0.034264503599058194
 Excitation : [0, 1, 3, 4], Gradient: 0.0
 Excitation : [0, 1, 3, 6], Gradient: 0.0
-Excitation : [0, 1, 3, 8], Gradient: -0.034264503599058166
-Excitation : [0, 1, 4, 5], Gradient: -0.02358152437911098
+Excitation : [0, 1, 3, 8], Gradient: -0.03426450359905819
+Excitation : [0, 1, 4, 5], Gradient: -0.023581524379110933
 Excitation : [0, 1, 4, 7], Gradient: 0.0
 Excitation : [0, 1, 4, 9], Gradient: 0.0
 Excitation : [0, 1, 5, 6], Gradient: 0.0
 Excitation : [0, 1, 5, 8], Gradient: 0.0
-Excitation : [0, 1, 6, 7], Gradient: -0.02358152437912189
+Excitation : [0, 1, 6, 7], Gradient: -0.02358152437912184
 Excitation : [0, 1, 6, 9], Gradient: 0.0
 Excitation : [0, 1, 7, 8], Gradient: 0.0
-Excitation : [0, 1, 8, 9], Gradient: -0.1236227328962656
+Excitation : [0, 1, 8, 9], Gradient: -0.12362273289626591
 </pre></div>
 </div>
 <p>The computed gradients have different values, reflecting the contribution of each gate
@@ -696,14 +696,14 @@ fixed while the gradients are computed for the single excitation gates.</p>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Excitation : [0, 2], Gradient: -0.005062544629162124
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Excitation : [0, 2], Gradient: -0.005062544629162135
 Excitation : [0, 4], Gradient: 0.0
 Excitation : [0, 6], Gradient: 0.0
-Excitation : [0, 8], Gradient: -0.0009448055879245852
-Excitation : [1, 3], Gradient: 0.0049266251129769
+Excitation : [0, 8], Gradient: -0.0009448055879242643
+Excitation : [1, 3], Gradient: 0.004926625112977095
 Excitation : [1, 5], Gradient: 0.0
 Excitation : [1, 7], Gradient: 0.0
-Excitation : [1, 9], Gradient: 0.001453555386788841
+Excitation : [1, 9], Gradient: 0.0014535553867884928
 </pre></div>
 </div>
 <p>Similar to the double excitation gates, we select those single excitations that have a gradient
@@ -737,26 +737,26 @@ should match the exact energy of the ground electronic state of LiH which is -7.
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>n = 0,  E = -7.86266588 H, t = 1.61 s
-n = 1,  E = -7.87094622 H, t = 1.37 s
-n = 2,  E = -7.87563101 H, t = 1.37 s
-n = 3,  E = -7.87829148 H, t = 1.39 s
-n = 4,  E = -7.87981707 H, t = 1.59 s
-n = 5,  E = -7.88070478 H, t = 1.37 s
-n = 6,  E = -7.88123144 H, t = 1.37 s
-n = 7,  E = -7.88155162 H, t = 1.57 s
-n = 8,  E = -7.88175219 H, t = 1.38 s
-n = 9,  E = -7.88188238 H, t = 1.38 s
-n = 10,  E = -7.88197042 H, t = 1.38 s
-n = 11,  E = -7.88203269 H, t = 1.59 s
-n = 12,  E = -7.88207881 H, t = 1.38 s
-n = 13,  E = -7.88211453 H, t = 1.38 s
-n = 14,  E = -7.88214336 H, t = 1.61 s
-n = 15,  E = -7.88216745 H, t = 1.38 s
-n = 16,  E = -7.88218815 H, t = 1.36 s
-n = 17,  E = -7.88220635 H, t = 1.36 s
-n = 18,  E = -7.88222262 H, t = 1.60 s
-n = 19,  E = -7.88223735 H, t = 1.39 s
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>n = 0,  E = -7.86266588 H, t = 0.86 s
+n = 1,  E = -7.87094622 H, t = 0.86 s
+n = 2,  E = -7.87563101 H, t = 0.87 s
+n = 3,  E = -7.87829148 H, t = 1.16 s
+n = 4,  E = -7.87981707 H, t = 0.87 s
+n = 5,  E = -7.88070478 H, t = 0.87 s
+n = 6,  E = -7.88123144 H, t = 0.86 s
+n = 7,  E = -7.88155162 H, t = 1.14 s
+n = 8,  E = -7.88175219 H, t = 0.85 s
+n = 9,  E = -7.88188238 H, t = 0.86 s
+n = 10,  E = -7.88197042 H, t = 0.86 s
+n = 11,  E = -7.88203269 H, t = 0.84 s
+n = 12,  E = -7.88207881 H, t = 1.13 s
+n = 13,  E = -7.88211453 H, t = 0.87 s
+n = 14,  E = -7.88214336 H, t = 0.87 s
+n = 15,  E = -7.88216745 H, t = 0.86 s
+n = 16,  E = -7.88218815 H, t = 1.16 s
+n = 17,  E = -7.88220635 H, t = 0.86 s
+n = 18,  E = -7.88222262 H, t = 0.86 s
+n = 19,  E = -7.88223735 H, t = 0.86 s
 </pre></div>
 </div>
 <p>Success! We obtained the ground state energy of LiH, within chemical accuracy, by having
@@ -815,26 +815,26 @@ sparse method currently only works with the parameter-shift differentiation meth
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>n = 0,  E = -7.86266588 H, t = 0.23 s
-n = 1,  E = -7.87094622 H, t = 0.24 s
-n = 2,  E = -7.87563101 H, t = 0.24 s
-n = 3,  E = -7.87829148 H, t = 0.23 s
-n = 4,  E = -7.87981707 H, t = 0.24 s
-n = 5,  E = -7.88070478 H, t = 0.24 s
-n = 6,  E = -7.88123144 H, t = 0.24 s
-n = 7,  E = -7.88155162 H, t = 0.23 s
-n = 8,  E = -7.88175219 H, t = 0.24 s
-n = 9,  E = -7.88188238 H, t = 0.24 s
-n = 10,  E = -7.88197042 H, t = 0.24 s
-n = 11,  E = -7.88203269 H, t = 0.23 s
-n = 12,  E = -7.88207881 H, t = 0.23 s
-n = 13,  E = -7.88211453 H, t = 0.25 s
-n = 14,  E = -7.88214336 H, t = 0.23 s
-n = 15,  E = -7.88216745 H, t = 0.25 s
-n = 16,  E = -7.88218815 H, t = 0.24 s
-n = 17,  E = -7.88220635 H, t = 0.24 s
-n = 18,  E = -7.88222262 H, t = 0.25 s
-n = 19,  E = -7.88223735 H, t = 0.24 s
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>n = 0,  E = -7.86266588 H, t = 0.17 s
+n = 1,  E = -7.87094622 H, t = 0.17 s
+n = 2,  E = -7.87563101 H, t = 0.17 s
+n = 3,  E = -7.87829148 H, t = 0.17 s
+n = 4,  E = -7.87981707 H, t = 0.17 s
+n = 5,  E = -7.88070478 H, t = 0.17 s
+n = 6,  E = -7.88123144 H, t = 0.17 s
+n = 7,  E = -7.88155162 H, t = 0.17 s
+n = 8,  E = -7.88175219 H, t = 0.17 s
+n = 9,  E = -7.88188238 H, t = 0.17 s
+n = 10,  E = -7.88197042 H, t = 0.17 s
+n = 11,  E = -7.88203269 H, t = 0.17 s
+n = 12,  E = -7.88207881 H, t = 0.17 s
+n = 13,  E = -7.88211453 H, t = 0.17 s
+n = 14,  E = -7.88214336 H, t = 0.17 s
+n = 15,  E = -7.88216745 H, t = 0.46 s
+n = 16,  E = -7.88218815 H, t = 0.17 s
+n = 17,  E = -7.88220635 H, t = 0.17 s
+n = 18,  E = -7.88222262 H, t = 0.17 s
+n = 19,  E = -7.88223735 H, t = 0.17 s
 </pre></div>
 </div>
 <p>Using the sparse method reproduces the ground state energy while the optimization time is
@@ -885,7 +885,7 @@ variational algorithm for exact molecular simulations on a quantum computer”.
         <h4 class="bio-text__author-name">Soran Jahangiri</h4>
         <p class="bio-text__author-description">Soran Jahangiri is a quantum chemist working at Xanadu. His work is focused on developing and implementing quantum algorithms for chemistry applications.</p>
     </div>
-</div><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 8 minutes  21.935 seconds)</p>
+</div><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 5 minutes  25.105 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-demos-tutorial-adaptive-circuits-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/f10fa01a2fd2016df6eefe36689be552/tutorial_adaptive_circuits.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">tutorial_adaptive_circuits.py</span></code></a></p>

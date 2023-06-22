@@ -869,6 +869,13 @@ tapes.</p></li>
             <a href="https://docs.pennylane.ai/en/stable/code/api/pennylane.apply.html#pennylane.apply" title="pennylane.apply" class="sphx-glr-backref-module-pennylane sphx-glr-backref-type-py-function"><span class="n">qml</span><span class="o">.</span><span class="n">apply</span></a><span class="p">(</span><a href="https://docs.pennylane.ai/en/stable/code/api/pennylane.measurements.SampleMP.html#pennylane.measurements.SampleMP" title="pennylane.measurements.SampleMP" class="sphx-glr-backref-module-pennylane-measurements sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">op</span></a><span class="p">,</span> <span class="n">context</span><span class="o">=</span><a href="https://docs.pennylane.ai/en/stable/code/api/pennylane.tape.QuantumTape.html#pennylane.tape.QuantumTape" title="pennylane.tape.QuantumTape" class="sphx-glr-backref-module-pennylane-tape sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">tape1</span></a><span class="p">)</span>
 </pre></div>
 </div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/runner/work/qml/qml/venv/lib/python3.9/site-packages/pennylane/tape/tape.py:385: UserWarning: The do_queue keyword argument is deprecated. Instead of setting it to False, use qml.queuing.QueuingManager.stop_recording()
+  warnings.warn(do_queue_deprecation_warning, UserWarning)
+/home/runner/work/qml/qml/venv/lib/python3.9/site-packages/pennylane/operation.py:1034: UserWarning: The do_queue keyword argument is deprecated. Instead of setting it to False, use qml.queuing.QueuingManager.stop_recording()
+  warnings.warn(do_queue_deprecation_warning, UserWarning)
+</pre></div>
+</div>
 <p>Verify that we get expected values:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cut size: k=</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Channel probabilities: p0=</span><span class="si">{</span><span class="n">probs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">; p1=</span><span class="si">{</span><span class="n">probs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1074,7 +1081,7 @@ devices don’t have such limitations, of course.</p>
         <h4 class="bio-text__author-name">Anuj Apte</h4>
         <p class="bio-text__author-description">Anuj is a PhD student at the University of Chicago. His research interests include quantum field theory with applications to topological phases and quantum computing.</p>
     </div>
-</div><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 9 minutes  53.161 seconds)</p>
+</div><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 9 minutes  52.911 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-demos-tutorial-quantum-circuit-cutting-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/5b8d7876882a29b4e3aee2e0b0cf5aef/tutorial_quantum_circuit_cutting.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">tutorial_quantum_circuit_cutting.py</span></code></a></p>

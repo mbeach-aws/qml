@@ -418,21 +418,22 @@ estimated numbers.</p>
 <img src="../_images/sphx_glr_tutorial_resource_estimation_001.png" srcset="../_images/sphx_glr_tutorial_resource_estimation_001.png" alt="tutorial resource estimation" class = "sphx-glr-single-img"/></div>
 <div class="section" id="qpe-cost-for-simulating-periodic-materials">
 <h3>QPE cost for simulating periodic materials<a class="headerlink" href="#qpe-cost-for-simulating-periodic-materials" title="Permalink to this headline">¶</a></h3>
-<p>For periodic materials, we estimate the cost of implementing the QPE algorithm of <a class="footnote-reference brackets" href="#su2021" id="id5">3</a>
+<p>For periodic materials, we estimate the cost of implementing the QPE algorithm of <a class="footnote-reference brackets" href="#zini2023" id="id5">3</a>
 using Hamiltonians represented in first quantization and in a plane wave basis. We first need to
-define the number of plane waves, the number of electrons, and the volume of the unit cell that
-constructs the periodic material. Let’s use dilithium iron silicate
+define the number of plane waves, the number of electrons, and the lattice vectors that construct
+the unit cell of the periodic material. Let’s use dilithium iron silicate
 <span class="math notranslate nohighlight">\(\text{Li}_2\text{FeSiO}_4\)</span> as an example taken from <a class="footnote-reference brackets" href="#delgado2022" id="id6">4</a>. For this material, the
 unit cell contains 156 electrons and has dimensions <span class="math notranslate nohighlight">\(9.49 \times 10.20 \times 11.83\)</span> in
-atomic units, amounting to a volume of <span class="math notranslate nohighlight">\(1145 a_0^3\)</span>, where <span class="math notranslate nohighlight">\(a_0\)</span> is the
-<a class="reference external" href="https://en.wikipedia.org/wiki/Bohr_radius">Bohr radius</a>. We also use <span class="math notranslate nohighlight">\(10^5\)</span> plane waves.</p>
+<a class="reference external" href="https://en.wikipedia.org/wiki/Bohr_radius">atomic units</a>. We also use <span class="math notranslate nohighlight">\(10^5\)</span> plane waves.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">planewaves</span> <span class="o">=</span> <span class="mi">100000</span>
 <span class="n">electrons</span> <span class="o">=</span> <span class="mi">156</span>
-<span class="n">volume</span> <span class="o">=</span> <span class="mi">1145</span>
+<a href="https://docs.pennylane.ai/en/stable/code/api/pennylane.numpy.tensor.html#pennylane.numpy.tensor" title="pennylane.numpy.tensor" class="sphx-glr-backref-module-pennylane-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">vectors</span></a> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">9.49</span><span class="p">,</span>  <span class="mf">0.00</span><span class="p">,</span>  <span class="mf">0.00</span><span class="p">],</span>
+                    <span class="p">[</span><span class="mf">0.00</span><span class="p">,</span> <span class="mf">10.20</span><span class="p">,</span>  <span class="mf">0.00</span><span class="p">],</span>
+                    <span class="p">[</span><span class="mf">0.00</span><span class="p">,</span>  <span class="mf">0.00</span><span class="p">,</span> <span class="mf">11.83</span><span class="p">]])</span>
 </pre></div>
 </div>
 <p>We now create an instance of the <a class="reference external" href="https://docs.pennylane.ai/en/stable/code/api/pennylane.resource.FirstQuantization.html#pennylane.resource.FirstQuantization" title="(in PennyLane v0.30)"><code class="xref py py-class docutils literal notranslate"><span class="pre">FirstQuantization</span></code></a> class</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.pennylane.ai/en/stable/code/api/pennylane.resource.FirstQuantization.html#pennylane.resource.FirstQuantization" title="pennylane.resource.FirstQuantization" class="sphx-glr-backref-module-pennylane-resource sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">algo</span></a> <span class="o">=</span> <a href="https://docs.pennylane.ai/en/stable/code/api/pennylane.resource.FirstQuantization.html#pennylane.resource.FirstQuantization" title="pennylane.resource.FirstQuantization" class="sphx-glr-backref-module-pennylane-resource sphx-glr-backref-type-py-class"><span class="n">qml</span><span class="o">.</span><span class="n">resource</span><span class="o">.</span><span class="n">FirstQuantization</span></a><span class="p">(</span><span class="n">planewaves</span><span class="p">,</span> <span class="n">electrons</span><span class="p">,</span> <span class="n">volume</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.pennylane.ai/en/stable/code/api/pennylane.resource.FirstQuantization.html#pennylane.resource.FirstQuantization" title="pennylane.resource.FirstQuantization" class="sphx-glr-backref-module-pennylane-resource sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">algo</span></a> <span class="o">=</span> <a href="https://docs.pennylane.ai/en/stable/code/api/pennylane.resource.FirstQuantization.html#pennylane.resource.FirstQuantization" title="pennylane.resource.FirstQuantization" class="sphx-glr-backref-module-pennylane-resource sphx-glr-backref-type-py-class"><span class="n">qml</span><span class="o">.</span><span class="n">resource</span><span class="o">.</span><span class="n">FirstQuantization</span></a><span class="p">(</span><span class="n">planewaves</span><span class="p">,</span> <span class="n">electrons</span><span class="p">,</span> <a href="https://docs.pennylane.ai/en/stable/code/api/pennylane.numpy.tensor.html#pennylane.numpy.tensor" title="pennylane.numpy.tensor" class="sphx-glr-backref-module-pennylane-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">vectors</span></a><span class="o">=</span><a href="https://docs.pennylane.ai/en/stable/code/api/pennylane.numpy.tensor.html#pennylane.numpy.tensor" title="pennylane.numpy.tensor" class="sphx-glr-backref-module-pennylane-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">vectors</span></a><span class="p">)</span>
 </pre></div>
 </div>
 <p>and obtain the estimated number of non-Clifford gates and logical qubits.</p>
@@ -440,8 +441,8 @@ atomic units, amounting to a volume of <span class="math notranslate nohighlight
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Estimated gates : 1.10e+13
-Estimated qubits: 4416
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Estimated gates : 1.42e+14
+Estimated qubits: 3331
 </pre></div>
 </div>
 <p>We can also plot the estimated numbers as a function of the number of plane waves for different
@@ -456,7 +457,7 @@ target errors</p>
     <span class="n">n_qubits_</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="k">for</span> <span class="n">pw</span> <span class="ow">in</span> <span class="n">planewaves</span><span class="p">:</span>
-        <a href="https://docs.pennylane.ai/en/stable/code/api/pennylane.resource.FirstQuantization.html#pennylane.resource.FirstQuantization" title="pennylane.resource.FirstQuantization" class="sphx-glr-backref-module-pennylane-resource sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">algo_</span></a> <span class="o">=</span> <a href="https://docs.pennylane.ai/en/stable/code/api/pennylane.resource.FirstQuantization.html#pennylane.resource.FirstQuantization" title="pennylane.resource.FirstQuantization" class="sphx-glr-backref-module-pennylane-resource sphx-glr-backref-type-py-class"><span class="n">qml</span><span class="o">.</span><span class="n">resource</span><span class="o">.</span><span class="n">FirstQuantization</span></a><span class="p">(</span><span class="n">pw</span><span class="p">,</span> <span class="n">electrons</span><span class="p">,</span> <span class="n">volume</span><span class="p">,</span> <a href="https://docs.pennylane.ai/en/stable/code/api/pennylane.numpy.tensor.html#pennylane.numpy.tensor" title="pennylane.numpy.tensor" class="sphx-glr-backref-module-pennylane-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">error</span></a><span class="o">=</span><span class="n">er</span><span class="p">)</span>
+        <a href="https://docs.pennylane.ai/en/stable/code/api/pennylane.resource.FirstQuantization.html#pennylane.resource.FirstQuantization" title="pennylane.resource.FirstQuantization" class="sphx-glr-backref-module-pennylane-resource sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">algo_</span></a> <span class="o">=</span> <a href="https://docs.pennylane.ai/en/stable/code/api/pennylane.resource.FirstQuantization.html#pennylane.resource.FirstQuantization" title="pennylane.resource.FirstQuantization" class="sphx-glr-backref-module-pennylane-resource sphx-glr-backref-type-py-class"><span class="n">qml</span><span class="o">.</span><span class="n">resource</span><span class="o">.</span><span class="n">FirstQuantization</span></a><span class="p">(</span><span class="n">pw</span><span class="p">,</span> <span class="n">electrons</span><span class="p">,</span> <a href="https://docs.pennylane.ai/en/stable/code/api/pennylane.numpy.tensor.html#pennylane.numpy.tensor" title="pennylane.numpy.tensor" class="sphx-glr-backref-module-pennylane-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">vectors</span></a><span class="o">=</span><a href="https://docs.pennylane.ai/en/stable/code/api/pennylane.numpy.tensor.html#pennylane.numpy.tensor" title="pennylane.numpy.tensor" class="sphx-glr-backref-module-pennylane-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">vectors</span></a><span class="p">,</span> <a href="https://docs.pennylane.ai/en/stable/code/api/pennylane.numpy.tensor.html#pennylane.numpy.tensor" title="pennylane.numpy.tensor" class="sphx-glr-backref-module-pennylane-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">error</span></a><span class="o">=</span><span class="n">er</span><span class="p">)</span>
         <span class="n">n_gates_</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><a href="https://docs.pennylane.ai/en/stable/code/api/pennylane.resource.FirstQuantization.html#pennylane.resource.FirstQuantization" title="pennylane.resource.FirstQuantization" class="sphx-glr-backref-module-pennylane-resource sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">algo_</span></a><span class="o">.</span><span class="n">gates</span><span class="p">)</span>
         <span class="n">n_qubits_</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><a href="https://docs.pennylane.ai/en/stable/code/api/pennylane.resource.FirstQuantization.html#pennylane.resource.FirstQuantization" title="pennylane.resource.FirstQuantization" class="sphx-glr-backref-module-pennylane-resource sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">algo_</span></a><span class="o">.</span><span class="n">qubits</span><span class="p">)</span>
     <span class="n">n_gates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n_gates_</span><span class="p">)</span>
@@ -487,11 +488,11 @@ target errors</p>
 <p>The parameter <span class="math notranslate nohighlight">\(\lambda=\sum_i c_i\)</span>, which can be interpreted as the 1-norm of the
 Hamiltonian, plays an important role in determining the cost of implementing the QPE
 algorithm <a class="footnote-reference brackets" href="#delgado2022" id="id7">4</a>. In PennyLane, the 1-norm of the Hamiltonian can be obtained with</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;1-norm of the Hamiltonian: </span><span class="si">{</span><a href="https://docs.pennylane.ai/en/stable/code/api/pennylane.resource.FirstQuantization.html#pennylane.resource.FirstQuantization" title="pennylane.resource.FirstQuantization" class="sphx-glr-backref-module-pennylane-resource sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">algo</span></a><span class="o">.</span><span class="n">lamb</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;1-norm of the Hamiltonian: </span><span class="si">{</span><a href="https://docs.pennylane.ai/en/stable/code/api/pennylane.numpy.tensor.html#pennylane.numpy.tensor" title="pennylane.numpy.tensor" class="sphx-glr-backref-module-pennylane-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">algo</span><span class="o">.</span><span class="n">lamb</span></a><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>1-norm of the Hamiltonian: 649948.0644442376
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>1-norm of the Hamiltonian: 764382.7344833747
 </pre></div>
 </div>
 <p>PennyLane allows you to get more detailed information about the cost of the algorithms as
@@ -593,10 +594,12 @@ interesting information that can be obtained using this PennyLane functionality?
 “Even More Efficient Quantum Computations of Chemistry Through Tensor Hypercontraction”.
 <a class="reference external" href="https://journals.aps.org/prxquantum/abstract/10.1103/PRXQuantum.2.030305">PRX Quantum 2, 030305 (2021)</a></p>
 </dd>
-<dt class="label" id="su2021"><span class="brackets"><a class="fn-backref" href="#id5">3</a></span></dt>
-<dd><p>Yuan Su, Dominic W. Berry, Nathan Wiebe, Nicholas Rubin, and Ryan Babbush,
-“Fault-Tolerant Quantum Simulations of Chemistry in First Quantization”.
-<a class="reference external" href="https://journals.aps.org/prxquantum/abstract/10.1103/PRXQuantum.2.040332">PRX Quantum 2, 040332 (2021)</a></p>
+<dt class="label" id="zini2023"><span class="brackets"><a class="fn-backref" href="#id5">3</a></span></dt>
+<dd><p>Modjtaba Shokrian Zini, Alain Delgado, Roberto dos Reis, Pablo A. M. Casares,
+Jonathan E. Mueller, Arne-Christian Voigt, Juan Miguel Arrazola,
+“Quantum simulation of battery materials using ionic pseudopotentials”.
+`   arXiv:2302.07981 (2023)
+&lt;https://arxiv.org/abs/2302.07981&gt;`__</p>
 </dd>
 <dt class="label" id="delgado2022"><span class="brackets">4</span><span class="fn-backref">(<a href="#id6">1</a>,<a href="#id7">2</a>)</span></dt>
 <dd><p>Alain Delgado, Pablo A. M. Casares, Roberto dos Reis, Modjtaba Shokrian Zini, <em>et al.</em>,
@@ -615,7 +618,7 @@ interesting information that can be obtained using this PennyLane functionality?
         <h4 class="bio-text__author-name">Soran Jahangiri</h4>
         <p class="bio-text__author-description">Soran Jahangiri is a quantum chemist working at Xanadu. His work is focused on developing and implementing quantum algorithms for chemistry applications.</p>
     </div>
-</div><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 2 minutes  1.610 seconds)</p>
+</div><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  42.753 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-demos-tutorial-resource-estimation-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/79f6327d26780ea35ea0d3e681eb25c0/tutorial_resource_estimation.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">tutorial_resource_estimation.py</span></code></a></p>

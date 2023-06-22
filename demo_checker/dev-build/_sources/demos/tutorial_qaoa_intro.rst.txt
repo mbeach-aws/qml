@@ -99,74 +99,10 @@ becomes larger.
 In PennyLane, this is implemented using the :func:`~.pennylane.templates.ApproxTimeEvolution` template.
 For example, let's say we have the following Hamiltonian:
 
-.. GENERATED FROM PYTHON SOURCE LINES 81-91
-
-.. code-block:: default
-
-
-    import pennylane as qml
-
-    H = qml.Hamiltonian(
-        [1, 1, 0.5],
-        [qml.PauliX(0), qml.PauliZ(1), qml.PauliX(0) @ qml.PauliX(1)]
-    )
-    print(H)
-
-
-
-
-
-
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-      (1) [X0]
-    + (1) [Z1]
-    + (0.5) [X0 X1]
-
-
-
-
 .. GENERATED FROM PYTHON SOURCE LINES 92-94
 
 We can implement the approximate time-evolution operator corresponding to this
 Hamiltonian:
-
-.. GENERATED FROM PYTHON SOURCE LINES 95-108
-
-.. code-block:: default
-
-
-    dev = qml.device('default.qubit', wires=2)
-
-    t = 1
-    n = 2
-
-    @qml.qnode(dev)
-    def circuit():
-        qml.ApproxTimeEvolution(H, t, n)
-        return [qml.expval(qml.PauliZ(i)) for i in range(2)]
-
-    print(qml.draw(circuit, expansion_strategy='device')())
-
-
-
-
-
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-    0: ──RX(1.00)─╭RXX(0.50)──RX(1.00)─╭RXX(0.50)─┤  <Z>
-    1: ──RZ(1.00)─╰RXX(0.50)──RZ(1.00)─╰RXX(0.50)─┤  <Z>
-
-
-
 
 .. GENERATED FROM PYTHON SOURCE LINES 109-140
 
@@ -202,70 +138,9 @@ To create a larger circuit consisting of many repetitions, we pass the circuit t
 repeated as an argument and specify the number of repetitions. For example, let's
 say that we want to layer the following circuit three times:
 
-.. GENERATED FROM PYTHON SOURCE LINES 140-153
-
-.. code-block:: default
-
-
-    def circ(theta):
-        qml.RX(theta, wires=0)
-        qml.Hadamard(wires=1)
-        qml.CNOT(wires=[0, 1])
-
-    @qml.qnode(dev)
-    def circuit(param):
-        circ(param)
-        return [qml.expval(qml.PauliZ(i)) for i in range(2)]
-
-    print(qml.draw(circuit)(0.5))
-
-
-
-
-
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-    0: ──RX(0.50)─╭●─┤  <Z>
-    1: ──H────────╰X─┤  <Z>
-
-
-
-
 .. GENERATED FROM PYTHON SOURCE LINES 154-156
 
 We simply pass this function into the :func:`~.pennylane.layer` function:
-
-
-.. GENERATED FROM PYTHON SOURCE LINES 157-165
-
-.. code-block:: default
-
-
-    @qml.qnode(dev)
-    def circuit(params, **kwargs):
-        qml.layer(circ, 3, params)
-        return [qml.expval(qml.PauliZ(i)) for i in range(2)]
-
-    print(qml.draw(circuit)([0.3, 0.4, 0.5]))
-
-
-
-
-
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-    0: ──RX(0.30)─╭●──RX(0.40)─╭●──RX(0.50)─╭●─┤  <Z>
-    1: ──H────────╰X──H────────╰X──H────────╰X─┤  <Z>
-
-
 
 
 .. GENERATED FROM PYTHON SOURCE LINES 166-170
@@ -336,52 +211,10 @@ the bit string 01010 represents a cover consisting of the second and fourth vert
 To implement QAOA with PennyLane, we first import the necessary dependencies:
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 231-238
-
-.. code-block:: default
-
-
-    from pennylane import qaoa
-    from pennylane import numpy as np
-    from matplotlib import pyplot as plt
-    import networkx as nx
-
-
-
-
-
-
-
-
-
 .. GENERATED FROM PYTHON SOURCE LINES 239-241
 
 We also define the four-vertex graph for which we
 want to find the minimum vertex cover:
-
-.. GENERATED FROM PYTHON SOURCE LINES 242-250
-
-.. code-block:: default
-
-
-    edges = [(0, 1), (1, 2), (2, 0), (2, 3)]
-    graph = nx.Graph(edges)
-
-    nx.draw(graph, with_labels=True)
-    plt.show()
-
-
-
-
-
-.. image-sg:: /demos/images/sphx_glr_tutorial_qaoa_intro_001.png
-   :alt: tutorial qaoa intro
-   :srcset: /demos/images/sphx_glr_tutorial_qaoa_intro_001.png
-   :class: sphx-glr-single-img
-
-
-
-
 
 .. GENERATED FROM PYTHON SOURCE LINES 251-266
 
@@ -401,42 +234,6 @@ Hamiltonian has two ground states, :math:`|1010\rangle` and :math:`|0110\rangle`
 with the solutions of the problem. The mixer Hamiltonian is the simple, non-commuting sum of Pauli-X
 operations on each node of the graph:
 
-.. GENERATED FROM PYTHON SOURCE LINES 267-273
-
-.. code-block:: default
-
-
-    cost_h, mixer_h = qaoa.min_vertex_cover(graph, constrained=False)
-
-    print("Cost Hamiltonian", cost_h)
-    print("Mixer Hamiltonian", mixer_h)
-
-
-
-
-
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-    Cost Hamiltonian   (-0.25) [Z3]
-    + (0.5) [Z0]
-    + (0.5) [Z1]
-    + (1.25) [Z2]
-    + (0.75) [Z0 Z1]
-    + (0.75) [Z0 Z2]
-    + (0.75) [Z1 Z2]
-    + (0.75) [Z2 Z3]
-    Mixer Hamiltonian   (1) [X0]
-    + (1) [X1]
-    + (1) [X2]
-    + (1) [X3]
-
-
-
-
 .. GENERATED FROM PYTHON SOURCE LINES 274-284
 
 A single layer of QAOA consists of time evolution under these
@@ -450,51 +247,12 @@ While it is possible to use :func:`~.pennylane.templates.ApproxTimeEvolution`, t
 build the cost and mixer layers directly using the functions :func:`~.pennylane.qaoa.cost_layer` and
 :func:`~.pennylane.qaoa.mixer_layer`, which take as input the respective Hamiltonian and variational parameters:
 
-.. GENERATED FROM PYTHON SOURCE LINES 285-291
-
-.. code-block:: default
-
-
-
-    def qaoa_layer(gamma, alpha):
-        qaoa.cost_layer(gamma, cost_h)
-        qaoa.mixer_layer(alpha, mixer_h)
-
-
-
-
-
-
-
-
 .. GENERATED FROM PYTHON SOURCE LINES 292-296
 
 We are now ready to build the full variational circuit. The number of wires is equal to
 the number of vertices of the graph. We initialize the state to an even superposition over
 all basis states.
 For this example, we employ a circuit consisting of two QAOA layers:
-
-.. GENERATED FROM PYTHON SOURCE LINES 297-308
-
-.. code-block:: default
-
-
-
-    wires = range(4)
-    depth = 2
-
-    def circuit(params, **kwargs):
-        for w in wires:
-            qml.Hadamard(wires=w)
-        qml.layer(qaoa_layer, depth, params[0], params[1])
-
-
-
-
-
-
-
-
 
 .. GENERATED FROM PYTHON SOURCE LINES 309-319
 
@@ -509,49 +267,11 @@ We also define the device on which the simulation is performed. We use the
 PennyLane-Qulacs plugin to run the circuit on the Qulacs simulator:
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 320-329
-
-.. code-block:: default
-
-
-    dev = qml.device("qulacs.simulator", wires=wires)
-
-    @qml.qnode(dev)
-    def cost_function(params):
-        circuit(params)
-        return qml.expval(cost_h)
-
-
-
-
-
-
-
-
-
 .. GENERATED FROM PYTHON SOURCE LINES 330-333
 
 Finally, we optimize the cost function using the built-in
 :func:`~.pennylane.GradientDescentOptimizer`. We perform optimization for seventy steps and initialize the
 parameters:
-
-.. GENERATED FROM PYTHON SOURCE LINES 334-341
-
-.. code-block:: default
-
-
-
-    optimizer = qml.GradientDescentOptimizer()
-    steps = 70
-    params = np.array([[0.5, 0.5], [0.5, 0.5]], requires_grad=True)
-
-
-
-
-
-
-
-
 
 .. GENERATED FROM PYTHON SOURCE LINES 342-352
 
@@ -566,35 +286,6 @@ for more complex instances of the algorithm as well.
 Now, we can optimize the circuit:
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 353-361
-
-.. code-block:: default
-
-
-    for i in range(steps):
-        params = optimizer.step(cost_function, params)
-
-    print("Optimal Parameters")
-    print(params)
-
-
-
-
-
-
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-    Optimal Parameters
-    [[0.59806352 0.94198485]
-     [0.52797281 0.85552845]]
-
-
-
-
 .. GENERATED FROM PYTHON SOURCE LINES 362-367
 
 With the optimal parameters, we can now reconstruct the probability
@@ -603,53 +294,10 @@ full QAOA circuit with the optimal parameters, but this time we
 return the probabilities of measuring each bitstring:
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 368-378
-
-.. code-block:: default
-
-
-    @qml.qnode(dev)
-    def probability_circuit(gamma, alpha):
-        circuit([gamma, alpha])
-        return qml.probs(wires=wires)
-
-
-    probs = probability_circuit(params[0], params[1])
-
-
-
-
-
-
-
-
-
 .. GENERATED FROM PYTHON SOURCE LINES 379-381
 
 Finally, we can display a bar graph showing the probability of
 measuring each bitstring:
-
-.. GENERATED FROM PYTHON SOURCE LINES 382-388
-
-.. code-block:: default
-
-
-    plt.style.use("seaborn")
-    plt.bar(range(2 ** len(wires)), probs)
-    plt.show()
-
-
-
-
-
-.. image-sg:: /demos/images/sphx_glr_tutorial_qaoa_intro_002.png
-   :alt: tutorial qaoa intro
-   :srcset: /demos/images/sphx_glr_tutorial_qaoa_intro_002.png
-   :class: sphx-glr-single-img
-
-
-
-
 
 .. GENERATED FROM PYTHON SOURCE LINES 389-398
 
@@ -686,38 +334,10 @@ We can use the :func:`~.pennylane.qaoa.edge_driver` cost
 Hamiltonian to "reward" cases in which the first and last vertices of the graph
 are :math:`0`:
 
-.. GENERATED FROM PYTHON SOURCE LINES 421-424
-
-.. code-block:: default
-
-
-    reward_h = qaoa.edge_driver(nx.Graph([(0, 2)]), ['11'])
-
-
-
-
-
-
-
-
 .. GENERATED FROM PYTHON SOURCE LINES 425-427
 
 We then weigh and add the constraining term
 to the original minimum vertex cover Hamiltonian:
-
-.. GENERATED FROM PYTHON SOURCE LINES 428-431
-
-.. code-block:: default
-
-
-    new_cost_h = cost_h + 2 * reward_h
-
-
-
-
-
-
-
 
 .. GENERATED FROM PYTHON SOURCE LINES 432-435
 
@@ -725,83 +345,9 @@ Notice that PennyLane allows for simple addition and multiplication of
 Hamiltonian objects using inline arithmetic operations ➕ ➖ ✖️➗! Finally, we can
 use this new cost Hamiltonian to define a new QAOA workflow:
 
-.. GENERATED FROM PYTHON SOURCE LINES 436-461
-
-.. code-block:: default
-
-
-
-    def qaoa_layer(gamma, alpha):
-        qaoa.cost_layer(gamma, new_cost_h)
-        qaoa.mixer_layer(alpha, mixer_h)
-
-    def circuit(params, **kwargs):
-        for w in wires:
-            qml.Hadamard(wires=w)
-        qml.layer(qaoa_layer, depth, params[0], params[1])
-
-    @qml.qnode(dev)
-    def cost_function(params):
-        circuit(params)
-        return qml.expval(new_cost_h)
-
-    params = np.array([[0.5, 0.5], [0.5, 0.5]], requires_grad=True)
-
-    for i in range(steps):
-        params = optimizer.step(cost_function, params)
-
-    print("Optimal Parameters")
-    print(params)
-
-
-
-
-
-
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-    Optimal Parameters
-    [[0.45959941 0.96095271]
-     [0.27029962 0.78042396]]
-
-
-
-
 .. GENERATED FROM PYTHON SOURCE LINES 462-464
 
 We then reconstruct the probability landscape with the optimal parameters:
-
-
-.. GENERATED FROM PYTHON SOURCE LINES 465-477
-
-.. code-block:: default
-
-
-    @qml.qnode(dev)
-    def probability_circuit(gamma, alpha):
-        circuit([gamma, alpha])
-        return qml.probs(wires=wires)
-
-    probs = probability_circuit(params[0], params[1])
-
-    plt.style.use("seaborn")
-    plt.bar(range(2 ** len(wires)), probs)
-    plt.show()
-
-
-
-
-.. image-sg:: /demos/images/sphx_glr_tutorial_qaoa_intro_003.png
-   :alt: tutorial qaoa intro
-   :srcset: /demos/images/sphx_glr_tutorial_qaoa_intro_003.png
-   :class: sphx-glr-single-img
-
-
-
 
 
 .. GENERATED FROM PYTHON SOURCE LINES 478-481
@@ -836,7 +382,7 @@ About the author
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 3 minutes  6.748 seconds)
+   **Total running time of the script:** ( 0 minutes  0.000 seconds)
 
 
 .. _sphx_glr_download_demos_tutorial_qaoa_intro.py:

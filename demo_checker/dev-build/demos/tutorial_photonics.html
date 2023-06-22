@@ -435,20 +435,20 @@ We plot 1000 measurement results for both <span class="math notranslate nohighli
 
 
 <span class="c1"># Sample measurements in phase space</span>
-<span class="n">x_sample</span> <span class="o">=</span> <a href="https://docs.pennylane.ai/en/stable/code/api/pennylane.QNode.html#pennylane.QNode" title="pennylane.QNode" class="sphx-glr-backref-module-pennylane sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">vacuum_measure_x</span></a><span class="p">()</span>
-<span class="n">p_sample</span> <span class="o">=</span> <a href="https://docs.pennylane.ai/en/stable/code/api/pennylane.QNode.html#pennylane.QNode" title="pennylane.QNode" class="sphx-glr-backref-module-pennylane sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">vacuum_measure_p</span></a><span class="p">()</span>
+<a href="https://docs.pennylane.ai/en/stable/code/api/pennylane.numpy.tensor.html#pennylane.numpy.tensor" title="pennylane.numpy.tensor" class="sphx-glr-backref-module-pennylane-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">x_sample</span></a> <span class="o">=</span> <a href="https://docs.pennylane.ai/en/stable/code/api/pennylane.QNode.html#pennylane.QNode" title="pennylane.QNode" class="sphx-glr-backref-module-pennylane sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">vacuum_measure_x</span></a><span class="p">()</span>
+<a href="https://docs.pennylane.ai/en/stable/code/api/pennylane.numpy.tensor.html#pennylane.numpy.tensor" title="pennylane.numpy.tensor" class="sphx-glr-backref-module-pennylane-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">p_sample</span></a> <span class="o">=</span> <a href="https://docs.pennylane.ai/en/stable/code/api/pennylane.QNode.html#pennylane.QNode" title="pennylane.QNode" class="sphx-glr-backref-module-pennylane sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">vacuum_measure_p</span></a><span class="p">()</span>
 
 <span class="c1"># Import some libraries for a nicer plot</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">gaussian_kde</span>
 <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">vstack</span> <span class="k">as</span> <span class="n">vstack</span>
 
 <span class="c1"># Point density calculation</span>
-<span class="n">xp</span> <span class="o">=</span> <span class="n">vstack</span><span class="p">([</span><span class="n">x_sample</span><span class="p">,</span> <span class="n">p_sample</span><span class="p">])</span>
+<span class="n">xp</span> <span class="o">=</span> <span class="n">vstack</span><span class="p">([</span><a href="https://docs.pennylane.ai/en/stable/code/api/pennylane.numpy.tensor.html#pennylane.numpy.tensor" title="pennylane.numpy.tensor" class="sphx-glr-backref-module-pennylane-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">x_sample</span></a><span class="p">,</span> <a href="https://docs.pennylane.ai/en/stable/code/api/pennylane.numpy.tensor.html#pennylane.numpy.tensor" title="pennylane.numpy.tensor" class="sphx-glr-backref-module-pennylane-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">p_sample</span></a><span class="p">])</span>
 <span class="n">z</span> <span class="o">=</span> <span class="n">gaussian_kde</span><span class="p">(</span><span class="n">xp</span><span class="p">)(</span><span class="n">xp</span><span class="p">)</span>
 
 <span class="c1"># Sort the points by density</span>
 <span class="nb">sorted</span> <span class="o">=</span> <span class="n">z</span><span class="o">.</span><span class="n">argsort</span><span class="p">()</span>
-<span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">x_sample</span><span class="p">[</span><span class="nb">sorted</span><span class="p">],</span> <span class="n">p_sample</span><span class="p">[</span><span class="nb">sorted</span><span class="p">],</span> <span class="n">z</span><span class="p">[</span><span class="nb">sorted</span><span class="p">]</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <a href="https://docs.pennylane.ai/en/stable/code/api/pennylane.numpy.tensor.html#pennylane.numpy.tensor" title="pennylane.numpy.tensor" class="sphx-glr-backref-module-pennylane-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">x_sample</span></a><span class="p">[</span><span class="nb">sorted</span><span class="p">],</span> <a href="https://docs.pennylane.ai/en/stable/code/api/pennylane.numpy.tensor.html#pennylane.numpy.tensor" title="pennylane.numpy.tensor" class="sphx-glr-backref-module-pennylane-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">p_sample</span></a><span class="p">[</span><span class="nb">sorted</span><span class="p">],</span> <span class="n">z</span><span class="p">[</span><span class="nb">sorted</span><span class="p">]</span>
 
 <span class="c1"># Plot</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
@@ -1210,7 +1210,7 @@ as well as the references listed below.</p>
         <h4 class="bio-text__author-name">Alvaro Ballon</h4>
         <p class="bio-text__author-description">Alvaro is a quantum computing educator at Xanadu. His work involves making the latest developments in quantum computing accessible to the community.</p>
     </div>
-</div><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.201 seconds)</p>
+</div><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.947 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-demos-tutorial-photonics-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/9c044b28e667350a01860dac4a776392/tutorial_photonics.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">tutorial_photonics.py</span></code></a></p>

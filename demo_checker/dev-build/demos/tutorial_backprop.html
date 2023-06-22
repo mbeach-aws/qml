@@ -490,7 +490,7 @@ pass of the circuit.</p>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Forward pass (best of 3): 0.0221484313000019 sec per loop
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Forward pass (best of 3): 0.02215999379998266 sec per loop
 </pre></div>
 </div>
 <p>We can now estimate the time taken to compute the full gradient vector,
@@ -505,7 +505,7 @@ and see how this compares.</p>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Gradient computation (best of 3): 10.32423701759999 sec per loop
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Gradient computation (best of 3): 12.905321681700002 sec per loop
 </pre></div>
 </div>
 <p>Based on the parameter-shift rule, we expect that the amount of time to compute the quantum
@@ -515,7 +515,7 @@ parameters and <span class="math notranslate nohighlight">\(\Delta t_{f}\)</span
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>7.973435268000684
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>7.977597767993758
 </pre></div>
 </div>
 </div>
@@ -587,7 +587,7 @@ mode</em> for the <code class="docutils literal notranslate"><span class="pre">d
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Forward pass (best of 3): 0.06128801080001267 sec per loop
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Forward pass (best of 3): 0.05663084519999302 sec per loop
 </pre></div>
 </div>
 <p>Comparing this to the forward pass from <code class="docutils literal notranslate"><span class="pre">default.qubit</span></code>, we note that there is some potential
@@ -599,7 +599,7 @@ gradient computation via backpropagation:</p>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Backward pass (best of 3): 0.1720182260999991 sec per loop
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Backward pass (best of 3): 0.1619240763999869 sec per loop
 </pre></div>
 </div>
 <p>Unlike with the parameter-shift rule, the time taken to perform the backwards pass appears
@@ -736,7 +736,7 @@ gradients against the time taken for the corresponding forward pass:</p>
         <h4 class="bio-text__author-name">Josh Izaac</h4>
         <p class="bio-text__author-description">Josh is a theoretical physicist, software tinkerer, and occasional baker. At Xanadu, he contributes to the development and growth of Xanadu’s open-source quantum software products.</p>
     </div>
-</div><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 18 minutes  54.271 seconds)</p>
+</div><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 23 minutes  27.438 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-demos-tutorial-backprop-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/720e33f7e9452a6e6b9f9d5d2211f1f2/tutorial_backprop.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">tutorial_backprop.py</span></code></a></p>
