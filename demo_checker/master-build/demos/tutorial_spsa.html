@@ -535,16 +535,16 @@ using the previously mentioned guidelines. For more details, also consider the
 </div>
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Running the SPSAOptimizer optimizer for 200 iterations.
-Step   0: Circuit executions:    0, Cost = 0.908
-Step  20: Circuit executions:   40, Cost = 0.206
-Step  40: Circuit executions:   80, Cost = -0.704
-Step  60: Circuit executions:  120, Cost = -0.876
-Step  80: Circuit executions:  160, Cost = -0.976
-Step 100: Circuit executions:  200, Cost = -0.974
-Step 120: Circuit executions:  240, Cost = -0.988
-Step 140: Circuit executions:  280, Cost = -0.988
-Step 160: Circuit executions:  320, Cost = -0.99
-Step 180: Circuit executions:  360, Cost = -0.988
+Step   0: Circuit executions:    0, Cost = 0.89
+Step  20: Circuit executions:   40, Cost = 0.354
+Step  40: Circuit executions:   80, Cost = -0.654
+Step  60: Circuit executions:  120, Cost = -0.908
+Step  80: Circuit executions:  160, Cost = -0.944
+Step 100: Circuit executions:  200, Cost = -0.972
+Step 120: Circuit executions:  240, Cost = -0.98
+Step 140: Circuit executions:  280, Cost = -0.984
+Step 160: Circuit executions:  320, Cost = -0.992
+Step 180: Circuit executions:  360, Cost = -0.996
 Step 200: Circuit executions:  400, Cost = -0.988
 </pre></div>
 </div>
@@ -562,12 +562,12 @@ convergence.</p>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Running the GradientDescentOptimizer optimizer for 15 iterations.
-Step   0: Circuit executions:    0, Cost = 0.882
-Step   3: Circuit executions:  360, Cost = -0.33
-Step   6: Circuit executions:  720, Cost = -0.982
+Step   0: Circuit executions:    0, Cost = 0.904
+Step   3: Circuit executions:  360, Cost = -0.448
+Step   6: Circuit executions:  720, Cost = -0.992
 Step   9: Circuit executions: 1080, Cost = -0.996
-Step  12: Circuit executions: 1440, Cost = -0.994
-Step  15: Circuit executions: 1800, Cost = -0.996
+Step  12: Circuit executions: 1440, Cost = -0.996
+Step  15: Circuit executions: 1800, Cost = -0.998
 </pre></div>
 </div>
 </div>
@@ -600,7 +600,7 @@ the ratio of required circuit executions to reach an absolute accuracy of 0.01.<
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Circuit execution ratio: 3.066.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Circuit execution ratio: 2.609.
 </pre></div>
 </div>
 <p>This means that SPSA found the minimum up to an absolute accuracy of 0.01 while
@@ -695,15 +695,15 @@ version of IBM Q’s hardware.</p>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Running the GradientDescentOptimizer optimizer for 15 iterations.
-Step   0: Circuit executions:    0, Cost = 0.35627958829513584
-Step   3: Circuit executions: 2160, Cost = -0.4351336984453919
-Step   6: Circuit executions: 4320, Cost = -0.8927255142568703
-Step   9: Circuit executions: 6480, Cost = -1.0403375601039038
-Step  12: Circuit executions: 8640, Cost = -1.0423533314700266
-Step  15: Circuit executions: 10800, Cost = -1.0511293870085503
+Step   0: Circuit executions:    0, Cost = 0.3798925319498966
+Step   3: Circuit executions: 2160, Cost = -0.5064694483167426
+Step   6: Circuit executions: 4320, Cost = -0.906017780734749
+Step   9: Circuit executions: 6480, Cost = -1.0427042396198118
+Step  12: Circuit executions: 8640, Cost = -1.0458015802133092
+Step  15: Circuit executions: 10800, Cost = -1.045838256396797
 
-Final estimated value of the ground state energy = -1.05112939 Ha
-Distance to the true ground state energy: 0.08506007 Ha
+Final estimated value of the ground state energy = -1.04583826 Ha
+Distance to the true ground state energy: 0.09035120 Ha
 </pre></div>
 </div>
 <p>What does the optimization with gradient descent look like? Let’s plot
@@ -758,18 +758,18 @@ executions.</p>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Running the SPSAOptimizer optimizer for 160 iterations.
-Step   0: Circuit executions:    0, Cost = 0.36920941210723546
-Step  20: Circuit executions:  600, Cost = -0.24211741715950447
-Step  40: Circuit executions: 1200, Cost = -0.6556767071436764
-Step  60: Circuit executions: 1800, Cost = -0.904052143403217
-Step  80: Circuit executions: 2400, Cost = -1.005066969967245
-Step 100: Circuit executions: 3000, Cost = -1.0284204732479894
-Step 120: Circuit executions: 3600, Cost = -1.0383542973629312
-Step 140: Circuit executions: 4200, Cost = -1.0298840135660825
-Step 160: Circuit executions: 4800, Cost = -1.0382368243206548
+Step   0: Circuit executions:    0, Cost = 0.3587544063168774
+Step  20: Circuit executions:  600, Cost = -0.21840740272338607
+Step  40: Circuit executions: 1200, Cost = -0.6843038382980671
+Step  60: Circuit executions: 1800, Cost = -0.901493590283873
+Step  80: Circuit executions: 2400, Cost = -1.0055419183966228
+Step 100: Circuit executions: 3000, Cost = -1.0403216535045932
+Step 120: Circuit executions: 3600, Cost = -1.0519407523849336
+Step 140: Circuit executions: 4200, Cost = -1.03725621775076
+Step 160: Circuit executions: 4800, Cost = -1.0543272929089995
 
-Final estimated value of the ground state energy = -1.03823682 Ha
-Distance to the true ground state energy: 0.09795263 Ha
+Final estimated value of the ground state energy = -1.05432729 Ha
+Distance to the true ground state energy: 0.08186216 Ha
 </pre></div>
 </div>
 <p>The SPSA optimization seems to have found a similar energy value.
@@ -859,7 +859,7 @@ Stochastic Approximation of the Quantum Fisher Information”,
         <h4 class="bio-text__author-name">David Wierichs</h4>
         <p class="bio-text__author-description">David is a researcher and quantum software developer at Xanadu, who likes to think about quantum gradients and how to use them in variational quantum algorithms. He enjoys sharing ideas in science and open source software and likes implementing cool stuff in PennyLane.</p>
     </div>
-</div><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 10 minutes  38.544 seconds)</p>
+</div><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 13 minutes  37.500 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-demos-tutorial-spsa-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/ef008f09949efabdb1faac88aad8a113/tutorial_spsa.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">tutorial_spsa.py</span></code></a></p>

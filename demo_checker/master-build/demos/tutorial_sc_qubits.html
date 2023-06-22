@@ -880,16 +880,16 @@ The Hamiltonian <span class="math notranslate nohighlight">\(\hat{H}\)</span> al
 </div>
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>State |0&gt;|0&gt;:
-Evolved for t=3*pi/2: [ 1.+0.j -0.-0.j -0.-0.j  0.+0.j]; Output of ISWAP gate: [1.+0.j 0.+0.j 0.+0.j 0.+0.j]
+Evolved for t=3*pi/2: [ 1.-0.j -0.-0.j -0.-0.j -0.-0.j]; Output of ISWAP gate: [1.+0.j 0.+0.j 0.+0.j 0.+0.j]
 
 State |0&gt;|1&gt;:
-Evolved for t=3*pi/2: [ 0.+0.j -0.+0.j  0.+1.j  0.+0.j]; Output of ISWAP gate: [0.+0.j 0.+0.j 0.+1.j 0.+0.j]
+Evolved for t=3*pi/2: [0.+0.j 0.-0.j 0.+1.j 0.+0.j]; Output of ISWAP gate: [0.+0.j 0.+0.j 0.+1.j 0.+0.j]
 
 State |1&gt;|0&gt;:
-Evolved for t=3*pi/2: [ 0.+0.j  0.+1.j -0.+0.j  0.+0.j]; Output of ISWAP gate: [0.+0.j 0.+1.j 0.+0.j 0.+0.j]
+Evolved for t=3*pi/2: [0.+0.j 0.+1.j 0.-0.j 0.+0.j]; Output of ISWAP gate: [0.+0.j 0.+1.j 0.+0.j 0.+0.j]
 
 State |1&gt;|1&gt;:
-Evolved for t=3*pi/2: [ 0.+0.j -0.-0.j -0.-0.j  1.+0.j]; Output of ISWAP gate: [0.+0.j 0.+0.j 0.+0.j 1.+0.j]
+Evolved for t=3*pi/2: [-0.+0.j -0.-0.j -0.-0.j  1.-0.j]; Output of ISWAP gate: [0.+0.j 0.+0.j 0.+0.j 1.+0.j]
 </pre></div>
 </div>
 <p>To allow for universal computation, we must be able to build the <code class="docutils literal notranslate"><span class="pre">CNOT</span></code> gate by using only the <code class="docutils literal notranslate"><span class="pre">ISWAP</span></code>
@@ -975,7 +975,7 @@ and a <code class="docutils literal notranslate"><span class="pre">qml.Hadamard<
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>tensor([0.707+0.j, 0.   +0.j, 0.   -0.j, 0.707+0.j], requires_grad=True)
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>tensor([0.707-0.j, 0.   +0.j, 0.   -0.j, 0.707+0.j], requires_grad=True)
 </pre></div>
 </div>
 <p>Although this method does not affect the qubit’s state much, these gates are
@@ -1088,7 +1088,7 @@ IBM Research Blog. Retrieved 2022-03-15</p>
         <h4 class="bio-text__author-name">Alvaro Ballon</h4>
         <p class="bio-text__author-description">Alvaro is a quantum computing educator at Xanadu. His work involves making the latest developments in quantum computing accessible to the community.</p>
     </div>
-</div><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.443 seconds)</p>
+</div><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.386 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-demos-tutorial-sc-qubits-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/d60d8912e7f7f6b1756e433732a60dd2/tutorial_sc_qubits.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">tutorial_sc_qubits.py</span></code></a></p>

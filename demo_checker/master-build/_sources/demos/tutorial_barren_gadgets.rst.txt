@@ -176,29 +176,6 @@ circuit will need. The second generates a random sequence of Pauli rotations
 from :math:`\{R_X, R_Y, R_Z\}` with the right dimension.
 Finally, ``build_ansatz`` puts the pieces together. 
 
-.. GENERATED FROM PYTHON SOURCE LINES 159-171
-
-.. code-block:: default
-
-
-    import pennylane as qml
-    from pennylane import numpy as np
-    from barren_gadgets.barren_gadgets import PerturbativeGadgets
-    from barren_gadgets.layered_ansatz import (
-        generate_random_gate_sequence,
-        get_parameter_shape,
-        build_ansatz,
-    )
-
-    np.random.seed(3)
-
-
-
-
-
-
-
-
 .. GENERATED FROM PYTHON SOURCE LINES 172-179
 
 Now, let's take the example given above:
@@ -209,48 +186,9 @@ First, we construct our target Hamiltonian in PennyLane.
 For this, we use the
 :class:`~pennylane.Hamiltonian` class.
 
-.. GENERATED FROM PYTHON SOURCE LINES 179-184
-
-.. code-block:: default
-
-
-
-    H_target = qml.PauliX(0) @ qml.PauliX(1) @ qml.PauliY(2) @ qml.PauliZ(3) \
-             + qml.PauliZ(0) @ qml.PauliY(1) @ qml.PauliX(2) @ qml.PauliX(3)
-
-
-
-
-
-
-
-
 .. GENERATED FROM PYTHON SOURCE LINES 185-186
 
 Now we can check that we constructed what we wanted.
-
-.. GENERATED FROM PYTHON SOURCE LINES 186-189
-
-.. code-block:: default
-
-
-    print(H_target)
-
-
-
-
-
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-      (1) [X0 X1 Y2 Z3]
-    + (1) [Z0 Y1 X2 X3]
-
-
-
 
 .. GENERATED FROM PYTHON SOURCE LINES 190-202
 
@@ -266,53 +204,6 @@ Then, the method ``gadgetize`` takes a
 :class:`~pennylane.Hamiltonian`
 object and generates the
 corresponding gadget Hamiltonian.
-
-.. GENERATED FROM PYTHON SOURCE LINES 202-207
-
-.. code-block:: default
-
-
-    gadgetizer = PerturbativeGadgets()
-    H_gadget = gadgetizer.gadgetize(H_target)
-    print(H_gadget)
-
-
-
-
-
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-      (-0.5) [Z4]
-    + (-0.5) [Z5]
-    + (-0.5) [Z6]
-    + (-0.5) [Z7]
-    + (-0.5) [Z8]
-    + (-0.5) [Z9]
-    + (-0.5) [Z10]
-    + (-0.5) [Z11]
-    + (0.5) [I4]
-    + (0.5) [I5]
-    + (0.5) [I6]
-    + (0.5) [I7]
-    + (0.5) [I8]
-    + (0.5) [I9]
-    + (0.5) [I10]
-    + (0.5) [I11]
-    + (-0.03125) [X4 X5 X0]
-    + (-0.03125) [X8 X9 Z0]
-    + (0.03125) [X5 X6 X1]
-    + (0.03125) [X6 X7 Y2]
-    + (0.03125) [X7 X4 Z3]
-    + (0.03125) [X9 X10 Y1]
-    + (0.03125) [X10 X11 X2]
-    + (0.03125) [X11 X8 X3]
-
-
-
 
 .. GENERATED FROM PYTHON SOURCE LINES 208-217
 
@@ -337,23 +228,6 @@ to a target Hamiltonian with a single term, and show that using the
 gadget Hamiltonian for training allows us to minimize the target Hamiltonian.
 So, let us construct the two Hamiltonians of interest.
 
-.. GENERATED FROM PYTHON SOURCE LINES 227-233
-
-.. code-block:: default
-
-
-
-    H_target = 1 * qml.PauliX(0) @ qml.PauliX(1) @ qml.PauliY(2) @ qml.PauliZ(3)
-    gadgetizer = PerturbativeGadgets(perturbation_factor=10)
-    H_gadget = gadgetizer.gadgetize(H_target)
-
-
-
-
-
-
-
-
 .. GENERATED FROM PYTHON SOURCE LINES 234-245
 
 Then we need to set up our variational quantum algorithm.
@@ -368,37 +242,6 @@ I will skip the details of the construction, since it is not our focus here,
 and just show what it looks like.
 Here is the circuit for a small example
 
-.. GENERATED FROM PYTHON SOURCE LINES 245-260
-
-.. code-block:: default
-
-
-    shapes = get_parameter_shape(n_layers=3, n_wires=5)
-    init_weights = [np.pi / 4] * shapes[0][0]
-    weights = np.random.uniform(0, np.pi, size=shapes[1])
-
-
-    @qml.qnode(qml.device("default.qubit", wires=range(5)))
-    def display_circuit(weights):
-        build_ansatz(initial_layer_weights=init_weights, weights=weights, wires=range(5))
-        return qml.expval(qml.PauliZ(wires=0))
-
-    import matplotlib.pyplot as plt
-    qml.draw_mpl(display_circuit)(weights)
-    plt.show()
-
-
-
-
-.. image-sg:: /demos/images/sphx_glr_tutorial_barren_gadgets_001.png
-   :alt: tutorial barren gadgets
-   :srcset: /demos/images/sphx_glr_tutorial_barren_gadgets_001.png
-   :class: sphx-glr-single-img
-
-
-
-
-
 .. GENERATED FROM PYTHON SOURCE LINES 261-262
 
 Now we build the circuit for our actual experiment.
@@ -410,13 +253,13 @@ Now we build the circuit for our actual experiment.
 
 
     # Total number of qubits: target + auxiliary
-    num_qubits = 4 + 1 * 4
+
 
     # Other parameters of the ansatz: weights and gate sequence
-    shapes = get_parameter_shape(n_layers=num_qubits, n_wires=num_qubits)
-    init_weights = [np.pi / 4] * shapes[0][0]
-    weights = np.random.uniform(0, np.pi, size=shapes[1])
-    random_gate_sequence = generate_random_gate_sequence(qml.math.shape(weights))
+
+
+
+
 
 
 
@@ -433,22 +276,6 @@ our circuit using the
 `default.qubit <https://docs.pennylane.ai/en/stable/code/api/pennylane.device.html>`_
 simulator.
 
-.. GENERATED FROM PYTHON SOURCE LINES 279-284
-
-.. code-block:: default
-
-
-    opt = qml.GradientDescentOptimizer(stepsize=0.1)
-    max_iter = 500
-    dev = qml.device("default.qubit", wires=range(num_qubits))
-
-
-
-
-
-
-
-
 .. GENERATED FROM PYTHON SOURCE LINES 285-293
 
 Finally, we will use two cost functions and create a
@@ -460,42 +287,6 @@ we also define another cost function based on the target Hamiltonian.
 We will evaluate its value at each iteration for monitoring purposes, but it
 will not be used in the optimization.
 
-.. GENERATED FROM PYTHON SOURCE LINES 293-318
-
-.. code-block:: default
-
-
-
-
-    @qml.qnode(dev)
-    def training_cost(weights):
-        build_ansatz(
-            initial_layer_weights=init_weights,
-            weights=weights,
-            wires=range(num_qubits),
-            gate_sequence=random_gate_sequence,
-        )
-        return qml.expval(H_gadget)
-
-
-    @qml.qnode(dev)
-    def monitoring_cost(weights):
-        build_ansatz(
-            initial_layer_weights=init_weights,
-            weights=weights,
-            wires=range(num_qubits),
-            gate_sequence=random_gate_sequence,
-        )
-        return qml.expval(H_target)
-
-
-
-
-
-
-
-
-
 .. GENERATED FROM PYTHON SOURCE LINES 319-324
 
 The idea is that if we reach the global minimum for the gadget Hamiltonian, we
@@ -504,59 +295,10 @@ what we are ultimately interested in.
 To see the results and plot them, we will save the cost values
 at each iteration.
 
-.. GENERATED FROM PYTHON SOURCE LINES 324-329
-
-.. code-block:: default
-
-
-    costs_lists = {}
-    costs_lists["training"] = [training_cost(weights)]
-    costs_lists["monitoring"] = [monitoring_cost(weights)]
-
-
-
-
-
-
-
-
 .. GENERATED FROM PYTHON SOURCE LINES 330-332
 
 Now everything is set up, let's run the optimization and see how it goes.
 Be careful, this will take a while.
-
-.. GENERATED FROM PYTHON SOURCE LINES 332-349
-
-.. code-block:: default
-
-
-    for it in range(max_iter):
-        weights = opt.step(training_cost, weights)
-        costs_lists["training"].append(training_cost(weights))
-        costs_lists["monitoring"].append(monitoring_cost(weights))
-
-
-    plt.style.use("seaborn")
-
-    plt.figure()
-    plt.plot(costs_lists["training"])
-    plt.plot(costs_lists["monitoring"])
-    plt.legend(["training", "monitoring"])
-    plt.xlabel("Number of iterations")
-    plt.ylabel("Cost values")
-    plt.show()
-
-
-
-
-.. image-sg:: /demos/images/sphx_glr_tutorial_barren_gadgets_002.png
-   :alt: tutorial barren gadgets
-   :srcset: /demos/images/sphx_glr_tutorial_barren_gadgets_002.png
-   :class: sphx-glr-single-img
-
-
-
-
 
 .. GENERATED FROM PYTHON SOURCE LINES 350-390
 
@@ -604,7 +346,7 @@ About the author
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 3 minutes  6.324 seconds)
+   **Total running time of the script:** ( 0 minutes  0.001 seconds)
 
 
 .. _sphx_glr_download_demos_tutorial_barren_gadgets.py:

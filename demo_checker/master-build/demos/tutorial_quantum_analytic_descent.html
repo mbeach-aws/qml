@@ -609,13 +609,13 @@ Let us implement a function that does just that and prepares the coefficients <s
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Random parameters (params): [3.44829694 4.49366732]
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Random parameters (params): [3.4483  4.49367]
 Coefficients at params:
- E_A = 0.20685619228992985
- E_B = [-0.06551083 -0.9306212 ]
- E_C = [-0.1034281 -0.1034281]
- E_D = [[0.         0.29472535]
- [0.         0.        ]]
+ E_A = 0.20685619228993007
+ E_B = [-0.06551 -0.93062]
+ E_C = [-0.10343 -0.10343]
+ E_D = [[0.      0.29473]
+ [0.      0.     ]]
 </pre></div>
 </div>
 </div>
@@ -668,8 +668,8 @@ Combining them yields the trigonometric expansion, which we implement with anoth
 </div>
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>The cost function at parameters:
-  Model:    0.20685619228992985
-  Original: 0.20685619228992985
+  Model:    0.20685619228993007
+  Original: 0.20685619228993007
 E_A and E_original are the same: True
 E_model and E_original are the same: True
 </pre></div>
@@ -699,8 +699,8 @@ as it is an <em>approximation</em> after all:</p>
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Shift parameters by the vector [0.0603 0.0545].
 The cost function at parameters:
-  Model:    0.15256055642369598
-  Original: 0.1526096460515975
+  Model:    0.15256055642369634
+  Original: 0.15260964605159766
 E_model and E_original are the same: False
 </pre></div>
 </div>
@@ -903,17 +903,17 @@ Let’s try it and apply the full optimization strategy:</p>
 
 -Iteration 1-
 Epoch   50: Model cost = -0.7981  at relative parameters [-0.2397  2.0158]
-True energy at the minimum of the model: -0.735829672272876
+True energy at the minimum of the model: -0.7358296722728775
 New reference parameters: [2.4222 6.0741]
 
 -Iteration 2-
 Epoch   50: Model cost = -1.0084  at relative parameters [0.6908 0.2794]
-True energy at the minimum of the model: -0.9971225971605668
+True energy at the minimum of the model: -0.997122597160568
 New reference parameters: [3.113  6.3535]
 
 -Iteration 3-
 Epoch   50: Model cost = -1.0  at relative parameters [ 0.0272 -0.0685]
-True energy at the minimum of the model: -0.9999975843757788
+True energy at the minimum of the model: -0.9999975843757783
 New reference parameters: [3.1403 6.285 ]
 </pre></div>
 </div>
@@ -1025,7 +1025,7 @@ having you here today.</p>
         <h4 class="bio-text__author-name">David Wierichs</h4>
         <p class="bio-text__author-description">David is a researcher and quantum software developer at Xanadu, who likes to think about quantum gradients and how to use them in variational quantum algorithms. He enjoys sharing ideas in science and open source software and likes implementing cool stuff in PennyLane.</p>
     </div>
-</div><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  10.987 seconds)</p>
+</div><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  7.540 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-demos-tutorial-quantum-analytic-descent-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/b28ac977c680782c8b77ebee7eaf11c7/tutorial_quantum_analytic_descent.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">tutorial_quantum_analytic_descent.py</span></code></a></p>

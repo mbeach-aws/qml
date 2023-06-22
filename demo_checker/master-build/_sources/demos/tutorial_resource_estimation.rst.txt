@@ -82,89 +82,18 @@ them. We first need to define the atomic symbols and coordinates for the given m
 the water molecule at its equilibrium geometry with the
 `6-31g basis set <https://en.wikipedia.org/wiki/Basis_set_(chemistry)>`_ as an example.
 
-.. GENERATED FROM PYTHON SOURCE LINES 67-75
-
-.. code-block:: default
-
-    import pennylane as qml
-    from pennylane import numpy as np
-
-    symbols = ['O', 'H', 'H']
-    geometry = np.array([[0.00000000,  0.00000000,  0.28377432],
-                         [0.00000000,  1.45278171, -1.00662237],
-                         [0.00000000, -1.45278171, -1.00662237]], requires_grad=False)
-
-
-
-
-
-
-
-
 .. GENERATED FROM PYTHON SOURCE LINES 76-78
 
 Then we construct a molecule object and compute the one- and two-electron
 integrals in the molecular orbital basis.
 
-.. GENERATED FROM PYTHON SOURCE LINES 78-82
-
-.. code-block:: default
-
-
-    mol = qml.qchem.Molecule(symbols, geometry, basis_name='6-31g')
-    core, one, two = qml.qchem.electron_integrals(mol)()
-
-
-
-
-
-
-
-
 .. GENERATED FROM PYTHON SOURCE LINES 83-84
 
 We now create an instance of the :class:`~.pennylane.resource.DoubleFactorization` class
 
-.. GENERATED FROM PYTHON SOURCE LINES 84-87
-
-.. code-block:: default
-
-
-    algo = qml.resource.DoubleFactorization(one, two)
-
-
-
-
-
-
-
-
 .. GENERATED FROM PYTHON SOURCE LINES 88-89
 
 and obtain the estimated number of non-Clifford gates and logical qubits.
-
-.. GENERATED FROM PYTHON SOURCE LINES 89-92
-
-.. code-block:: default
-
-
-    print(f'Estimated gates : {algo.gates:.2e} \nEstimated qubits: {algo.qubits}')
-
-
-
-
-
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-    Estimated gates : 3.06e+08 
-    Estimated qubits: 693
-
-
-
 
 .. GENERATED FROM PYTHON SOURCE LINES 93-96
 
@@ -172,73 +101,11 @@ This estimation is for a target error that is set to the chemical accuracy, 0.00
 :math:`\text{Ha}`, by default. We can change the target error to a larger value which leads to a
 smaller number of non-Clifford gates and logical qubits.
 
-.. GENERATED FROM PYTHON SOURCE LINES 96-102
-
-.. code-block:: default
-
-
-    chemical_accuracy = 0.0016
-    error = chemical_accuracy * 10
-    algo = qml.resource.DoubleFactorization(one, two, error=error)
-    print(f'Estimated gates : {algo.gates:.2e} \nEstimated qubits: {algo.qubits}')
-
-
-
-
-
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-    Estimated gates : 3.06e+07 
-    Estimated qubits: 685
-
-
-
-
 .. GENERATED FROM PYTHON SOURCE LINES 103-106
 
 We can also estimate the number of non-Clifford gates with respect to the threshold error values
 for discarding the negligible factors in the factorized Hamiltonian [#vonburg2021]_ and plot the
 estimated numbers.
-
-.. GENERATED FROM PYTHON SOURCE LINES 106-126
-
-.. code-block:: default
-
-
-    threshold = [10**-n for n in range(10)]
-    n_gates = []
-    n_qubits = []
-
-    for tol in threshold:
-        algo_ = qml.resource.DoubleFactorization(one, two, tol_factor=tol, tol_eigval=tol)
-        n_gates.append(algo_.gates)
-        n_qubits.append(algo_.qubits)
-
-    import matplotlib.pyplot as plt
-
-    fig, ax = plt.subplots(figsize=(5, 3))
-    ax.plot(threshold, n_gates, ':o', markerfacecolor='none', color='teal')
-
-    ax.set_ylabel('n gates')
-    ax.set_xlabel('threshold')
-    ax.set_xscale('log')
-    fig.tight_layout()
-
-
-
-
-.. image-sg:: /demos/images/sphx_glr_tutorial_resource_estimation_001.png
-   :alt: tutorial resource estimation
-   :srcset: /demos/images/sphx_glr_tutorial_resource_estimation_001.png
-   :class: sphx-glr-single-img
-
-
-
-
 
 .. GENERATED FROM PYTHON SOURCE LINES 127-137
 
@@ -253,120 +120,18 @@ unit cell contains 156 electrons and has dimensions :math:`9.49 \times 10.20 \ti
 atomic units, amounting to a volume of :math:`1145 a_0^3`, where :math:`a_0` is the
 `Bohr radius <https://en.wikipedia.org/wiki/Bohr_radius>`_. We also use :math:`10^5` plane waves.
 
-.. GENERATED FROM PYTHON SOURCE LINES 137-142
-
-.. code-block:: default
-
-
-    planewaves = 100000
-    electrons = 156
-    volume = 1145
-
-
-
-
-
-
-
-
 .. GENERATED FROM PYTHON SOURCE LINES 143-144
 
 We now create an instance of the :class:`~.pennylane.resource.FirstQuantization` class
-
-.. GENERATED FROM PYTHON SOURCE LINES 144-146
-
-.. code-block:: default
-
-    algo = qml.resource.FirstQuantization(planewaves, electrons, volume)
-
-
-
-
-
-
-
 
 .. GENERATED FROM PYTHON SOURCE LINES 147-148
 
 and obtain the estimated number of non-Clifford gates and logical qubits.
 
-.. GENERATED FROM PYTHON SOURCE LINES 148-150
-
-.. code-block:: default
-
-    print(f'Estimated gates : {algo.gates:.2e} \nEstimated qubits: {algo.qubits}')
-
-
-
-
-
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-    Estimated gates : 1.10e+13 
-    Estimated qubits: 4416
-
-
-
-
 .. GENERATED FROM PYTHON SOURCE LINES 151-153
 
 We can also plot the estimated numbers as a function of the number of plane waves for different
 target errors
-
-.. GENERATED FROM PYTHON SOURCE LINES 153-188
-
-.. code-block:: default
-
-
-    error = [0.1, 0.01, 0.001]  # in atomic units
-    planewaves = [10 ** n for n in range(1, 10)]
-    n_gates = []
-    n_qubits = []
-
-    for er in error:
-        n_gates_ = []
-        n_qubits_ = []
-
-        for pw in planewaves:
-            algo_ = qml.resource.FirstQuantization(pw, electrons, volume, error=er)
-            n_gates_.append(algo_.gates)
-            n_qubits_.append(algo_.qubits)
-        n_gates.append(n_gates_)
-        n_qubits.append(n_qubits_)
-
-    fig, ax = plt.subplots(2, 1)
-
-    for i in range(len(n_gates)):
-        ax[0].plot(planewaves, n_gates[i], ':o', markerfacecolor='none', label=error[i])
-    ax[1].plot(planewaves, n_qubits[i], ':o', markerfacecolor='none', label=error[-1])
-
-    ax[0].set_ylabel('n gates')
-    ax[1].set_ylabel('n qubits')
-
-    for i in [0, 1]:
-        ax[i].set_xlabel('n planewaves')
-        ax[i].tick_params(axis='x')
-        ax[0].set_yscale('log')
-        ax[i].set_xscale('log')
-        ax[i].legend(title='error [Ha]')
-
-    fig.tight_layout()
-
-
-
-
-.. image-sg:: /demos/images/sphx_glr_tutorial_resource_estimation_002.png
-   :alt: tutorial resource estimation
-   :srcset: /demos/images/sphx_glr_tutorial_resource_estimation_002.png
-   :class: sphx-glr-single-img
-
-
-
-
 
 .. GENERATED FROM PYTHON SOURCE LINES 189-196
 
@@ -377,28 +142,6 @@ The algorithm uses a decomposition of the Hamiltonian as a linear combination of
 The parameter :math:`\lambda=\sum_i c_i`, which can be interpreted as the 1-norm of the
 Hamiltonian, plays an important role in determining the cost of implementing the QPE
 algorithm [#delgado2022]_. In PennyLane, the 1-norm of the Hamiltonian can be obtained with
-
-.. GENERATED FROM PYTHON SOURCE LINES 196-199
-
-.. code-block:: default
-
-
-    print(f'1-norm of the Hamiltonian: {algo.lamb}')
-
-
-
-
-
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-    1-norm of the Hamiltonian: 649948.0644442376
-
-
-
 
 .. GENERATED FROM PYTHON SOURCE LINES 200-219
 
@@ -422,20 +165,6 @@ Hamiltonian.
 
 First, we construct the molecular Hamiltonian.
 
-.. GENERATED FROM PYTHON SOURCE LINES 219-222
-
-.. code-block:: default
-
-
-    H = qml.qchem.molecular_hamiltonian(symbols, geometry)[0]
-
-
-
-
-
-
-
-
 .. GENERATED FROM PYTHON SOURCE LINES 223-228
 
 The number of measurements needed to compute :math:`\left \langle H \right \rangle` can be
@@ -444,29 +173,6 @@ Hamiltonian coefficients as input. The number of measurements required to comput
 :math:`\left \langle H \right \rangle` with a target error set to the chemical accuracy, 0.0016
 :math:`\text{Ha}`, is obtained as follows.
 
-.. GENERATED FROM PYTHON SOURCE LINES 228-232
-
-.. code-block:: default
-
-
-    m = qml.resource.estimate_shots(H.coeffs)
-    print(f'Shots : {m:.2e}')
-
-
-
-
-
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-    Shots : 5.49e+09
-
-
-
-
 .. GENERATED FROM PYTHON SOURCE LINES 233-237
 
 This number corresponds to the measurement process where each term in the Hamiltonian is measured
@@ -474,68 +180,9 @@ independently. The number can be reduced by using
 :func:`~.pennylane.pauli.group_observables()`, which partitions the Pauli words into
 groups of commuting terms that can be measured simultaneously.
 
-.. GENERATED FROM PYTHON SOURCE LINES 237-243
-
-.. code-block:: default
-
-
-    ops, coeffs = qml.pauli.group_observables(H.ops, H.coeffs)
-
-    m = qml.resource.estimate_shots(coeffs)
-    print(f'Shots : {m:.2e}')
-
-
-
-
-
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-    Shots : 2.37e+09
-
-
-
-
 .. GENERATED FROM PYTHON SOURCE LINES 244-245
 
 It is also interesting to illustrate how the number of shots depends on the target error.
-
-.. GENERATED FROM PYTHON SOURCE LINES 245-263
-
-.. code-block:: default
-
-
-    error = np.array([0.02, 0.015, 0.01, 0.005, 0.001])
-    m = [qml.resource.estimate_shots(H.coeffs, error=er) for er in error]
-
-    e_ = np.linspace(error[0], error[-1], num=50)
-    m_ = 1.4e4 / np.linspace(error[0], error[-1], num=50)**2
-
-    fig, ax = plt.subplots(figsize=(5, 3))
-    ax.plot(error, m, 'o', markerfacecolor='none', color='teal', label='estimated')
-    ax.plot(e_, m_, ':', markerfacecolor='none', color='olive', label='$ 1.4e4 * 1/\epsilon^2 $')
-
-    ax.set_ylabel('shots')
-    ax.set_xlabel('error [Ha]')
-    ax.set_yscale('log')
-    ax.tick_params(axis='x', labelrotation = 90)
-    ax.legend()
-    fig.tight_layout()
-
-
-
-
-.. image-sg:: /demos/images/sphx_glr_tutorial_resource_estimation_003.png
-   :alt: tutorial resource estimation
-   :srcset: /demos/images/sphx_glr_tutorial_resource_estimation_003.png
-   :class: sphx-glr-single-img
-
-
-
-
 
 .. GENERATED FROM PYTHON SOURCE LINES 264-314
 
@@ -594,7 +241,7 @@ About the author
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 1 minutes  32.672 seconds)
+   **Total running time of the script:** ( 0 minutes  0.000 seconds)
 
 
 .. _sphx_glr_download_demos_tutorial_resource_estimation.py:

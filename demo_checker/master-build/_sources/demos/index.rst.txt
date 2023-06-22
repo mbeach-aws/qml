@@ -9,14 +9,14 @@
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="   tutorial_data_reuploading_classifier Data-reuploading classifier">
+    <div class="sphx-glr-thumbcontainer" tooltip="*Authors: Utkarsh Azad and Soran Jahangiri. Posted: 16 May 2022. Last updated: 08 Nov 2022*">
 
 .. only:: html
 
- .. figure:: /demos/images/thumb/sphx_glr_tutorial_expressivity_fourier_series_thumb.png
-     :alt: Quantum models as Fourier series
+ .. figure:: /demos/images/thumb/sphx_glr_tutorial_qubit_tapering_thumb.png
+     :alt: Qubit tapering
 
-     :ref:`sphx_glr_demos_tutorial_expressivity_fourier_series.py`
+     :ref:`sphx_glr_demos_tutorial_qubit_tapering.py`
 
 .. raw:: html
 
@@ -26,28 +26,7 @@
 .. toctree::
    :hidden:
 
-   /demos/tutorial_expressivity_fourier_series
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="*Author: Guillermo Alonso-Linaje — Posted: 07 November 2022.*">
-
-.. only:: html
-
- .. figure:: /demos/images/thumb/sphx_glr_tutorial_qft_arithmetics_thumb.png
-     :alt: Basic arithmetic with the quantum Fourier transform (QFT)
-
-     :ref:`sphx_glr_demos_tutorial_qft_arithmetics.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /demos/tutorial_qft_arithmetics
+   /demos/tutorial_qubit_tapering
 
 .. raw:: html
 
@@ -72,14 +51,14 @@
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="   tutorial_qaoa_maxcut QAOA for MaxCut">
+    <div class="sphx-glr-thumbcontainer" tooltip="*Author: Alain Delgado — Posted: 13 October 2020. Last updated: 25 June 2022.*">
 
 .. only:: html
 
- .. figure:: /demos/images/thumb/sphx_glr_tutorial_qaoa_intro_thumb.png
-     :alt: Intro to QAOA
+ .. figure:: /demos/images/thumb/sphx_glr_tutorial_vqe_spin_sectors_thumb.png
+     :alt: VQE in different spin sectors
 
-     :ref:`sphx_glr_demos_tutorial_qaoa_intro.py`
+     :ref:`sphx_glr_demos_tutorial_vqe_spin_sectors.py`
 
 .. raw:: html
 
@@ -89,7 +68,28 @@
 .. toctree::
    :hidden:
 
-   /demos/tutorial_qaoa_intro
+   /demos/tutorial_vqe_spin_sectors
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="   tutorial_data_reuploading_classifier Data-reuploading classifier">
+
+.. only:: html
+
+ .. figure:: /demos/images/thumb/sphx_glr_tutorial_expressivity_fourier_series_thumb.png
+     :alt: Quantum models as Fourier series
+
+     :ref:`sphx_glr_demos_tutorial_expressivity_fourier_series.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /demos/tutorial_expressivity_fourier_series
 
 .. raw:: html
 
@@ -114,14 +114,14 @@
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="   tutorial_vqe A brief overview of VQE">
+    <div class="sphx-glr-thumbcontainer" tooltip="   tutorial_qaoa_maxcut QAOA for MaxCut">
 
 .. only:: html
 
- .. figure:: /demos/images/thumb/sphx_glr_vqe_parallel_thumb.png
-     :alt: VQE with parallel QPUs with Rigetti
+ .. figure:: /demos/images/thumb/sphx_glr_tutorial_qaoa_intro_thumb.png
+     :alt: Intro to QAOA
 
-     :ref:`sphx_glr_demos_vqe_parallel.py`
+     :ref:`sphx_glr_demos_tutorial_qaoa_intro.py`
 
 .. raw:: html
 
@@ -131,18 +131,18 @@
 .. toctree::
    :hidden:
 
-   /demos/vqe_parallel
+   /demos/tutorial_qaoa_intro
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="*Author: Jay Soni — Posted: 24 May 2022. Last updated: 17 April 2023.*">
+    <div class="sphx-glr-thumbcontainer" tooltip=" *Author: Soran Jahangiri — Posted: 13 September 2021. Last updated: 10 April 2023*">
 
 .. only:: html
 
- .. figure:: /demos/images/thumb/sphx_glr_function_fitting_qsp_thumb.png
-     :alt: Function Fitting using Quantum Signal Processing
+ .. figure:: /demos/images/thumb/sphx_glr_tutorial_adaptive_circuits_thumb.png
+     :alt: Adaptive circuits for quantum chemistry
 
-     :ref:`sphx_glr_demos_function_fitting_qsp.py`
+     :ref:`sphx_glr_demos_tutorial_adaptive_circuits.py`
 
 .. raw:: html
 
@@ -152,7 +152,7 @@
 .. toctree::
    :hidden:
 
-   /demos/function_fitting_qsp
+   /demos/tutorial_adaptive_circuits
 
 .. raw:: html
 
@@ -177,14 +177,14 @@
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="*Author: Alain Delgado — Posted: 13 October 2020. Last updated: 25 June 2022.*">
+    <div class="sphx-glr-thumbcontainer" tooltip=" .. meta::     :property=&quot;og:description&quot;: Learn how to build electronic Hamiltonians of molecu...">
 
 .. only:: html
 
- .. figure:: /demos/images/thumb/sphx_glr_tutorial_vqe_spin_sectors_thumb.png
-     :alt: VQE in different spin sectors
+ .. figure:: /demos/images/thumb/sphx_glr_tutorial_quantum_chemistry_thumb.png
+     :alt: Building molecular Hamiltonians
 
-     :ref:`sphx_glr_demos_tutorial_vqe_spin_sectors.py`
+     :ref:`sphx_glr_demos_tutorial_quantum_chemistry.py`
 
 .. raw:: html
 
@@ -194,28 +194,7 @@
 .. toctree::
    :hidden:
 
-   /demos/tutorial_vqe_spin_sectors
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="*Authors: Utkarsh Azad and Soran Jahangiri. Posted: 16 May 2022. Last updated: 08 Nov 2022*">
-
-.. only:: html
-
- .. figure:: /demos/images/thumb/sphx_glr_tutorial_qubit_tapering_thumb.png
-     :alt: Qubit tapering
-
-     :ref:`sphx_glr_demos_tutorial_qubit_tapering.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /demos/tutorial_qubit_tapering
+   /demos/tutorial_quantum_chemistry
 
 .. raw:: html
 
@@ -240,6 +219,132 @@
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="*Author: Nathan Killoran — Posted: 11 October 2019. Last updated: 30 January 2023.*">
+
+.. only:: html
+
+ .. figure:: /demos/images/thumb/sphx_glr_tutorial_QGAN_thumb.png
+     :alt: Quantum generative adversarial networks with Cirq + TensorFlow
+
+     :ref:`sphx_glr_demos_tutorial_QGAN.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /demos/tutorial_QGAN
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="   tutorial_vqe A brief overview of VQE">
+
+.. only:: html
+
+ .. figure:: /demos/images/thumb/sphx_glr_vqe_parallel_thumb.png
+     :alt: VQE with parallel QPUs with Rigetti
+
+     :ref:`sphx_glr_demos_vqe_parallel.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /demos/vqe_parallel
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="   tutorial_barren_plateaus Barren plateaus in quantum neural networks">
+
+.. only:: html
+
+ .. figure:: /demos/images/thumb/sphx_glr_tutorial_local_cost_functions_thumb.png
+     :alt: Alleviating barren plateaus with local cost functions
+
+     :ref:`sphx_glr_demos_tutorial_local_cost_functions.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /demos/tutorial_local_cost_functions
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="*Author: Jay Soni — Posted: 24 May 2022. Last updated: 17 April 2023.*">
+
+.. only:: html
+
+ .. figure:: /demos/images/thumb/sphx_glr_function_fitting_qsp_thumb.png
+     :alt: Function Fitting using Quantum Signal Processing
+
+     :ref:`sphx_glr_demos_function_fitting_qsp.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /demos/function_fitting_qsp
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="    tutorial_qaoa_intro Intro to QAOA     vqe_parallel VQE with parallel QPUs with Rigetti">
+
+.. only:: html
+
+ .. figure:: /demos/images/thumb/sphx_glr_braket-parallel-gradients_thumb.png
+     :alt: Computing gradients in parallel with Amazon Braket
+
+     :ref:`sphx_glr_demos_braket-parallel-gradients.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /demos/braket-parallel-gradients
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip=" *Author: Soran Jahangiri — Posted: 21 November 2022.*">
+
+.. only:: html
+
+ .. figure:: /demos/images/thumb/sphx_glr_tutorial_resource_estimation_thumb.png
+     :alt: Resource estimation for quantum chemistry
+
+     :ref:`sphx_glr_demos_tutorial_resource_estimation.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /demos/tutorial_resource_estimation
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip=" *Author: Christina Lee — Posted: 23 November 2021. Last updated: 23 November 2021.*">
 
 .. only:: html
@@ -258,27 +363,6 @@
    :hidden:
 
    /demos/adjoint_diff_benchmarking
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip=" .. meta::     :property=&quot;og:description&quot;: Learn how to build electronic Hamiltonians of molecu...">
-
-.. only:: html
-
- .. figure:: /demos/images/thumb/sphx_glr_tutorial_quantum_chemistry_thumb.png
-     :alt: Building molecular Hamiltonians
-
-     :ref:`sphx_glr_demos_tutorial_quantum_chemistry.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /demos/tutorial_quantum_chemistry
 
 .. raw:: html
 
@@ -345,14 +429,14 @@
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="    tutorial_qaoa_intro Intro to QAOA     vqe_parallel VQE with parallel QPUs with Rigetti">
+    <div class="sphx-glr-thumbcontainer" tooltip="*Author: Guillermo Alonso-Linaje — Posted: 07 November 2022.*">
 
 .. only:: html
 
- .. figure:: /demos/images/thumb/sphx_glr_braket-parallel-gradients_thumb.png
-     :alt: Computing gradients in parallel with Amazon Braket
+ .. figure:: /demos/images/thumb/sphx_glr_tutorial_qft_arithmetics_thumb.png
+     :alt: Basic arithmetic with the quantum Fourier transform (QFT)
 
-     :ref:`sphx_glr_demos_braket-parallel-gradients.py`
+     :ref:`sphx_glr_demos_tutorial_qft_arithmetics.py`
 
 .. raw:: html
 
@@ -362,49 +446,7 @@
 .. toctree::
    :hidden:
 
-   /demos/braket-parallel-gradients
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="*Author: Nathan Killoran — Posted: 11 October 2019. Last updated: 30 January 2023.*">
-
-.. only:: html
-
- .. figure:: /demos/images/thumb/sphx_glr_tutorial_QGAN_thumb.png
-     :alt: Quantum generative adversarial networks with Cirq + TensorFlow
-
-     :ref:`sphx_glr_demos_tutorial_QGAN.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /demos/tutorial_QGAN
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="   tutorial_barren_plateaus Barren plateaus in quantum neural networks">
-
-.. only:: html
-
- .. figure:: /demos/images/thumb/sphx_glr_tutorial_local_cost_functions_thumb.png
-     :alt: Alleviating barren plateaus with local cost functions
-
-     :ref:`sphx_glr_demos_tutorial_local_cost_functions.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /demos/tutorial_local_cost_functions
+   /demos/tutorial_qft_arithmetics
 
 .. raw:: html
 
@@ -513,6 +555,27 @@
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="    tutorial_error_mitigation Error mitigation with Mitiq and PennyLane     tutorial_diffable-m...">
+
+.. only:: html
+
+ .. figure:: /demos/images/thumb/sphx_glr_tutorial_mitigation_advantage_thumb.png
+     :alt: Is quantum computing useful before fault tolerance?
+
+     :ref:`sphx_glr_demos_tutorial_mitigation_advantage.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /demos/tutorial_mitigation_advantage
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="   plugins_hybrid Plugins and hybrid computation    tutorial_gaussian_transformation Gaussian t...">
 
 .. only:: html
@@ -573,6 +636,48 @@
    :hidden:
 
    /demos/tutorial_adjoint_diff
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="   quantum_volume Quantum Volume    tutorial_vqe A brief overview of VQE">
+
+.. only:: html
+
+ .. figure:: /demos/images/thumb/sphx_glr_ibm_pennylane_thumb.png
+     :alt: Using Pennylane with IBM's quantum devices and Qiskit
+
+     :ref:`sphx_glr_demos_ibm_pennylane.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /demos/ibm_pennylane
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip=" .. related::     tutorial_barren_plateaus Barren plateaus in quantum neural networks¶     tuto...">
+
+.. only:: html
+
+ .. figure:: /demos/images/thumb/sphx_glr_tutorial_barren_gadgets_thumb.png
+     :alt: Perturbative Gadgets for Variational Quantum Algorithms
+
+     :ref:`sphx_glr_demos_tutorial_barren_gadgets.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /demos/tutorial_barren_gadgets
 
 .. raw:: html
 
@@ -765,27 +870,6 @@
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="    tutorial_error_mitigation Error mitigation with Mitiq and PennyLane">
-
-.. only:: html
-
- .. figure:: /demos/images/thumb/sphx_glr_tutorial_diffable-mitigation_thumb.png
-     :alt: Differentiating quantum error mitigation transforms
-
-     :ref:`sphx_glr_demos_tutorial_diffable-mitigation.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /demos/tutorial_diffable-mitigation
-
-.. raw:: html
-
     <div class="sphx-glr-thumbcontainer" tooltip="    :property=&quot;og:image&quot;: https://pennylane.ai/qml/_images/Givens_rotations.png">
 
 .. only:: html
@@ -804,6 +888,27 @@
    :hidden:
 
    /demos/tutorial_givens_rotations
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="    tutorial_error_mitigation Error mitigation with Mitiq and PennyLane">
+
+.. only:: html
+
+ .. figure:: /demos/images/thumb/sphx_glr_tutorial_diffable-mitigation_thumb.png
+     :alt: Differentiating quantum error mitigation transforms
+
+     :ref:`sphx_glr_demos_tutorial_diffable-mitigation.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /demos/tutorial_diffable-mitigation
 
 .. raw:: html
 
@@ -1374,14 +1479,14 @@
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip=" *Author: Soran Jahangiri — Posted: 09 May 2022. Last updated: 09 May 2022.*">
+    <div class="sphx-glr-thumbcontainer" tooltip="   tutorial_vqe A brief overview of VQE    tutorial_quantum_natural_gradient Quantum natural gr...">
 
 .. only:: html
 
- .. figure:: /demos/images/thumb/sphx_glr_tutorial_differentiable_HF_thumb.png
-     :alt: Differentiable Hartree-Fock
+ .. figure:: /demos/images/thumb/sphx_glr_tutorial_vqe_qng_thumb.png
+     :alt: Accelerating VQEs with quantum natural gradient
 
-     :ref:`sphx_glr_demos_tutorial_differentiable_HF.py`
+     :ref:`sphx_glr_demos_tutorial_vqe_qng.py`
 
 .. raw:: html
 
@@ -1391,7 +1496,7 @@
 .. toctree::
    :hidden:
 
-   /demos/tutorial_differentiable_HF
+   /demos/tutorial_vqe_qng
 
 .. raw:: html
 
@@ -1413,6 +1518,27 @@
    :hidden:
 
    /demos/tutorial_error_mitigation
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip=" *Author: Soran Jahangiri — Posted: 09 May 2022. Last updated: 09 May 2022.*">
+
+.. only:: html
+
+ .. figure:: /demos/images/thumb/sphx_glr_tutorial_differentiable_HF_thumb.png
+     :alt: Differentiable Hartree-Fock
+
+     :ref:`sphx_glr_demos_tutorial_differentiable_HF.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /demos/tutorial_differentiable_HF
 
 .. raw:: html
 
@@ -1563,6 +1689,27 @@
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="    :property=&quot;og:image&quot;: https://pennylane.ai/qml/_images/sphx_glr_tutorial_backprop_002.png">
+
+.. only:: html
+
+ .. figure:: /demos/images/thumb/sphx_glr_tutorial_backprop_thumb.png
+     :alt: Quantum gradients with backpropagation
+
+     :ref:`sphx_glr_demos_tutorial_backprop.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /demos/tutorial_backprop
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip=" .. related::">
 
 .. only:: html
@@ -1623,6 +1770,27 @@
    :hidden:
 
    /demos/tutorial_quantum_transfer_learning
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="   glossary/parameter_shift Parameter-shift rules    tutorial_backprop Quantum gradients with b...">
+
+.. only:: html
+
+ .. figure:: /demos/images/thumb/sphx_glr_tutorial_stochastic_parameter_shift_thumb.png
+     :alt: The stochastic parameter-shift rule
+
+     :ref:`sphx_glr_demos_tutorial_stochastic_parameter_shift.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /demos/tutorial_stochastic_parameter_shift
 
 .. raw:: html
 
@@ -1857,27 +2025,6 @@
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="*Author: Richard East — Posted: 18 October 2022.*">
-
-.. only:: html
-
- .. figure:: /demos/images/thumb/sphx_glr_tutorial_geometric_qml_thumb.png
-     :alt: Introduction to Geometric Quantum Machine Learning
-
-     :ref:`sphx_glr_demos_tutorial_geometric_qml.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /demos/tutorial_geometric_qml
-
-.. raw:: html
-
     <div class="sphx-glr-thumbcontainer" tooltip="   tutorial_vqe A brief overview of VQE    tutorial_quantum_natural_gradient Quantum natural gr...">
 
 .. only:: html
@@ -1962,14 +2109,14 @@
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip=" .. related::     tutorial_barren_plateaus Barren plateaus in quantum neural networks¶     tuto...">
+    <div class="sphx-glr-thumbcontainer" tooltip="*Author: Richard East — Posted: 18 October 2022.*">
 
 .. only:: html
 
- .. figure:: /demos/images/thumb/sphx_glr_tutorial_barren_gadgets_thumb.png
-     :alt: Perturbative Gadgets for Variational Quantum Algorithms
+ .. figure:: /demos/images/thumb/sphx_glr_tutorial_geometric_qml_thumb.png
+     :alt: Introduction to Geometric Quantum Machine Learning
 
-     :ref:`sphx_glr_demos_tutorial_barren_gadgets.py`
+     :ref:`sphx_glr_demos_tutorial_geometric_qml.py`
 
 .. raw:: html
 
@@ -1979,112 +2126,7 @@
 .. toctree::
    :hidden:
 
-   /demos/tutorial_barren_gadgets
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="   glossary/parameter_shift Parameter-shift rules    tutorial_backprop Quantum gradients with b...">
-
-.. only:: html
-
- .. figure:: /demos/images/thumb/sphx_glr_tutorial_stochastic_parameter_shift_thumb.png
-     :alt: The stochastic parameter-shift rule
-
-     :ref:`sphx_glr_demos_tutorial_stochastic_parameter_shift.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /demos/tutorial_stochastic_parameter_shift
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip=" *Author: Soran Jahangiri — Posted: 21 November 2022.*">
-
-.. only:: html
-
- .. figure:: /demos/images/thumb/sphx_glr_tutorial_resource_estimation_thumb.png
-     :alt: Resource estimation for quantum chemistry
-
-     :ref:`sphx_glr_demos_tutorial_resource_estimation.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /demos/tutorial_resource_estimation
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip=" *Author: Soran Jahangiri — Posted: 13 September 2021. Last updated: 10 April 2023*">
-
-.. only:: html
-
- .. figure:: /demos/images/thumb/sphx_glr_tutorial_adaptive_circuits_thumb.png
-     :alt: Adaptive circuits for quantum chemistry
-
-     :ref:`sphx_glr_demos_tutorial_adaptive_circuits.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /demos/tutorial_adaptive_circuits
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="    :property=&quot;og:image&quot;: https://pennylane.ai/qml/_images/sphx_glr_tutorial_backprop_002.png">
-
-.. only:: html
-
- .. figure:: /demos/images/thumb/sphx_glr_tutorial_backprop_thumb.png
-     :alt: Quantum gradients with backpropagation
-
-     :ref:`sphx_glr_demos_tutorial_backprop.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /demos/tutorial_backprop
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="   tutorial_vqe A brief overview of VQE    tutorial_quantum_natural_gradient Quantum natural gr...">
-
-.. only:: html
-
- .. figure:: /demos/images/thumb/sphx_glr_tutorial_vqe_qng_thumb.png
-     :alt: Accelerating VQEs with quantum natural gradient
-
-     :ref:`sphx_glr_demos_tutorial_vqe_qng.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /demos/tutorial_vqe_qng
+   /demos/tutorial_geometric_qml
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>
