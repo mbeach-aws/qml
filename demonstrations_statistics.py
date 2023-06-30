@@ -3,6 +3,7 @@ import glob
 import argparse
 import re 
 import datetime 
+import timeago 
 
 
 DOI_PATTERN = r"\b(10[.][0-9]{4,}(?:[.][0-9]+)*/(?:(?![\"&\'<>])\S)+)\b"
@@ -80,12 +81,13 @@ def getAllCategoriesUsed():
     metadatas = getAllMetadata()
     categories = {}
 
-    for metadata in metadatas:
+    for name, metadata in metadatas.items():
         for category in metadata["categories"]:
             if category.strip() != "":
                 categories[category] = category 
 
-    print([k for k, v in categories.items()])
+    for k, v in categories.items():
+        print(k)
 
     return categories
 
@@ -103,7 +105,10 @@ def getMostRecentDemos(n):
     n = len(mostRecent) if n > len(mostRecent) else n 
 
     for metadata in mostRecent[:n]:
-        print("{0}, {1}".format(metadata["title"], metadata["dateOfPublication"]))
+        dateOfPublication = datetime.datetime.strptime(metadata["dateOfPublication"], "%Y-%m-%dT%H:%M:%S")
+        timeSince = timeago.format(dateOfPublication)
+
+        print("{0}, {1} -- {2}".format(metadata["title"], metadata["dateOfPublication"], timeSince))
 
     return mostRecent[:n]
 
@@ -112,7 +117,7 @@ def getNumberOfDemosPerYear():
     """
     Counts how many demonstrations were published each year, prints it, and returns it.
     """
-    
+
     metadatas = getAllMetadata()
     perYear = []
 
@@ -137,6 +142,7 @@ if __name__ == "__main__":
     parser.add_argument("--action")
     parser.add_argument("--title-1")
     parser.add_argument("--title-2")
+    parser.add_argument("--n")
 
     arguments = parser.parse_args()
 
@@ -165,7 +171,9 @@ if __name__ == "__main__":
         getAllCategoriesUsed()
 
     if arguments.action == "get_most_recent_demos":
-        getMostRecentDemos(5)
+        n = int(arguments.n)
+
+        getMostRecentDemos(n)
 
 
 
