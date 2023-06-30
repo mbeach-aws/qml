@@ -10,3 +10,4 @@ _data/*
 backreferences
 .DS_Store
 demos_community.rst
+sample_metadata_file.metadata.json
