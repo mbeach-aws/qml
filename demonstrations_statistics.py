@@ -19,6 +19,7 @@ def getAllMetadata():
 
     for filePath in filePaths:
         if filePath.endswith("demonstrations_categories.metadata.json"):
+            # This is the categories file - ignore it.
             continue 
 
         i = filePath.find(".metadata")
@@ -108,7 +109,7 @@ def getMostRecentDemos(n):
         dateOfPublication = datetime.datetime.strptime(metadata["dateOfPublication"], "%Y-%m-%dT%H:%M:%S")
         timeSince = timeago.format(dateOfPublication)
 
-        print("{0}, {1} -- {2}".format(metadata["title"], metadata["dateOfPublication"], timeSince))
+        print("{0} -- {1} -- {2}".format(metadata["title"], metadata["dateOfPublication"], timeSince))
 
     return mostRecent[:n]
 
