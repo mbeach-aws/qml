@@ -17,6 +17,9 @@ def getAllMetadata():
     filePaths = glob.glob("demonstrations/*.metadata.json")
 
     for filePath in filePaths:
+        if filePath.endswith("demonstrations_categories.metadata.json"):
+            continue 
+
         i = filePath.find(".metadata")
         fileName = filePath[:i]
 
@@ -109,11 +112,12 @@ def getNumberOfDemosPerYear():
     """
     Counts how many demonstrations were published each year, prints it, and returns it.
     """
+    
     metadatas = getAllMetadata()
     perYear = []
 
     for year in [2018, 2019, 2020, 2021, 2022, 2023]:
-        n = len([d for k, d in metadatas.items() if d["dateOfPublication"].startswith(str(year))])
+        n = len([metadata for name, metadata in metadatas.items() if metadata["dateOfPublication"].startswith(str(year))])
 
         perYear.append({"Year": year, "Count": n})
 
