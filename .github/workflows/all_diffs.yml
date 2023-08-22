@@ -82,15 +82,16 @@ jobs:
 
       - name: Create Build Folders
         run: |
-          cd demo_checker
-          rm -r dev-build
-          rm -r master-build
+          rm -rf demo_checker/*
 
           git config user.name "QML demo checker Bot"
           git config user.email "<>"
-          git rm ./*
+          git rm -r demo_checker
+
           git commit -m "Remove old builds"
 
+          mkdir demo_checker
+          cd demo_checker
           mkdir dev-build
           mkdir master-build
 
@@ -113,8 +114,6 @@ jobs:
           rm $FILE
 
           cd ..
-          git config user.name "QML demo checker Bot"
-          git config user.email "<>"
           git add dev-build/*
           git commit -m "Latest dev build"
           git push
@@ -138,8 +137,6 @@ jobs:
           rm $FILE
 
           cd ..
-          git config user.name "QML demo checker Bot"
-          git config user.email "<>"
           git add master-build/*
           git commit -m "Latest master build"
           git push
@@ -155,8 +152,6 @@ jobs:
           python .github/workflows/generate_diffs.py
           mv demo_text_diffs.md demo_checker
 
-          git config user.name "QML demo checker Bot"
-          git config user.email "<>"
           git add demo_checker/demo_text_diffs.md
           git commit -m "Update text demo differences found"
           git push
@@ -172,8 +167,6 @@ jobs:
           python .github/workflows/image_compare.py
           mv demo_image_diffs.md demo_checker
 
-          git config user.name "QML demo checker Bot"
-          git config user.email "<>"
           git add demo_checker/demo_image_diffs.md
           git commit -m "Update image demo differences found"
           git push
